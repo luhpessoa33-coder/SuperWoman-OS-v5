@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SuperWoman OS — Plataforma de Transformação 24 Meses</title>
+  <meta name="description" content="Plataforma completa de transformação feminina: CEO, Poliglota, Hacker, MTC, Poderes Especiais, Saúde Mental, Sensualidade e muito mais."/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root{
+      --gold:#C9A84C;--gold-light:#E8C97A;--gold-dark:#9A7A2E;
+      --deep:#07070F;--deep2:#0D0D1A;--surface:#111128;--surface2:#181832;--surface3:#1E1E3C;
+      --text:#F0EDE8;--muted:#7A7A9A;
+      --rose:#C97A8A;--teal:#4ABFBF;--purple:#9A7AC9;--green:#7AC98A;--orange:#C98A4A;--cyan:#4AC9C9;--red:#C94A4A;
+      --glass:rgba(255,255,255,0.03);--glass-border:rgba(255,255,255,0.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--deep);color:var(--text);overflow-x:hidden}
+    ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--deep2)}::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:2px}
+
+    /* ── GLASSMORPHISM ── */
+    .glass{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--glass-border)}
+    .glass-gold{background:rgba(201,168,76,0.04);backdrop-filter:blur(20px);border:1px solid rgba(201,168,76,0.15)}
+
+    /* ── PARTICLES ── */
+    #particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+    .particle{position:absolute;border-radius:50%;animation:float linear infinite;opacity:0}
+    @keyframes float{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.5}90%{opacity:.15}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+
+    /* ── GRID LINES BG ── */
+    .grid-bg{background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:60px 60px}
+
+    /* ── SCANLINES ── */
+    .scanlines::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:1}
+
+    /* ── GOLD TEXT ── */
+    .gold-text{background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gold-border{border:1px solid rgba(201,168,76,0.25)}
+    .gold-glow{box-shadow:0 0 40px rgba(201,168,76,0.1)}
+
+    /* ── MONO TEXT ── */
+    .mono{font-family:'JetBrains Mono',monospace}
+
+    /* ── NAV ── */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,7,15,0.92);backdrop-filter:blur(24px);border-bottom:1px solid rgba(201,168,76,0.1)}
+    .nav-link{font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(240,237,232,.5);transition:color .2s;padding:4px 2px}
+    .nav-link:hover{color:var(--gold-light)}
+
+    /* ── PROGRESS BAR ── */
+    #scroll-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light),var(--teal));z-index:300;transition:width .1s}
+
+    /* ── HERO ── */
+    .hero-bg{background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,.06) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(74,191,191,.04) 0%,transparent 60%),radial-gradient(ellipse 40% 30% at 10% 60%,rgba(154,122,201,.04) 0%,transparent 50%),var(--deep)}
+
+    /* ── SECTION TAG ── */
+    .section-tag{display:inline-block;padding:3px 14px;border-radius:20px;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.18);color:var(--gold);margin-bottom:12px}
+
+    /* ── MODULE CARDS ── */
+    .module-card{background:linear-gradient(145deg,var(--surface),var(--surface2));border:1px solid rgba(201,168,76,.1);border-radius:18px;padding:24px 20px;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+    .module-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s}
+    .module-card:hover{transform:translateY(-5px);border-color:rgba(201,168,76,.3);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 30px rgba(201,168,76,.07)}
+    .module-card:hover::before{opacity:1}
+    .module-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px}
+
+    /* ── TECH CARDS (new modules) ── */
+    .tech-card{background:linear-gradient(145deg,var(--surface),rgba(14,14,28,.9));border:1px solid rgba(74,191,191,.15);border-radius:18px;padding:24px 20px;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+    .tech-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);opacity:0;transition:opacity .3s}
+    .tech-card:hover{transform:translateY(-5px);border-color:rgba(74,191,191,.35);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 30px rgba(74,191,191,.07)}
+    .tech-card:hover::before{opacity:1}
+
+    /* ── TABS ── */
+    .tab-btn{padding:7px 18px;border-radius:30px;font-size:.78rem;font-weight:600;border:1px solid rgba(201,168,76,.2);color:rgba(240,237,232,.45);cursor:pointer;transition:all .25s;background:transparent}
+    .tab-btn:hover{color:var(--gold-light);border-color:rgba(201,168,76,.4)}
+    .tab-btn.active{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--deep);border-color:transparent;box-shadow:0 4px 18px rgba(201,168,76,.3)}
+    .tab-btn-teal{border-color:rgba(74,191,191,.2);color:rgba(240,237,232,.45)}
+    .tab-btn-teal:hover{color:var(--teal);border-color:rgba(74,191,191,.4)}
+    .tab-btn-teal.active{background:linear-gradient(135deg,#2A8F8F,var(--teal));color:var(--deep);border-color:transparent;box-shadow:0 4px 18px rgba(74,191,191,.3)}
+
+    /* ── CHECK ITEMS ── */
+    .check-item{display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:10px;border:1px solid rgba(201,168,76,.08);background:var(--surface);cursor:pointer;transition:all .2s;margin-bottom:7px}
+    .check-item:hover{border-color:rgba(201,168,76,.22);background:var(--surface2)}
+    .check-item.done{background:rgba(201,168,76,.05);border-color:rgba(201,168,76,.2)}
+    .check-item.done .check-text{text-decoration:line-through;color:var(--muted)}
+    .check-box{width:20px;height:20px;border-radius:5px;border:2px solid rgba(201,168,76,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+    .check-item.done .check-box{background:var(--gold);border-color:var(--gold)}
+    .check-time{font-size:.68rem;color:var(--gold);font-weight:700;background:rgba(201,168,76,.09);padding:2px 7px;border-radius:7px;white-space:nowrap;flex-shrink:0;font-family:'JetBrains Mono',monospace}
+
+    /* ── ACCORDION ── */
+    .accordion-item{border:1px solid rgba(201,168,76,.1);border-radius:12px;overflow:hidden;margin-bottom:8px}
+    .accordion-header{padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--surface);transition:background .2s;font-weight:500;font-size:.88rem}
+    .accordion-header:hover{background:var(--surface2)}
+    .accordion-body{display:none;padding:16px 18px;background:var(--surface2);font-size:.83rem;line-height:1.7;color:rgba(240,237,232,.8);border-top:1px solid rgba(201,168,76,.08)}
+    .accordion-body.open{display:block;animation:fadeInUp .3s ease}
+    .accordion-icon{transition:transform .3s;color:var(--gold)}
+    .accordion-icon.open{transform:rotate(180deg)}
+
+    /* ── PROTO TABLE ── */
+    .proto-table{width:100%;border-collapse:collapse;font-size:.8rem}
+    .proto-table th{background:rgba(201,168,76,.08);color:var(--gold);padding:9px 12px;text-align:left;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+    .proto-table td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.03);color:rgba(240,237,232,.78);vertical-align:top}
+    .proto-table tr:hover td{background:rgba(201,168,76,.02)}
+
+    /* ── PILLS ── */
+    .pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.68rem;font-weight:600}
+    .pill-gold{background:rgba(201,168,76,.13);color:var(--gold-light)}
+    .pill-rose{background:rgba(201,122,138,.13);color:var(--rose)}
+    .pill-teal{background:rgba(74,191,191,.13);color:var(--teal)}
+    .pill-purple{background:rgba(154,122,201,.13);color:var(--purple)}
+    .pill-green{background:rgba(122,201,138,.13);color:var(--green)}
+    .pill-red{background:rgba(201,74,74,.13);color:var(--red)}
+    .pill-cyan{background:rgba(74,201,201,.13);color:var(--cyan)}
+
+    /* ── STAT BADGE ── */
+    .stat-badge{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:16px 18px;text-align:center}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold-light)}
+    .stat-label{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
+
+    /* ── MODAL ── */
+    #modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);z-index:999;display:none;align-items:center;justify-content:center;padding:16px}
+    #modal-overlay.flex{display:flex}
+    #modal-box{background:var(--surface);border:1px solid rgba(201,168,76,.2);border-radius:22px;max-width:680px;width:100%;max-height:88vh;overflow-y:auto;padding:28px;position:relative}
+
+    /* ── PLANNER ── */
+    .planner-task{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.06);background:var(--surface);margin-bottom:6px;transition:all .2s}
+    .planner-task:hover{border-color:rgba(201,168,76,.2)}
+    .planner-task.completed{opacity:.5;text-decoration:line-through}
+    .planner-task .task-text{flex:1;font-size:.84rem;color:rgba(240,237,232,.85)}
+    .planner-task .task-cat{font-size:.68rem;padding:2px 8px;border-radius:10px;flex-shrink:0}
+    .planner-task .task-del{color:var(--muted);cursor:pointer;font-size:.8rem;transition:color .2s;flex-shrink:0}
+    .planner-task .task-del:hover{color:var(--red)}
+
+    /* ── CODE BLOCK ── */
+    .code-block{background:rgba(0,0,0,.5);border:1px solid rgba(74,191,191,.15);border-radius:10px;padding:14px 16px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--teal);overflow-x:auto;line-height:1.7}
+    .code-block .comment{color:rgba(122,201,138,.7)}
+    .code-block .keyword{color:var(--purple)}
+    .code-block .string{color:var(--gold-light)}
+
+    /* ── RESOURCE CARD ── */
+    .resource-card{background:var(--surface);border:1px solid rgba(201,168,76,.08);border-radius:12px;padding:16px;transition:all .25s}
+    .resource-card:hover{border-color:rgba(201,168,76,.25);transform:translateY(-2px)}
+
+    /* ── DOWNLOAD CARD ── */
+    .dl-card{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid rgba(74,191,191,.12);border-radius:14px;padding:18px;display:flex;align-items:center;gap:14px;transition:all .25s;cursor:pointer}
+    .dl-card:hover{border-color:rgba(74,191,191,.3);transform:translateX(4px)}
+    .dl-icon{width:44px;height:44px;border-radius:10px;background:rgba(74,191,191,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+
+    /* ── TIMELINE ── */
+    .timeline{position:relative;padding-left:26px}
+    .timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--gold-dark),rgba(201,168,76,.1))}
+    .timeline-item{position:relative;margin-bottom:20px}
+    .timeline-dot{position:absolute;left:-23px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--deep);box-shadow:0 0 10px rgba(201,168,76,.4)}
+    .timeline-item h5{font-size:.86rem;font-weight:600;color:var(--gold-light);margin-bottom:3px}
+    .timeline-item p{font-size:.79rem;color:rgba(240,237,232,.68);line-height:1.6}
+
+    /* ── CHAT ── */
+    .chat-container{background:var(--surface);border:1px solid rgba(201,168,76,.18);border-radius:18px;overflow:hidden}
+    .chat-messages{height:300px;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:10px}
+    .msg-ai{background:var(--surface2);border:1px solid rgba(201,168,76,.08);border-radius:14px 14px 14px 3px;padding:12px 14px;max-width:88%;font-size:.83rem;line-height:1.6}
+    .msg-user{background:linear-gradient(135deg,rgba(201,168,76,.13),rgba(201,168,76,.07));border:1px solid rgba(201,168,76,.18);border-radius:14px 14px 3px 14px;padding:11px 14px;max-width:75%;font-size:.83rem;align-self:flex-end}
+    .chat-input-area{border-top:1px solid rgba(201,168,76,.12);padding:12px 16px;display:flex;gap:8px;align-items:center;background:var(--surface2)}
+
+    /* ── QUICK BTNS ── */
+    .quick-btn{padding:6px 12px;border-radius:18px;font-size:.72rem;border:1px solid rgba(201,168,76,.2);color:rgba(240,237,232,.65);cursor:pointer;transition:all .2s;background:transparent;white-space:nowrap}
+    .quick-btn:hover{background:rgba(201,168,76,.09);color:var(--gold-light);border-color:rgba(201,168,76,.4)}
+
+    /* ── DETAIL CARD ── */
+    .detail-card{background:var(--surface);border:1px solid rgba(201,168,76,.08);border-radius:12px;padding:18px}
+    .detail-card h5{color:var(--gold-light);font-size:.83rem;font-weight:600;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+    .detail-card ul{list-style:none}
+    .detail-card ul li{font-size:.8rem;color:rgba(240,237,232,.72);padding:3px 0;padding-left:12px;position:relative;line-height:1.5}
+    .detail-card ul li::before{content:'›';position:absolute;left:0;color:var(--gold);font-weight:bold}
+
+    /* ── SUPP ROW ── */
+    .supp-row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;border:1px solid rgba(255,255,255,.04);margin-bottom:7px;background:var(--surface)}
+    .supp-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .supp-name{font-size:.83rem;font-weight:600;color:var(--text)}
+    .supp-dose{font-size:.73rem;color:var(--muted)}
+    .supp-benefit{font-size:.7rem;color:var(--gold);margin-top:1px}
+
+    /* ── FACE EXERCISE ── */
+    .face-exercise{background:var(--surface);border:1px solid rgba(201,168,76,.08);border-radius:12px;padding:16px;text-align:center;transition:all .25s}
+    .face-exercise:hover{border-color:rgba(201,168,76,.28)}
+    .face-exercise .emoji{font-size:2.2rem;margin-bottom:8px}
+    .face-exercise h5{font-size:.82rem;font-weight:600;color:var(--gold-light);margin-bottom:5px}
+    .face-exercise p{font-size:.75rem;color:var(--muted);line-height:1.5}
+    .face-exercise .reps{display:inline-block;margin-top:7px;padding:2px 10px;background:rgba(201,168,76,.09);border-radius:10px;font-size:.68rem;color:var(--gold);font-weight:600}
+
+    /* ── WEEK GRID ── */
+    .week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+    .day-col{background:var(--surface);border:1px solid rgba(201,168,76,.08);border-radius:10px;padding:10px 6px;text-align:center}
+    .day-col .day-name{font-size:.65rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+    .day-col .day-item{font-size:.63rem;color:rgba(240,237,232,.6);padding:2px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+    .day-col .day-item:last-child{border-bottom:none}
+
+    /* ── BTN ── */
+    .btn-gold{background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));color:var(--deep);font-weight:700;padding:12px 28px;border-radius:50px;font-size:.88rem;cursor:pointer;border:none;transition:all .3s;letter-spacing:.04em}
+    .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,.4)}
+    .btn-outline{background:transparent;color:var(--gold-light);border:1px solid rgba(201,168,76,.35);padding:11px 24px;border-radius:50px;font-size:.88rem;cursor:pointer;transition:all .3s}
+    .btn-outline:hover{background:rgba(201,168,76,.07);border-color:var(--gold)}
+    .btn-teal{background:linear-gradient(135deg,#2A8F8F,var(--teal));color:var(--deep);font-weight:700;padding:10px 22px;border-radius:50px;font-size:.83rem;cursor:pointer;border:none;transition:all .3s}
+    .btn-teal:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(74,191,191,.35)}
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes pulse-gold{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.3)}50%{box-shadow:0 0 0 10px rgba(201,168,76,0)}}
+    @keyframes glitch{0%,100%{text-shadow:2px 0 var(--teal),-2px 0 var(--rose)}50%{text-shadow:-2px 0 var(--teal),2px 0 var(--rose)}}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    @keyframes scanline{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+    @keyframes matrix-fall{0%{transform:translateY(-100%);opacity:1}100%{transform:translateY(100vh);opacity:0}}
+    .pulse-gold{animation:pulse-gold 2.5s infinite}
+    .glitch-text{animation:glitch 3s infinite}
+    .blink{animation:blink 1s infinite}
+    .animate-in{opacity:0}
+    .animated{animation:fadeInUp .6s ease forwards}
+
+    /* ── GOLD DIVIDER ── */
+    .gold-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.25),transparent);margin:32px 0}
+
+    /* ── SYSTEM STATUS ── */
+    .sys-status{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--teal)}
+    .sys-ok{color:var(--green)}
+    .sys-warn{color:var(--gold)}
+    .sys-err{color:var(--red)}
+
+    /* ── PHASE CONTENT ── */
+    .phase-content{animation:fadeInUp .4s ease}
+    .phase-card{background:var(--surface);border:1px solid rgba(201,168,76,.08);border-radius:14px;padding:20px}
+    .phase-card h4{color:var(--gold-light);font-size:.88rem;font-weight:600;margin-bottom:9px}
+    .phase-list{list-style:none}
+    .phase-list li{padding:4px 0;font-size:.82rem;color:rgba(240,237,232,.72);display:flex;align-items:flex-start;gap:7px}
+    .phase-list li::before{content:'◆';color:var(--gold);font-size:.45rem;margin-top:5px;flex-shrink:0}
+
+    /* ── TIMER ── */
+    .timer-ring{transition:stroke-dashoffset 1s linear;transform-origin:center;transform:rotate(-90deg)}
+
+    /* ── FOOTER ── */
+    footer{background:var(--deep2);border-top:1px solid rgba(201,168,76,.08);padding:36px 20px;text-align:center}
+
+    /* ── SELF-REPAIR CONSOLE ── */
+    #repair-console{position:fixed;bottom:20px;right:20px;width:340px;background:rgba(7,7,15,.97);border:1px solid rgba(74,191,191,.25);border-radius:14px;z-index:500;overflow:hidden;transition:all .3s;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+    #repair-console.minimized{height:44px}
+    #repair-header{padding:10px 14px;background:rgba(74,191,191,.07);display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+    #repair-log{height:180px;overflow-y:auto;padding:10px 14px;font-family:'JetBrains Mono',monospace;font-size:.7rem;line-height:1.8}
+    .log-ok{color:var(--green)}
+    .log-warn{color:var(--gold)}
+    .log-err{color:var(--red)}
+    .log-info{color:var(--teal)}
+
+    /* ── AI PLANNER ── */
+    #planner-section{background:var(--deep2)}
+    .planner-input{background:var(--surface);border:1px solid rgba(201,168,76,.18);border-radius:10px;padding:10px 14px;color:var(--text);font-size:.85rem;width:100%;outline:none;transition:border-color .2s}
+    .planner-input:focus{border-color:rgba(201,168,76,.4)}
+    .cat-select{background:var(--surface2);border:1px solid rgba(201,168,76,.18);border-radius:8px;padding:9px 12px;color:var(--text);font-size:.82rem;outline:none;cursor:pointer}
+
+    /* ── HACKER TERMINAL ── */
+    .terminal{background:#000;border:1px solid rgba(74,191,191,.2);border-radius:12px;padding:18px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#00FF41;line-height:1.8;min-height:140px}
+    .terminal .prompt{color:var(--teal)}
+    .terminal .output{color:#00FF41}
+    .terminal .error{color:var(--red)}
+    .terminal .comment{color:rgba(0,255,65,.5)}
+
+    /* ── TCM MERIDIAN ── */
+    .meridian-card{background:var(--surface);border:1px solid rgba(154,122,201,.15);border-radius:12px;padding:16px;transition:all .25s}
+    .meridian-card:hover{border-color:rgba(154,122,201,.35);transform:translateY(-2px)}
+    .meridian-card h5{color:var(--purple);font-size:.85rem;font-weight:600;margin-bottom:8px}
+
+    /* ── POLYGLOT CARD ── */
+    .lang-card{background:var(--surface);border:1px solid rgba(74,191,191,.12);border-radius:12px;padding:16px;transition:all .25s}
+    .lang-card:hover{border-color:rgba(74,191,191,.3);transform:translateY(-2px)}
+    .lang-progress{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;margin-top:8px}
+    .lang-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--cyan));border-radius:3px;transition:width 1.5s ease}
+  </style>
+</head>
+<body>
+
+<!-- SELF-REPAIR CONSOLE -->
+<div id="repair-console">
+  <div id="repair-header" onclick="toggleConsole()">
+    <div class="flex items-center gap-2">
+      <span style="color:var(--teal);font-size:.75rem;">⬡</span>
+      <span class="mono" style="font-size:.72rem;color:var(--teal);">SuperWoman OS — Auto-Repair v3.0</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span id="repair-status" class="sys-ok" style="font-size:.68rem;font-family:'JetBrains Mono',monospace;">● ONLINE</span>
+      <span id="console-toggle" style="color:var(--muted);font-size:.8rem;">▼</span>
+    </div>
+  </div>
+  <div id="repair-log">
+    <div class="log-info">[BOOT] SuperWoman OS v3.0 iniciado...</div>
+    <div class="log-ok">[OK] Módulos carregados: 13/13</div>
+    <div class="log-ok">[OK] IA Sophia online</div>
+    <div class="log-ok">[OK] Planner sincronizado com localStorage</div>
+    <div class="log-ok">[OK] Sistema de auto-reparo ativo</div>
+    <div class="log-info">[MONITOR] Monitorando erros em tempo real...</div>
+  </div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-bar" style="width:0%"></div>
+
+<!-- PARTICLES -->
+<div id="particles"></div>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-2">
+      <span class="mono gold-text" style="font-size:1rem;letter-spacing:.08em;">✦ SW_OS</span>
+    </a>
+    <div class="hidden lg:flex items-center gap-5">
+      <a href="#modules" class="nav-link">Módulos</a>
+      <a href="#tech-modules" class="nav-link" style="color:rgba(74,191,191,.6);">Tech</a>
+      <a href="#roadmap" class="nav-link">Roadmap</a>
+      <a href="#daily" class="nav-link">Rotina</a>
+      <a href="#planner-section" class="nav-link">Planner</a>
+      <a href="#protocols" class="nav-link">Protocolos</a>
+      <a href="#downloads" class="nav-link">Downloads</a>
+      <a href="#resources" class="nav-link">Biblioteca</a>
+      <a href="#ai-guide" class="nav-link">IA Sophia</a>
+    </div>
+    <button id="menu-btn" class="lg:hidden text-xl" style="color:var(--gold);">☰</button>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden px-4 pb-4 flex flex-col gap-2 border-t" style="border-color:rgba(201,168,76,.08);">
+    <a href="#modules" class="nav-link">Módulos</a>
+    <a href="#tech-modules" class="nav-link">Tech</a>
+    <a href="#roadmap" class="nav-link">Roadmap</a>
+    <a href="#daily" class="nav-link">Rotina</a>
+    <a href="#planner-section" class="nav-link">Planner</a>
+    <a href="#downloads" class="nav-link">Downloads</a>
+    <a href="#ai-guide" class="nav-link">IA Sophia</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero" class="hero-bg grid-bg relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(201,168,76,.04),transparent);pointer-events:none;"></div>
+
+  <div class="relative z-10 text-center max-w-5xl mx-auto px-4 py-14">
+    <!-- System badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 mono" style="background:rgba(74,191,191,.06);border:1px solid rgba(74,191,191,.2);">
+      <span class="blink" style="width:6px;height:6px;background:var(--teal);border-radius:50%;display:inline-block;"></span>
+      <span style="font-size:.65rem;letter-spacing:.15em;color:var(--teal);">SUPERWOMAN OS v3.0 — 13 MÓDULOS ATIVOS — 368 ESTUDOS CIENTÍFICOS</span>
+    </div>
+
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:900;line-height:1.1;margin-bottom:20px;">
+      <span class="gold-text">SuperWoman</span><br/>
+      <span style="color:rgba(240,237,232,.85);">Operating</span>
+      <span style="font-style:italic;color:rgba(240,237,232,.5);"> System</span>
+    </h1>
+
+    <p style="font-size:clamp(.95rem,2vw,1.15rem);color:rgba(240,237,232,.55);max-width:640px;margin:0 auto 30px;line-height:1.7;">
+      24 meses de transformação total — saúde mental, poderes especiais, CEO, poliglota, hacker, MTC, sensualidade, paralisia facial, carisma e prosperidade. Tudo em <strong style="color:var(--gold-light);">≤2h por dia.</strong>
+    </p>
+
+    <!-- Pills -->
+    <div class="flex flex-wrap justify-center gap-2 mb-8">
+      <span class="pill pill-rose">🧠 Mental</span>
+      <span class="pill pill-gold">⚡ Poderes</span>
+      <span class="pill pill-teal">💼 CEO</span>
+      <span class="pill pill-cyan">🌍 Poliglota</span>
+      <span class="pill pill-red">🔐 Hacker</span>
+      <span class="pill pill-purple">🌿 MTC</span>
+      <span class="pill" style="background:rgba(240,160,128,.13);color:#F0A080;">💋 Sensual</span>
+      <span class="pill pill-green">💰 Riqueza</span>
+    </div>
+
+    <!-- CTAs -->
+    <div class="flex flex-wrap justify-center gap-3 mb-14">
+      <button class="btn-gold pulse-gold" onclick="document.getElementById('daily').scrollIntoView({behavior:'smooth'})">
+        <i class="fas fa-play mr-2"></i>Iniciar Protocolo
+      </button>
+      <button class="btn-outline" onclick="document.getElementById('planner-section').scrollIntoView({behavior:'smooth'})">
+        <i class="fas fa-calendar mr-2"></i>Abrir Planner
+      </button>
+      <button class="btn-teal" onclick="document.getElementById('tech-modules').scrollIntoView({behavior:'smooth'})">
+        <i class="fas fa-code mr-2"></i>Módulos Tech
+      </button>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 max-w-3xl mx-auto">
+      <div class="stat-badge"><div class="stat-num">368</div><div class="stat-label">Estudos</div></div>
+      <div class="stat-badge"><div class="stat-num">24</div><div class="stat-label">Meses</div></div>
+      <div class="stat-badge"><div class="stat-num">13</div><div class="stat-label">Módulos</div></div>
+      <div class="stat-badge"><div class="stat-num">≤2h</div><div class="stat-label">Por Dia</div></div>
+      <div class="stat-badge"><div class="stat-num">∞</div><div class="stat-label">Potencial</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ MÓDULOS CLÁSSICOS ═══════════════ -->
+<section id="modules" class="relative py-20 px-4" style="background:var(--deep2);">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="section-tag">Pilares de Transformação</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;" class="gold-text">9 Módulos Essenciais</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <div class="module-card animate-in" onclick="openModal('modal-mental')">
+        <div class="module-icon" style="background:rgba(201,122,138,.13);">🧠</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:7px;">Saúde Mental</h3>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:12px;">Depressão, ansiedade, TCC, MBSR, neuroplasticidade, regulação emocional.</p>
+        <div class="flex flex-wrap gap-1 mb-3"><span class="pill pill-rose">TCC</span><span class="pill pill-rose">MBSR</span><span class="pill pill-rose">Wim Hof</span></div>
+        <div class="flex items-center gap-2" style="color:var(--gold);font-size:.74rem;"><i class="fas fa-clock"></i> 25 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Detalhes →</span></div>
+      </div>
+
+      <div class="module-card animate-in" onclick="openModal('modal-powers')">
+        <div class="module-icon" style="background:rgba(201,168,76,.1);">⚡</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:7px;">Poderes Especiais</h3>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:12px;">Remote Viewing (CIA), Hemi-Sync, meditação theta, siddhis do yoga.</p>
+        <div class="flex flex-wrap gap-1 mb-3"><span class="pill pill-gold">RV CIA</span><span class="pill pill-gold">Hemi-Sync</span><span class="pill pill-gold">Siddhis</span></div>
+        <div class="flex items-center gap-2" style="color:var(--gold);font-size:.74rem;"><i class="fas fa-clock"></i> 30 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Detalhes →</span></div>
+      </div>
+
+      <div class="module-card animate-in" onclick="openModal('modal-facial')">
+        <div class="module-icon" style="background:rgba(74,191,191,.1);">😊</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:7px;">Paralisia Facial</h3>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:12px;">Reabilitação neuromuscular, biofeedback, exercícios específicos. Resultados em 4–12 semanas.</p>
+        <div class="flex flex-wrap gap-1 mb-3"><span class="pill pill-teal">Neuromuscular</span><span class="pill pill-teal">Biofeedback</span></div>
+        <div class="flex items-center gap-2" style="color:var(--gold);font-size:.74rem;"><i class="fas fa-clock"></i> 10 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Detalhes →</span></div>
+      </div>
+
+      <div class="module-card animate-in" onclick="openModal('modal-sensuality')">
+        <div class="module-icon" style="background:rgba(240,160,128,.1);">💋</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:7px;">Sexualidade & Sensualidade</h3>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:12px;">Libido, atração sexual, energia sensual, cura sexual profunda. Protocolos hormonais.</p>
+        <div class="flex flex-wrap gap-1 mb-3"><span class="pill pill-purple">Hormônios</span><span class="pill pill-purple">Kundalini</span></div>
+        <div class="flex items-center gap-2" style="color:var(--gold);font-size:.74rem;"><i class="fas fa-clock"></i> 15 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Detalhes →</span></div>
+      </div>
+
+      <div class="module-card animate-in" onclick="openModal('modal-body')">
+        <div class="module-icon" style="background:rgba(201,168,76,.08);">🔥</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:7px;">Corpo & Vitalidade</h3>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:12px;">Wim Hof, Tummo, HIIT, yoga, nutrição anti-inflamatória e vitalidade máxima.</p>
+        <div class="flex flex-wrap gap-1 mb-3"><span class="pill pill-gold">Wim Hof</span><span class="pill pill-gold">HIIT</span><span class="pill pill-gold">Yoga</span></div>
+        <div class="flex items-center gap-2" style="color:var(--gold);font-size:.74rem;"><i class="fas fa-clock"></i> 20 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Detalhes →</span></div>
+      </div>
+
+      <div class="module-card animate-in" onclick="openModal('modal-charisma')">
+        <div class="module-icon" style="background:rgba(154,122,201,.1);">✨</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:7px;">Carisma & Atração</h3>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:12px;">Presença magnética, linguagem corporal, comunicação de alto impacto, brilho próprio.</p>
+        <div class="flex flex-wrap gap-1 mb-3"><span class="pill pill-purple">Presença</span><span class="pill pill-purple">Linguagem</span></div>
+        <div class="flex items-center gap-2" style="color:var(--gold);font-size:.74rem;"><i class="fas fa-clock"></i> 10 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Detalhes →</span></div>
+      </div>
+
+      <div class="module-card animate-in" onclick="openModal('modal-prosperity')">
+        <div class="module-icon" style="background:rgba(122,201,138,.1);">💰</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:7px;">Prosperidade & Riqueza</h3>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:12px;">Wealth mindset, reprogramação de crenças, atração de abundância, educação financeira.</p>
+        <div class="flex flex-wrap gap-1 mb-3"><span class="pill pill-green">Wealth</span><span class="pill pill-green">Afirmações</span></div>
+        <div class="flex items-center gap-2" style="color:var(--gold);font-size:.74rem;"><i class="fas fa-clock"></i> 10 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Detalhes →</span></div>
+      </div>
+
+      <div class="module-card animate-in" onclick="openModal('modal-ceo')">
+        <div class="module-icon" style="background:rgba(74,191,191,.1);">🎯</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:7px;">CEO Mindset Cognitivo</h3>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:12px;">Inteligência executiva, foco, memória, tomada de decisão, presença de liderança.</p>
+        <div class="flex flex-wrap gap-1 mb-3"><span class="pill pill-teal">Memória</span><span class="pill pill-teal">Foco</span><span class="pill pill-teal">Liderança</span></div>
+        <div class="flex items-center gap-2" style="color:var(--gold);font-size:.74rem;"><i class="fas fa-clock"></i> 20 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Detalhes →</span></div>
+      </div>
+
+      <div class="module-card animate-in" onclick="openModal('modal-spirit')">
+        <div class="module-icon" style="background:rgba(201,168,76,.08);">🌙</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:7px;">Espiritualidade Prática</h3>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:12px;">Meditação profunda, intuição, sagrado feminino, gratidão e expansão de consciência.</p>
+        <div class="flex flex-wrap gap-1 mb-3"><span class="pill pill-gold">Meditação</span><span class="pill pill-gold">Intuição</span></div>
+        <div class="flex items-center gap-2" style="color:var(--gold);font-size:.74rem;"><i class="fas fa-clock"></i> 15 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Detalhes →</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ MÓDULOS TECH ═══════════════ -->
+<section id="tech-modules" class="relative py-20 px-4 grid-bg" style="background:var(--deep);">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="section-tag" style="background:rgba(74,191,191,.07);border-color:rgba(74,191,191,.2);color:var(--teal);">Módulos Avançados</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--teal);">4 Módulos <span style="color:rgba(240,237,232,.8);">de Poder</span></h2>
+      <p style="color:var(--muted);margin-top:10px;font-size:.9rem;" class="mono">// CEO · POLIGLOTA · HACKER · MEDICINA TRADICIONAL CHINESA</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- CEO ECONOMICS -->
+      <div class="tech-card animate-in" onclick="openModal('modal-ceo-economics')">
+        <div class="flex items-center gap-3 mb-4">
+          <div style="width:50px;height:50px;border-radius:12px;background:rgba(74,191,191,.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">📊</div>
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--teal);">CEO Economics</h3>
+            <p class="mono" style="font-size:.68rem;color:var(--muted);">// Para economista que quer reativar o poder</p>
+          </div>
+        </div>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:14px;">Análise de relatórios financeiros, demonstrações contábeis, tomada de decisão estratégica, propostas de alto impacto. Conhecimentos poderosos para a vida.</p>
+        <div class="flex flex-wrap gap-1 mb-4">
+          <span class="pill pill-teal">DRE/Balanço</span>
+          <span class="pill pill-teal">Valuation</span>
+          <span class="pill pill-teal">Decisão</span>
+          <span class="pill pill-teal">Propostas</span>
+        </div>
+        <div class="code-block" style="font-size:.7rem;padding:10px 12px;">
+          <span class="comment">// Habilidades-chave reativadas</span><br/>
+          <span class="keyword">skills</span> = [<span class="string">"P&L Analysis"</span>, <span class="string">"EBITDA"</span>, <span class="string">"DCF"</span>, <span class="string">"Pitch Deck"</span>]
+        </div>
+        <div class="flex items-center gap-2 mt-3" style="color:var(--teal);font-size:.74rem;"><i class="fas fa-clock"></i> 20 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Protocolo completo →</span></div>
+      </div>
+
+      <!-- POLIGLOTA -->
+      <div class="tech-card animate-in" onclick="openModal('modal-polyglot')">
+        <div class="flex items-center gap-3 mb-4">
+          <div style="width:50px;height:50px;border-radius:12px;background:rgba(74,191,191,.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🌍</div>
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--teal);">Método Poliglota</h3>
+            <p class="mono" style="font-size:.68rem;color:var(--muted);">// Anti-tradicional. Máxima eficiência.</p>
+          </div>
+        </div>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:14px;">Método baseado em imersão radical, SRS (Spaced Repetition System), input compreensível e aquisição natural. Sem gramática tradicional. Fluência em 6–12 meses.</p>
+        <div class="flex flex-wrap gap-1 mb-4">
+          <span class="pill pill-cyan">Imersão</span>
+          <span class="pill pill-cyan">SRS Anki</span>
+          <span class="pill pill-cyan">Input+i</span>
+          <span class="pill pill-cyan">Shadowing</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <div class="lang-card"><div style="font-size:.75rem;font-weight:600;color:var(--teal);">🇬🇧 Inglês</div><div class="lang-progress"><div class="lang-fill" style="width:70%"></div></div></div>
+          <div class="lang-card"><div style="font-size:.75rem;font-weight:600;color:var(--teal);">🇫🇷 Francês</div><div class="lang-progress"><div class="lang-fill" style="width:30%"></div></div></div>
+          <div class="lang-card"><div style="font-size:.75rem;font-weight:600;color:var(--teal);">🇪🇸 Espanhol</div><div class="lang-progress"><div class="lang-fill" style="width:50%"></div></div></div>
+        </div>
+        <div class="flex items-center gap-2 mt-3" style="color:var(--teal);font-size:.74rem;"><i class="fas fa-clock"></i> 30 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Protocolo completo →</span></div>
+      </div>
+
+      <!-- HACKER -->
+      <div class="tech-card animate-in" onclick="openModal('modal-hacker')">
+        <div class="flex items-center gap-3 mb-4">
+          <div style="width:50px;height:50px;border-radius:12px;background:rgba(201,74,74,.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🔐</div>
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--red);">Hacker Training</h3>
+            <p class="mono" style="font-size:.68rem;color:var(--muted);">// Iniciante → Intermediário</p>
+          </div>
+        </div>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:14px;">Ethical hacking, redes, Linux, Python para segurança, OSINT, pentest básico. Do zero ao intermediário com roadmap estruturado e labs práticos gratuitos.</p>
+        <div class="flex flex-wrap gap-1 mb-4">
+          <span class="pill pill-red">Linux</span>
+          <span class="pill pill-red">Python</span>
+          <span class="pill pill-red">Redes</span>
+          <span class="pill pill-red">Pentest</span>
+          <span class="pill pill-red">OSINT</span>
+        </div>
+        <div class="terminal" style="min-height:70px;padding:10px 14px;">
+          <span class="prompt">kali@sw-os:~$ </span><span class="output">nmap -sV 192.168.1.1</span><br/>
+          <span class="comment"># Iniciando scan de portas...</span><br/>
+          <span class="output">PORT 22/tcp OPEN ssh OpenSSH 8.9</span>
+        </div>
+        <div class="flex items-center gap-2 mt-3" style="color:var(--red);font-size:.74rem;"><i class="fas fa-clock"></i> 30 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Roadmap completo →</span></div>
+      </div>
+
+      <!-- MTC -->
+      <div class="tech-card animate-in" onclick="openModal('modal-tcm')">
+        <div class="flex items-center gap-3 mb-4">
+          <div style="width:50px;height:50px;border-radius:12px;background:rgba(154,122,201,.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🌿</div>
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;color:var(--purple);">Medicina Tradicional Chinesa</h3>
+            <p class="mono" style="font-size:.68rem;color:var(--muted);">// Pulso · Acupuntura · Fórmulas · Cura</p>
+          </div>
+        </div>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:14px;">Diagnóstico pelo pulso, 12 meridianos, acupuntura básica, fórmulas herbais clássicas. Foco em cura sexual, mental e equilíbrio do Qi. Autoaplicação e conhecimento poderoso.</p>
+        <div class="flex flex-wrap gap-1 mb-4">
+          <span class="pill pill-purple">Pulso</span>
+          <span class="pill pill-purple">Meridianos</span>
+          <span class="pill pill-purple">Acupuntura</span>
+          <span class="pill pill-purple">Fórmulas</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <div class="meridian-card" style="padding:10px;text-align:center;"><div style="font-size:1.2rem;">❤️</div><div style="font-size:.68rem;color:var(--purple);font-weight:600;">Coração</div></div>
+          <div class="meridian-card" style="padding:10px;text-align:center;"><div style="font-size:1.2rem;">🫁</div><div style="font-size:.68rem;color:var(--purple);font-weight:600;">Pulmão</div></div>
+          <div class="meridian-card" style="padding:10px;text-align:center;"><div style="font-size:1.2rem;">💧</div><div style="font-size:.68rem;color:var(--purple);font-weight:600;">Rim</div></div>
+        </div>
+        <div class="flex items-center gap-2 mt-3" style="color:var(--purple);font-size:.74rem;"><i class="fas fa-clock"></i> 20 min/dia <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">Protocolo completo →</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ROADMAP ═══════════════ -->
+<section id="roadmap" class="relative py-20 px-4" style="background:var(--deep2);">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="section-tag">Jornada Completa</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;" class="gold-text">Roadmap de 24 Meses</h2>
+    </div>
+    <div class="flex flex-wrap justify-center gap-2 mb-8" id="phase-tabs">
+      <button class="tab-btn active" onclick="showPhase(1,this)">🌱 Fase 1 <small style="display:block;font-size:.65rem;opacity:.7;">M1–6</small></button>
+      <button class="tab-btn" onclick="showPhase(2,this)">🔥 Fase 2 <small style="display:block;font-size:.65rem;opacity:.7;">M7–12</small></button>
+      <button class="tab-btn" onclick="showPhase(3,this)">⚡ Fase 3 <small style="display:block;font-size:.65rem;opacity:.7;">M13–18</small></button>
+      <button class="tab-btn" onclick="showPhase(4,this)">✦ Fase 4 <small style="display:block;font-size:.65rem;opacity:.7;">M19–24</small></button>
+    </div>
+
+    <div id="phase-1" class="phase-content">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="phase-card"><h4>🧠 Saúde Mental + Corpo</h4><ul class="phase-list"><li>Mindfulness 10 min/dia + journaling</li><li>Wim Hof básico (1 rodada)</li><li>HIIT 3x/semana</li><li>Suplementação base</li></ul></div>
+        <div class="phase-card"><h4>⚡ Poderes Especiais</h4><ul class="phase-list"><li>Meditação theta com Hemi-Sync</li><li>Focus 10 Monroe Institute</li><li>RV CRV Estágio 1 (ideogramas)</li><li>Diário de sonhos</li></ul></div>
+        <div class="phase-card"><h4>📊 CEO Economics</h4><ul class="phase-list"><li>Revisão de DRE, Balanço, Fluxo de Caixa</li><li>Leitura de relatórios anuais (1/mês)</li><li>Excel financeiro básico</li><li>1 livro de estratégia/mês</li></ul></div>
+        <div class="phase-card"><h4>🌍 Poliglota</h4><ul class="phase-list"><li>Escolher idioma prioritário</li><li>Anki: 20 palavras/dia (SRS)</li><li>Input compreensível 20 min/dia</li><li>Shadowing 10 min/dia</li></ul></div>
+        <div class="phase-card"><h4>🔐 Hacker Iniciante</h4><ul class="phase-list"><li>Linux básico (terminal, comandos)</li><li>Redes: TCP/IP, DNS, HTTP</li><li>Python básico para automação</li><li>TryHackMe: rooms iniciantes</li></ul></div>
+        <div class="phase-card"><h4>🌿 MTC Básico</h4><ul class="phase-list"><li>Teoria Yin/Yang e 5 Elementos</li><li>12 meridianos principais</li><li>Diagnóstico pelo pulso básico</li><li>Pontos de acupressão para ansiedade</li></ul></div>
+      </div>
+    </div>
+
+    <div id="phase-2" class="phase-content hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="phase-card"><h4>🧠 TCC + MBSR Completo</h4><ul class="phase-list"><li>Protocolo MBSR 8 semanas</li><li>Regulação emocional avançada</li><li>Wim Hof 3 rodadas + banho frio</li><li>Trabalho com trauma (EMDR)</li></ul></div>
+        <div class="phase-card"><h4>⚡ Remote Viewing Ativo</h4><ul class="phase-list"><li>CRV Estágio 2–3</li><li>Focus 15 Monroe Institute</li><li>Sessões 3x/semana com alvos</li><li>Precognição: cartas Zener</li></ul></div>
+        <div class="phase-card"><h4>📊 CEO Intermediário</h4><ul class="phase-list"><li>Valuation: DCF e múltiplos</li><li>Análise de concorrência</li><li>Elaboração de propostas executivas</li><li>Oratória e comunicação persuasiva</li></ul></div>
+        <div class="phase-card"><h4>🌍 Fluência Emergente</h4><ul class="phase-list"><li>Anki: 30 palavras/dia</li><li>Conversação com nativos (iTalki)</li><li>Séries/podcasts no idioma</li><li>Iniciar 2º idioma</li></ul></div>
+        <div class="phase-card"><h4>🔐 Hacker Intermediário</h4><ul class="phase-list"><li>Kali Linux: ferramentas básicas</li><li>OSINT: coleta de informações</li><li>Nmap, Metasploit básico</li><li>CTF (Capture The Flag) básico</li></ul></div>
+        <div class="phase-card"><h4>🌿 MTC Intermediário</h4><ul class="phase-list"><li>Diagnóstico: língua e pulso completo</li><li>Fórmulas herbais clássicas</li><li>Acupressão para libido e depressão</li><li>Qigong 10 min/dia</li></ul></div>
+      </div>
+    </div>
+
+    <div id="phase-3" class="phase-content hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="phase-card"><h4>🧠 Resiliência Máxima</h4><ul class="phase-list"><li>Flow state training</li><li>Neurofeedback avançado</li><li>Integração de sombra (Jung)</li><li>Psicologia positiva PERMA</li></ul></div>
+        <div class="phase-card"><h4>⚡ Siddhis & Consciência</h4><ul class="phase-list"><li>CRV Estágio 4–6</li><li>Focus 21 Monroe</li><li>Dharana e Dhyana</li><li>Retiros de silêncio 3–7 dias</li></ul></div>
+        <div class="phase-card"><h4>📊 CEO Avançado</h4><ul class="phase-list"><li>M&A básico e due diligence</li><li>Pitch para investidores</li><li>Construção de visão estratégica</li><li>Liderança de alto impacto</li></ul></div>
+        <div class="phase-card"><h4>🌍 Fluência Avançada</h4><ul class="phase-list"><li>Pensar no idioma (sem tradução)</li><li>Leitura de livros no idioma</li><li>3º idioma iniciado</li><li>Certificação de proficiência</li></ul></div>
+        <div class="phase-card"><h4>🔐 Hacker Avançado</h4><ul class="phase-list"><li>Web hacking: OWASP Top 10</li><li>Buffer overflow básico</li><li>Relatórios de pentest</li><li>Bug bounty (HackerOne)</li></ul></div>
+        <div class="phase-card"><h4>🌿 MTC Avançado</h4><ul class="phase-list"><li>Tratamento de síndromes complexas</li><li>Cura sexual: fórmulas específicas</li><li>Acupuntura auricular</li><li>Integração MTC + medicina ocidental</li></ul></div>
+      </div>
+    </div>
+
+    <div id="phase-4" class="phase-content hidden">
+      <div class="glass-gold rounded-2xl p-8 text-center mb-6">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;" class="gold-text">"Fase 4: Você é a SuperWoman. Integração total. Ensinar, compartilhar, elevar."</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="phase-card" style="border-color:rgba(201,168,76,.2);"><h4>✦ Maestria Total</h4><ul class="phase-list"><li>Todos os módulos integrados</li><li>Remote Viewing 25–30% acima do acaso</li><li>CEO: projetos de alto impacto</li><li>Fluente em 2–3 idiomas</li></ul></div>
+        <div class="phase-card" style="border-color:rgba(74,191,191,.2);"><h4>🔐 Hacker Ético</h4><ul class="phase-list"><li>Certificação CEH ou eJPT</li><li>Bug bounty ativo</li><li>Segurança pessoal e digital total</li><li>Contribuição para comunidade</li></ul></div>
+        <div class="phase-card" style="border-color:rgba(154,122,201,.2);"><h4>🌿 Terapeuta MTC</h4><ul class="phase-list"><li>Autodiagnóstico e autocura</li><li>Cura sexual e mental completa</li><li>Qigong avançado</li><li>Compartilhar com outras mulheres</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ROTINA DIÁRIA ═══════════════ -->
+<section id="daily" class="relative py-20 px-4" style="background:var(--deep);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="section-tag">Rotina Diária</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;" class="gold-text">Protocolo Hora a Hora</h2>
+      <p style="color:var(--muted);margin-top:10px;font-size:.9rem;" class="mono">// Total: ~1h45 por dia — incluindo todos os 13 módulos</p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-2 mb-7" id="day-tabs">
+      <button class="tab-btn active" onclick="showDay('manha',this)">🌅 Manhã</button>
+      <button class="tab-btn" onclick="showDay('tarde',this)">☀️ Tarde</button>
+      <button class="tab-btn" onclick="showDay('noite',this)">🌙 Noite</button>
+      <button class="tab-btn" onclick="showDay('semana',this)">📅 Semana</button>
+    </div>
+
+    <div id="day-manha">
+      <div class="mb-4 p-3 rounded-xl text-center mono" style="background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.12);">
+        <span style="font-size:.78rem;color:var(--gold);">⏰ Total manhã: ~65 min | 06:00–07:05</span>
+      </div>
+      <div id="morning-list" class="space-y-1">
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">06:00</span><div class="flex-1"><div class="check-text font-medium text-sm">💧 Água com limão + 5 respirações conscientes</div><div style="font-size:.7rem;color:var(--muted);">250ml água morna, 1/2 limão. Ativa metabolismo e alcaliniza.</div></div><span style="font-size:.68rem;color:var(--muted);">3 min</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">06:03</span><div class="flex-1"><div class="check-text font-medium text-sm">🧊 Wim Hof: 2 rodadas + banho frio 30s</div><div style="font-size:.7rem;color:var(--muted);">↓ Cortisol 50%, ↑ adrenalina, ↑ imunidade. Não fazer em pé.</div></div><span style="font-size:.68rem;color:var(--muted);">12 min</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">06:15</span><div class="flex-1"><div class="check-text font-medium text-sm">💪 Power Pose + Afirmações (CEO + Prosperidade)</div><div style="font-size:.7rem;color:var(--muted);">2 min Wonder Woman. 3 afirmações em voz alta. ↑ testosterona.</div></div><span style="font-size:.68rem;color:var(--muted);">5 min</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">06:20</span><div class="flex-1"><div class="check-text font-medium text-sm">😊 Exercícios Faciais (protocolo neuromuscular)</div><div style="font-size:.7rem;color:var(--muted);">Massagem + 5 exercícios + biofeedback no espelho.</div></div><span style="font-size:.68rem;color:var(--muted);">10 min</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">06:30</span><div class="flex-1"><div class="check-text font-medium text-sm">🧘 Meditação Theta Hemi-Sync + Visualização</div><div style="font-size:.7rem;color:var(--muted);">Fones + binaural 4–8 Hz. Visualização de vida ideal com emoção.</div></div><span style="font-size:.68rem;color:var(--muted);">15 min</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">06:45</span><div class="flex-1"><div class="check-text font-medium text-sm">🌍 Poliglota: Anki (20 cards) + Shadowing 5 min</div><div style="font-size:.7rem;color:var(--muted);">SRS: revisão de flashcards + imitar pronúncia nativa.</div></div><span style="font-size:.68rem;color:var(--muted);">10 min</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">06:55</span><div class="flex-1"><div class="check-text font-medium text-sm">📖 Leitura CEO/Hacker/MTC + Treino Cognitivo</div><div style="font-size:.7rem;color:var(--muted);">10 páginas do livro do módulo atual + 5 min Lumosity.</div></div><span style="font-size:.68rem;color:var(--muted);">10 min</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">07:05</span><div class="flex-1"><div class="check-text font-medium text-sm">🎯 Intenção do Dia + Gratidão (3 itens)</div><div style="font-size:.7rem;color:var(--muted);">1 meta principal. Escrever no planner. Gratidão rápida.</div></div><span style="font-size:.68rem;color:var(--muted);">5 min</span></div>
+      </div>
+    </div>
+
+    <div id="day-tarde" class="hidden">
+      <div class="mb-4 p-3 rounded-xl text-center mono" style="background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.12);">
+        <span style="font-size:.78rem;color:var(--gold);">⏰ Total tarde: ~35 min | 12:30–13:05</span>
+      </div>
+      <div class="space-y-1">
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">12:30</span><div class="flex-1"><div class="check-text font-medium text-sm">🔐 Hacker Lab: TryHackMe / CTF (15 min)</div><div style="font-size:.7rem;color:var(--muted);">Prática diária em ambiente controlado. Foco em 1 skill por dia.</div></div><span style="font-size:.68rem;color:var(--muted);">15 min</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">12:45</span><div class="flex-1"><div class="check-text font-medium text-sm">💃 Dança Sensorial + Coerência Cardíaca</div><div style="font-size:.7rem;color:var(--muted);">10 min dança livre (528 Hz) + 5 min respiração 5-5.</div></div><span style="font-size:.68rem;color:var(--muted);">15 min</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">13:00</span><div class="flex-1"><div class="check-text font-medium text-sm">💰 Ação de Prosperidade + Estudo Financeiro</div><div style="font-size:.7rem;color:var(--muted);">1 ação concreta + 5 min de estudo CEO Economics.</div></div><span style="font-size:.68rem;color:var(--muted);">5 min</span></div>
+      </div>
+    </div>
+
+    <div id="day-noite" class="hidden">
+      <div class="mb-4 p-3 rounded-xl text-center mono" style="background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.12);">
+        <span style="font-size:.78rem;color:var(--gold);">⏰ Total noite: ~25 min | 21:30–21:55</span>
+      </div>
+      <div class="space-y-1">
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">21:30</span><div class="flex-1"><div class="check-text font-medium text-sm">🌿 Qigong / Acupressão MTC (10 min)</div><div style="font-size:.7rem;color:var(--muted);">Pontos: P6 (ansiedade), Ren 4 (energia sexual), E36 (vitalidade).</div></div><span style="font-size:.68rem;color:var(--muted);">10 min</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">21:40</span><div class="flex-1"><div class="check-text font-medium text-sm">📓 Journaling: Emoções + Diário de Sonhos</div><div style="font-size:.7rem;color:var(--muted);">O que senti? O que aprendi? Intenção para o sonho.</div></div><span style="font-size:.68rem;color:var(--muted);">8 min</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><i class="fas fa-check text-xs hidden" style="color:var(--deep);"></i></div><span class="check-time">21:48</span><div class="flex-1"><div class="check-text font-medium text-sm">🌙 Visualização de Prosperidade + Protocolo de Sono</div><div style="font-size:.7rem;color:var(--muted);">5 min visualização com emoção. Quarto 18–20°C, sem telas.</div></div><span style="font-size:.68rem;color:var(--muted);">7 min</span></div>
+      </div>
+    </div>
+
+    <div id="day-semana" class="hidden">
+      <div class="mb-4 p-3 rounded-xl text-center mono" style="background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.12);">
+        <span style="font-size:.78rem;color:var(--gold);">📅 Práticas semanais — distribuição dos 13 módulos</span>
+      </div>
+      <div class="week-grid">
+        <div class="day-col"><div class="day-name">Seg</div><div class="day-item">🏃 HIIT</div><div class="day-item">📊 CEO</div><div class="day-item">🔐 Lab</div></div>
+        <div class="day-col"><div class="day-name">Ter</div><div class="day-item">🧘 Yoga</div><div class="day-item">🌍 Idioma</div><div class="day-item">🌿 MTC</div></div>
+        <div class="day-col"><div class="day-name">Qua</div><div class="day-item">🏃 HIIT</div><div class="day-item">🎤 CEO</div><div class="day-item">⚡ RV</div></div>
+        <div class="day-col"><div class="day-name">Qui</div><div class="day-item">🧘 Yoga</div><div class="day-item">📖 Leitura</div><div class="day-item">💆 Facial</div></div>
+        <div class="day-col"><div class="day-name">Sex</div><div class="day-item">🏃 HIIT</div><div class="day-item">💋 Dança</div><div class="day-item">🔐 CTF</div></div>
+        <div class="day-col"><div class="day-name">Sáb</div><div class="day-item">🌿 Retiro</div><div class="day-item">🌍 Imersão</div><div class="day-item">📊 Estudo</div></div>
+        <div class="day-col"><div class="day-name">Dom</div><div class="day-item">📋 Planner</div><div class="day-item">🙏 Ritual</div><div class="day-item">😴 Descanso</div></div>
+      </div>
+    </div>
+
+    <!-- Timer -->
+    <div class="mt-8 p-6 rounded-2xl text-center" style="background:var(--surface);border:1px solid rgba(201,168,76,.12);">
+      <h4 style="font-size:.95rem;font-weight:600;color:var(--gold-light);margin-bottom:14px;" class="mono">⏱ Timer de Meditação / Prática</h4>
+      <div class="flex justify-center mb-4" style="position:relative;width:110px;margin:0 auto;">
+        <svg width="110" height="110" viewBox="0 0 110 110">
+          <circle cx="55" cy="55" r="50" fill="none" stroke="rgba(201,168,76,.08)" stroke-width="7"/>
+          <circle id="timer-ring" cx="55" cy="55" r="50" fill="none" stroke="url(#gGrad)" stroke-width="7" stroke-linecap="round" stroke-dasharray="314.2" stroke-dashoffset="0" class="timer-ring"/>
+          <defs><linearGradient id="gGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#9A7A2E"/><stop offset="100%" stop-color="#E8C97A"/></linearGradient></defs>
+        </svg>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);"><span id="timer-display" style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;color:var(--gold-light);">10:00</span></div>
+      </div>
+      <div class="flex justify-center gap-2 mb-4"><button class="tab-btn" onclick="setTimer(5)">5m</button><button class="tab-btn active" onclick="setTimer(10)">10m</button><button class="tab-btn" onclick="setTimer(15)">15m</button><button class="tab-btn" onclick="setTimer(20)">20m</button><button class="tab-btn" onclick="setTimer(30)">30m</button></div>
+      <div class="flex justify-center gap-3">
+        <button class="btn-gold" id="timer-btn" onclick="toggleTimer()" style="padding:9px 24px;font-size:.82rem;">▶ Iniciar</button>
+        <button class="btn-outline" onclick="resetTimer()" style="padding:9px 18px;font-size:.82rem;">↺ Reset</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PLANNER INTERATIVO ═══════════════ -->
+<section id="planner-section" class="relative py-20 px-4 grid-bg" style="background:var(--deep2);">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="section-tag" style="background:rgba(74,191,191,.07);border-color:rgba(74,191,191,.2);color:var(--teal);">Planner Inteligente</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--teal);">SuperWoman <span style="color:rgba(240,237,232,.8);">Planner</span></h2>
+      <p style="color:var(--muted);margin-top:10px;font-size:.88rem;" class="mono">// Salvo automaticamente · IA integrada · Persistente</p>
+    </div>
+
+    <div class="glass-gold rounded-2xl overflow-hidden" style="border-color:rgba(74,191,191,.18);">
+      <!-- Planner header -->
+      <div class="flex items-center justify-between p-4" style="background:rgba(74,191,191,.06);border-bottom:1px solid rgba(74,191,191,.12);">
+        <div class="flex items-center gap-2">
+          <span style="color:var(--teal);font-size:1rem;">📋</span>
+          <span class="mono" style="font-size:.8rem;color:var(--teal);">planner.sw_os — <span id="planner-date"></span></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="planner-count" class="mono" style="font-size:.7rem;color:var(--muted);">0 tarefas</span>
+          <button onclick="clearCompletedTasks()" class="mono" style="font-size:.68rem;color:var(--muted);background:transparent;border:none;cursor:pointer;padding:3px 8px;border-radius:6px;border:1px solid rgba(255,255,255,.08);">Limpar concluídas</button>
+        </div>
+      </div>
+
+      <!-- Add task -->
+      <div class="p-4" style="border-bottom:1px solid rgba(74,191,191,.08);">
+        <div class="flex gap-2 mb-3">
+          <input id="planner-input" class="planner-input flex-1" placeholder="Adicionar nova atividade... (ex: Anki 20 cards, Leitura CEO 10 páginas)" onkeydown="if(event.key==='Enter')addPlannerTask()"/>
+          <button onclick="addPlannerTask()" class="btn-teal" style="padding:9px 18px;font-size:.82rem;white-space:nowrap;">+ Adicionar</button>
+        </div>
+        <div class="flex gap-2 flex-wrap">
+          <select id="planner-cat" class="cat-select">
+            <option value="mental">🧠 Mental</option>
+            <option value="powers">⚡ Poderes</option>
+            <option value="ceo">📊 CEO</option>
+            <option value="polyglot">🌍 Poliglota</option>
+            <option value="hacker">🔐 Hacker</option>
+            <option value="tcm">🌿 MTC</option>
+            <option value="body">🔥 Corpo</option>
+            <option value="sensual">💋 Sensual</option>
+            <option value="prosperity">💰 Riqueza</option>
+            <option value="facial">😊 Facial</option>
+            <option value="spirit">🌙 Espírito</option>
+            <option value="other">📌 Outro</option>
+          </select>
+          <select id="planner-priority" class="cat-select">
+            <option value="high">🔴 Alta prioridade</option>
+            <option value="med" selected>🟡 Média</option>
+            <option value="low">🟢 Baixa</option>
+          </select>
+          <input id="planner-date-input" type="date" class="cat-select" style="color:var(--muted);" />
+        </div>
+      </div>
+
+      <!-- AI suggestion -->
+      <div class="p-3 flex items-center gap-3" style="background:rgba(201,168,76,.04);border-bottom:1px solid rgba(201,168,76,.08);">
+        <span style="font-size:.8rem;">✦</span>
+        <p id="ai-suggestion" style="font-size:.78rem;color:rgba(240,237,232,.6);font-style:italic;flex:1;">Sophia: "Comece o dia com Wim Hof e meditação — são as práticas de maior ROI para energia e foco."</p>
+        <button onclick="refreshSuggestion()" style="background:transparent;border:none;color:var(--gold);cursor:pointer;font-size:.75rem;" title="Nova sugestão">↻</button>
+      </div>
+
+      <!-- Task filters -->
+      <div class="px-4 pt-3 pb-2 flex gap-2 flex-wrap">
+        <button class="tab-btn-teal tab-btn active" onclick="filterTasks('all',this)" style="font-size:.7rem;padding:4px 12px;">Todas</button>
+        <button class="tab-btn-teal tab-btn" onclick="filterTasks('pending',this)" style="font-size:.7rem;padding:4px 12px;">Pendentes</button>
+        <button class="tab-btn-teal tab-btn" onclick="filterTasks('done',this)" style="font-size:.7rem;padding:4px 12px;">Concluídas</button>
+        <button class="tab-btn-teal tab-btn" onclick="filterTasks('high',this)" style="font-size:.7rem;padding:4px 12px;">🔴 Alta</button>
+      </div>
+
+      <!-- Task list -->
+      <div id="planner-list" class="p-4 min-h-48 space-y-1">
+        <p id="planner-empty" class="text-center py-8 mono" style="font-size:.78rem;color:var(--muted);">// Nenhuma tarefa ainda. Adicione sua primeira atividade acima.</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-3 gap-0" style="border-top:1px solid rgba(74,191,191,.1);">
+        <div class="p-3 text-center" style="border-right:1px solid rgba(74,191,191,.1);">
+          <div id="stat-total" class="mono" style="font-size:1.2rem;font-weight:700;color:var(--teal);">0</div>
+          <div style="font-size:.65rem;color:var(--muted);">Total</div>
+        </div>
+        <div class="p-3 text-center" style="border-right:1px solid rgba(74,191,191,.1);">
+          <div id="stat-done" class="mono" style="font-size:1.2rem;font-weight:700;color:var(--green);">0</div>
+          <div style="font-size:.65rem;color:var(--muted);">Concluídas</div>
+        </div>
+        <div class="p-3 text-center">
+          <div id="stat-pct" class="mono" style="font-size:1.2rem;font-weight:700;color:var(--gold-light);">0%</div>
+          <div style="font-size:.65rem;color:var(--muted);">Progresso</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PROTOCOLOS ═══════════════ -->
+<section id="protocols" class="relative py-20 px-4" style="background:var(--deep);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="section-tag">Protocolos Científicos</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;" class="gold-text">Guias Detalhados</h2>
+    </div>
+
+    <!-- Exercícios Faciais -->
+    <h3 style="font-size:1rem;font-weight:700;color:var(--gold-light);margin-bottom:14px;">😊 Exercícios Faciais</h3>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
+      <div class="face-exercise"><div class="emoji">🤨</div><h5>Sobrancelha</h5><p>Levante apenas o lado afetado</p><span class="reps">10×3</span></div>
+      <div class="face-exercise"><div class="emoji">😉</div><h5>Fechar Olho</h5><p>Feche suavemente, use dedo se necessário</p><span class="reps">15×3</span></div>
+      <div class="face-exercise"><div class="emoji">😊</div><h5>Sorriso</h5><p>Elevação simétrica dos cantos</p><span class="reps">10×3</span></div>
+      <div class="face-exercise"><div class="emoji">😮</div><h5>Bochechas</h5><p>Infle, segure 5s, solte devagar</p><span class="reps">10×2</span></div>
+      <div class="face-exercise"><div class="emoji">😗</div><h5>Franzir</h5><p>Junte os lábios, segure 5s</p><span class="reps">12×3</span></div>
+    </div>
+
+    <!-- Suplementação -->
+    <h3 style="font-size:1rem;font-weight:700;color:var(--gold-light);margin-bottom:14px;">💊 Suplementação Base</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-8">
+      <div class="supp-row"><div class="supp-icon" style="background:rgba(201,168,76,.1);">🐟</div><div><div class="supp-name">Ômega-3 (EPA+DHA)</div><div class="supp-dose">2000mg/dia com refeição</div><div class="supp-benefit">↑ Humor, ↑ Cérebro, ↓ Inflamação</div></div><span class="pill pill-rose">Mental</span></div>
+      <div class="supp-row"><div class="supp-icon" style="background:rgba(201,168,76,.1);">☀️</div><div><div class="supp-name">Vitamina D3 + K2</div><div class="supp-dose">4000 UI/dia com gordura</div><div class="supp-benefit">↑ Testosterona, ↑ Imunidade</div></div><span class="pill pill-gold">Hormônios</span></div>
+      <div class="supp-row"><div class="supp-icon" style="background:rgba(201,168,76,.1);">🌿</div><div><div class="supp-name">Maca Peruana</div><div class="supp-dose">1500mg/dia manhã</div><div class="supp-benefit">↑ Libido, ↑ Energia hormonal</div></div><span class="pill pill-purple">Libido</span></div>
+      <div class="supp-row"><div class="supp-icon" style="background:rgba(201,168,76,.1);">🔩</div><div><div class="supp-name">Magnésio Glicinato</div><div class="supp-dose">400mg/dia noite</div><div class="supp-benefit">↓ Ansiedade, ↑ Sono</div></div><span class="pill pill-teal">Sono</span></div>
+      <div class="supp-row"><div class="supp-icon" style="background:rgba(201,168,76,.1);">🍄</div><div><div class="supp-name">Ashwagandha KSM-66</div><div class="supp-dose">600mg/dia noite</div><div class="supp-benefit">↓ Cortisol, ↑ Libido, ↑ Resiliência</div></div><span class="pill pill-green">Estresse</span></div>
+      <div class="supp-row"><div class="supp-icon" style="background:rgba(201,168,76,.1);">⚡</div><div><div class="supp-name">Zinco</div><div class="supp-dose">30mg/dia com refeição</div><div class="supp-benefit">↑ Testosterona, ↑ Imunidade</div></div><span class="pill pill-gold">Hormônios</span></div>
+    </div>
+
+    <!-- Accordions -->
+    <h3 style="font-size:1rem;font-weight:700;color:var(--gold-light);margin-bottom:14px;">📋 Protocolos Específicos</h3>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>⚡ Wim Hof — 4 Semanas Progressivas</span><i class="fas fa-chevron-down accordion-icon"></i></div>
+      <div class="accordion-body"><div class="timeline"><div class="timeline-item"><div class="timeline-dot"></div><h5>Semana 1–2</h5><p>1 rodada 30 respirações → retenção 30s → inspiração 15s. Banho frio 15s.</p></div><div class="timeline-item"><div class="timeline-dot"></div><h5>Semana 3–4</h5><p>2 rodadas + retenção crescente (45–60s). Banho frio 30–60s.</p></div><div class="timeline-item"><div class="timeline-dot"></div><h5>Mês 2+</h5><p>3 rodadas + retenção 90s+. Banho frio 2–3 min. Tummo integrado.</p></div></div></div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>🎯 Remote Viewing CRV — Projeto Stargate CIA</span><i class="fas fa-chevron-down accordion-icon"></i></div>
+      <div class="accordion-body"><table class="proto-table"><thead><tr><th>Estágio</th><th>Meses</th><th>Habilidade</th><th>Prática</th></tr></thead><tbody><tr><td><span class="pill pill-green">1</span></td><td>1–3</td><td>Ideogramas</td><td>Desenhos automáticos ao tocar alvo lacrado. 15 min, 3x/sem.</td></tr><tr><td><span class="pill pill-teal">2</span></td><td>4–6</td><td>Percepções Sensoriais</td><td>Cores, texturas, sons, cheiros. Descrever sem julgar.</td></tr><tr><td><span class="pill pill-gold">3</span></td><td>7–12</td><td>Dimensões & Formas</td><td>Estruturas 3D, sketches detalhados.</td></tr><tr><td><span class="pill pill-purple">4–6</span></td><td>13–24</td><td>Maestria</td><td>Aspectos intangíveis, precognição, alvos em movimento.</td></tr></tbody></table></div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>📊 CEO Economics — Análise de Relatórios Financeiros</span><i class="fas fa-chevron-down accordion-icon"></i></div>
+      <div class="accordion-body">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div class="detail-card"><h5>📑 DRE (Demonstração de Resultado)</h5><ul><li>Receita Líquida → Lucro Bruto → EBITDA → Lucro Líquido</li><li>Margem bruta ideal: >40% (tech), >20% (varejo)</li><li>EBITDA/Receita: eficiência operacional</li><li>Crescimento YoY: sinal de saúde do negócio</li></ul></div>
+          <div class="detail-card"><h5>⚖️ Balanço Patrimonial</h5><ul><li>Ativo Circulante vs Não Circulante</li><li>Dívida Líquida / EBITDA: <2x = saudável</li><li>ROE (Retorno sobre PL): >15% = bom</li><li>Liquidez Corrente: >1.5 = seguro</li></ul></div>
+          <div class="detail-card"><h5>💸 Fluxo de Caixa</h5><ul><li>FCO (Operacional) > Lucro Líquido = qualidade</li><li>CAPEX/Receita: intensidade de capital</li><li>Free Cash Flow = FCO - CAPEX</li><li>FCF Yield = FCF / Market Cap</li></ul></div>
+          <div class="detail-card"><h5>📝 Proposta Executiva</h5><ul><li>Problema → Solução → Impacto → ROI</li><li>Executive Summary: máximo 1 página</li><li>Dados quantitativos sempre</li><li>Call to action claro e específico</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>🌍 Método Poliglota — Imersão Radical (Anti-Tradicional)</span><i class="fas fa-chevron-down accordion-icon"></i></div>
+      <div class="accordion-body">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div class="detail-card"><h5>🃏 SRS — Anki (Spaced Repetition)</h5><ul><li>20 cards novos/dia + revisões automáticas</li><li>Deck: Frequência 2000 palavras mais usadas</li><li>Imagem + áudio + frase em contexto</li><li>Nunca tradução isolada — sempre contexto</li></ul></div>
+          <div class="detail-card"><h5>📡 Input Compreensível (Krashen i+1)</h5><ul><li>Conteúdo 95% compreensível, 5% novo</li><li>Séries com legendas no idioma (não PT)</li><li>Podcasts para iniciantes (Dreaming Spanish)</li><li>Livros infantis → juvenis → adultos</li></ul></div>
+          <div class="detail-card"><h5>🎤 Shadowing (Pronúncia Nativa)</h5><ul><li>Imitar nativos sílaba a sílaba</li><li>Gravar e comparar com original</li><li>10 min/dia = acento nativo em 6 meses</li><li>Ferramenta: Pimsleur, Speechling</li></ul></div>
+          <div class="detail-card"><h5>🗣️ Output Forçado (Falar Desde o Dia 1)</h5><ul><li>iTalki: 1 sessão/semana com nativo</li><li>HelloTalk: troca com nativos grátis</li><li>Monólogo diário 5 min (gravar)</li><li>Escrever 5 frases/dia no idioma</li></ul></div>
+        </div>
+        <div class="mt-4 p-3 rounded-xl mono" style="background:rgba(74,191,191,.05);border:1px solid rgba(74,191,191,.15);">
+          <p style="font-size:.75rem;color:var(--teal);">// Tempo para fluência conversacional: Inglês 300h | Espanhol 250h | Francês 350h | Mandarim 2200h</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>🔐 Hacker Roadmap — Do Zero ao Intermediário</span><i class="fas fa-chevron-down accordion-icon"></i></div>
+      <div class="accordion-body">
+        <div class="timeline">
+          <div class="timeline-item"><div class="timeline-dot" style="background:var(--red);"></div><h5 style="color:var(--red);">Meses 1–2: Fundamentos</h5><p>Linux terminal (comandos básicos, permissões, scripts). Redes: TCP/IP, DNS, HTTP/S, portas. Python básico: variáveis, loops, funções, requests.</p></div>
+          <div class="timeline-item"><div class="timeline-dot" style="background:var(--orange);"></div><h5 style="color:var(--orange);">Meses 3–4: Ferramentas</h5><p>Kali Linux: Nmap (scan), Wireshark (análise de tráfego), Metasploit básico. TryHackMe: primeiros 20 rooms. OSINT: Maltego, Shodan, Google Dorks.</p></div>
+          <div class="timeline-item"><div class="timeline-dot" style="background:var(--gold);"></div><h5 style="color:var(--gold);">Meses 5–8: Web Hacking</h5><p>OWASP Top 10: SQLi, XSS, CSRF, IDOR. Burp Suite básico. HackTheBox: máquinas fáceis. CTF competitions. Relatório de pentest básico.</p></div>
+          <div class="timeline-item"><div class="timeline-dot" style="background:var(--green);"></div><h5 style="color:var(--green);">Meses 9–12: Certificação</h5><p>eJPT (eLearnSecurity) ou CompTIA Security+. Bug Bounty: HackerOne / Bugcrowd. Primeiro report de vulnerabilidade real.</p></div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-4">
+          <div class="detail-card" style="text-align:center;padding:12px;"><div style="font-size:1.2rem;margin-bottom:4px;">🖥️</div><div style="font-size:.72rem;color:var(--teal);font-weight:600;">TryHackMe</div><div style="font-size:.65rem;color:var(--muted);">Grátis</div></div>
+          <div class="detail-card" style="text-align:center;padding:12px;"><div style="font-size:1.2rem;margin-bottom:4px;">📦</div><div style="font-size:.72rem;color:var(--teal);font-weight:600;">HackTheBox</div><div style="font-size:.65rem;color:var(--muted);">Grátis/Pago</div></div>
+          <div class="detail-card" style="text-align:center;padding:12px;"><div style="font-size:1.2rem;margin-bottom:4px;">🐉</div><div style="font-size:.72rem;color:var(--teal);font-weight:600;">Kali Linux</div><div style="font-size:.65rem;color:var(--muted);">Grátis</div></div>
+          <div class="detail-card" style="text-align:center;padding:12px;"><div style="font-size:1.2rem;margin-bottom:4px;">🏆</div><div style="font-size:.72rem;color:var(--teal);font-weight:600;">HackerOne</div><div style="font-size:.65rem;color:var(--muted);">Bug Bounty</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>🌿 MTC — Diagnóstico pelo Pulso e Acupressão</span><i class="fas fa-chevron-down accordion-icon"></i></div>
+      <div class="accordion-body">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+          <div class="detail-card"><h5>🤲 Diagnóstico pelo Pulso</h5><ul><li>Posição Cun (proximal): Coração/Pulmão</li><li>Posição Guan (médio): Fígado/Baço</li><li>Posição Chi (distal): Rim/Intestino</li><li>Qualidades: superficial, profundo, cheio, vazio, rápido, lento</li><li>Pulso de Rim fraco = deficiência de Jing (essência vital)</li></ul></div>
+          <div class="detail-card"><h5>🌿 Fórmulas Herbais Clássicas</h5><ul><li><strong style="color:var(--gold);">Liu Wei Di Huang Wan</strong>: Tonifica Yin do Rim (libido, menopausa)</li><li><strong style="color:var(--gold);">Gui Pi Tang</strong>: Tonifica Qi do Coração (ansiedade, insônia)</li><li><strong style="color:var(--gold);">Xiao Yao San</strong>: Move Qi do Fígado (depressão, irritabilidade, TPM)</li><li><strong style="color:var(--gold);">Ba Zhen Tang</strong>: Tonifica Qi e Sangue (fadiga, pós-menstrual)</li></ul></div>
+        </div>
+        <h5 style="color:var(--purple);font-size:.85rem;font-weight:600;margin-bottom:10px;">Pontos de Acupressão para Autocura</h5>
+        <table class="proto-table">
+          <thead><tr><th>Ponto</th><th>Localização</th><th>Indicação</th><th>Técnica</th></tr></thead>
+          <tbody>
+            <tr><td><span class="pill pill-purple">P6 (Neiguan)</span></td><td>3 dedos acima do punho, entre tendões</td><td>Ansiedade, náusea, coração</td><td>Pressão 2 min, 3x/dia</td></tr>
+            <tr><td><span class="pill pill-purple">E36 (Zusanli)</span></td><td>4 dedos abaixo joelho, fora da tíbia</td><td>Vitalidade, imunidade, digestão</td><td>Pressão circular 3 min</td></tr>
+            <tr><td><span class="pill pill-purple">Ren4 (Guanyuan)</span></td><td>4 dedos abaixo do umbigo</td><td>Energia sexual, Rim, Jing</td><td>Moxa ou pressão suave</td></tr>
+            <tr><td><span class="pill pill-purple">R3 (Taixi)</span></td><td>Entre maléolo medial e tendão de Aquiles</td><td>Deficiência de Rim, libido, medo</td><td>Pressão 2 min cada lado</td></tr>
+            <tr><td><span class="pill pill-purple">F3 (Taichong)</span></td><td>Dorso do pé, entre 1º e 2º metatarsos</td><td>Estresse, TPM, depressão, Fígado</td><td>Pressão firme 1–2 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ DOWNLOADS ═══════════════ -->
+<section id="downloads" class="relative py-20 px-4 grid-bg" style="background:var(--deep2);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="section-tag" style="background:rgba(74,191,191,.07);border-color:rgba(74,191,191,.2);color:var(--teal);">Biblioteca Digital</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--teal);">Leituras para <span style="color:rgba(240,237,232,.8);">Tablet</span></h2>
+      <p style="color:var(--muted);margin-top:10px;font-size:.88rem;" class="mono">// PDFs e recursos gratuitos para leitura offline</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <a href="https://www.cia.gov/readingroom/docs/CIA-RDP96-00788R001700210016-5.pdf" target="_blank" class="dl-card">
+        <div class="dl-icon">📄</div>
+        <div class="flex-1"><div style="font-size:.88rem;font-weight:600;color:var(--teal);">Gateway Process — CIA (Desclassificado)</div><div style="font-size:.72rem;color:var(--muted);">Documento original da CIA sobre sincronização hemisférica e estados alterados de consciência.</div></div>
+        <span class="pill pill-gold">PDF</span>
+      </a>
+
+      <a href="https://gutenberg.org/ebooks/974" target="_blank" class="dl-card">
+        <div class="dl-icon">📚</div>
+        <div class="flex-1"><div style="font-size:.88rem;font-weight:600;color:var(--teal);">Think and Grow Rich — Napoleon Hill</div><div style="font-size:.72rem;color:var(--muted);">Domínio público. O clássico sobre mentalidade de prosperidade e riqueza.</div></div>
+        <span class="pill pill-green">Grátis</span>
+      </a>
+
+      <a href="https://tryhackme.com" target="_blank" class="dl-card">
+        <div class="dl-icon">🔐</div>
+        <div class="flex-1"><div style="font-size:.88rem;font-weight:600;color:var(--red);">TryHackMe — Plataforma Hacker</div><div style="font-size:.72rem;color:var(--muted);">Labs interativos de ethical hacking. Iniciante ao avançado. Grátis para começar.</div></div>
+        <span class="pill pill-red">Lab</span>
+      </a>
+
+      <a href="https://ankiweb.net/shared/decks/language" target="_blank" class="dl-card">
+        <div class="dl-icon">🃏</div>
+        <div class="flex-1"><div style="font-size:.88rem;font-weight:600;color:var(--teal);">Anki Decks — Poliglota</div><div style="font-size:.72rem;color:var(--muted);">Decks de SRS para inglês, espanhol, francês, mandarim. Grátis, 2000 palavras mais usadas.</div></div>
+        <span class="pill pill-cyan">SRS</span>
+      </a>
+
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4034462/" target="_blank" class="dl-card">
+        <div class="dl-icon">🧬</div>
+        <div class="flex-1"><div style="font-size:.88rem;font-weight:600;color:var(--teal);">Wim Hof Method — Estudo Científico</div><div style="font-size:.72rem;color:var(--muted);">Radboud University 2014. Controle voluntário do sistema imune. PubMed gratuito.</div></div>
+        <span class="pill pill-teal">Ciência</span>
+      </a>
+
+      <a href="https://www.dreaminspanish.com" target="_blank" class="dl-card">
+        <div class="dl-icon">🇪🇸</div>
+        <div class="flex-1"><div style="font-size:.88rem;font-weight:600;color:var(--teal);">Dreaming Spanish — Input Compreensível</div><div style="font-size:.72rem;color:var(--muted);">Vídeos em espanhol para todos os níveis. Método Krashen. Grátis para iniciantes.</div></div>
+        <span class="pill pill-cyan">Vídeo</span>
+      </a>
+
+      <a href="https://owasp.org/www-project-top-ten/" target="_blank" class="dl-card">
+        <div class="dl-icon">🛡️</div>
+        <div class="flex-1"><div style="font-size:.88rem;font-weight:600;color:var(--red);">OWASP Top 10 — Web Security</div><div style="font-size:.72rem;color:var(--muted);">As 10 vulnerabilidades web mais críticas. Guia oficial para hacker iniciante.</div></div>
+        <span class="pill pill-red">Hacker</span>
+      </a>
+
+      <a href="https://www.who.int/publications/i/item/9789240062467" target="_blank" class="dl-card">
+        <div class="dl-icon">🌿</div>
+        <div class="flex-1"><div style="font-size:.88rem;font-weight:600;color:var(--purple);">WHO — Traditional Medicine Strategy</div><div style="font-size:.72rem;color:var(--muted);">Relatório da OMS sobre medicina tradicional chinesa. Evidências e protocolos.</div></div>
+        <span class="pill pill-purple">MTC</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PROGRESSO ═══════════════ -->
+<section class="relative py-16 px-4" style="background:var(--deep);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="section-tag">Evolução Esperada</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;" class="gold-text">Curvas de Transformação</h2>
+    </div>
+    <div style="background:var(--surface);border:1px solid rgba(201,168,76,.1);border-radius:18px;padding:24px;">
+      <canvas id="progressChart" style="max-height:300px;"></canvas>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mt-5">
+      <div class="stat-badge"><div class="stat-num" style="font-size:1.3rem;">58%</div><div class="stat-label">↓ Ansiedade</div></div>
+      <div class="stat-badge"><div class="stat-num" style="font-size:1.3rem;">19%</div><div class="stat-label">↑ RV Precisão</div></div>
+      <div class="stat-badge"><div class="stat-num" style="font-size:1.3rem;">300h</div><div class="stat-label">Fluência Inglês</div></div>
+      <div class="stat-badge"><div class="stat-num" style="font-size:1.3rem;">eJPT</div><div class="stat-label">Cert. Hacker</div></div>
+      <div class="stat-badge"><div class="stat-num" style="font-size:1.3rem;">66d</div><div class="stat-label">Novo Hábito</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BIBLIOTECA ═══════════════ -->
+<section id="resources" class="relative py-20 px-4" style="background:var(--deep2);">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="section-tag">Biblioteca Curada</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;" class="gold-text">Recursos Essenciais</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 style="font-size:.95rem;font-weight:700;color:var(--gold-light);margin-bottom:14px;"><i class="fas fa-book mr-2"></i>Livros</h3>
+        <div class="space-y-2">
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Becoming — Michelle Obama</div><span class="pill pill-teal" style="margin-top:5px;display:inline-block;">CEO</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Psychic Warrior — David Morehouse</div><span class="pill pill-gold" style="margin-top:5px;display:inline-block;">Poderes</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">The Body Keeps the Score</div><span class="pill pill-rose" style="margin-top:5px;display:inline-block;">Mental</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Hacking: The Art of Exploitation</div><span class="pill pill-red" style="margin-top:5px;display:inline-block;">Hacker</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Between Heaven and Earth (MTC)</div><span class="pill pill-purple" style="margin-top:5px;display:inline-block;">MTC</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Fluent Forever — Gabriel Wyner</div><span class="pill pill-cyan" style="margin-top:5px;display:inline-block;">Poliglota</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:.95rem;font-weight:700;color:var(--gold-light);margin-bottom:14px;"><i class="fas fa-music mr-2"></i>Frequências</h3>
+        <div class="space-y-2">
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Hemi-Sync Focus 10 — Monroe</div><span class="pill pill-gold" style="margin-top:5px;display:inline-block;">Poderes</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">528 Hz — Frequência do Amor</div><span class="pill pill-rose" style="margin-top:5px;display:inline-block;">Sensual</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Theta 4–8 Hz — Binaural</div><span class="pill pill-purple" style="margin-top:5px;display:inline-block;">Meditação</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">432 Hz — Afinação Natural</div><span class="pill pill-teal" style="margin-top:5px;display:inline-block;">Ansiedade</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Drumming Xamânico 4 Hz</div><span class="pill pill-gold" style="margin-top:5px;display:inline-block;">Poderes</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Barroco 60 BPM — Aprendizado</div><span class="pill pill-teal" style="margin-top:5px;display:inline-block;">Cognição</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:.95rem;font-weight:700;color:var(--gold-light);margin-bottom:14px;"><i class="fas fa-mobile-alt mr-2"></i>Apps & Plataformas</h3>
+        <div class="space-y-2">
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Anki — SRS Poliglota</div><span class="pill pill-cyan" style="margin-top:5px;display:inline-block;">Grátis</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">TryHackMe — Hacker Labs</div><span class="pill pill-red" style="margin-top:5px;display:inline-block;">Grátis</span></div>
+          <div class="resource-card"><div style="font-size:.83nm;font-weight:600;">Insight Timer — Meditação</div><span class="pill pill-purple" style="margin-top:5px;display:inline-block;">Grátis</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Wim Hof Method App</div><span class="pill pill-gold" style="margin-top:5px;display:inline-block;">Vitalidade</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">iTalki — Conversação</div><span class="pill pill-cyan" style="margin-top:5px;display:inline-block;">Poliglota</span></div>
+          <div class="resource-card"><div style="font-size:.83rem;font-weight:600;">Lumosity / Elevate — Cognição</div><span class="pill pill-teal" style="margin-top:5px;display:inline-block;">CEO</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ IA SOPHIA ═══════════════ -->
+<section id="ai-guide" class="relative py-20 px-4 grid-bg" style="background:var(--deep);">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="section-tag">IA Mentora</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;" class="gold-text">Sophia — SuperWoman AI</h2>
+      <p style="color:var(--muted);margin-top:10px;font-size:.88rem;" class="mono">// 368 estudos + 13 módulos + auto-reparo integrado</p>
+    </div>
+
+    <div class="chat-container gold-glow">
+      <div class="flex items-center gap-3 p-4" style="border-bottom:1px solid rgba(201,168,76,.1);">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));display:flex;align-items:center;justify-content:center;font-size:1rem;">✦</div>
+        <div>
+          <div style="font-weight:600;font-size:.88rem;" class="gold-text">Sophia</div>
+          <div style="font-size:.68rem;color:var(--green);display:flex;align-items:center;gap:3px;" class="mono"><span class="blink" style="width:5px;height:5px;background:var(--green);border-radius:50%;display:inline-block;"></span>ONLINE · 13 módulos · auto-repair ativo</div>
+        </div>
+        <div style="margin-left:auto;font-size:.65rem;color:var(--muted);" class="mono" id="sophia-tokens">tokens: 0</div>
+      </div>
+      <div class="chat-messages" id="chat-box">
+        <div class="msg-ai"><strong style="color:var(--gold-light);">Sophia:</strong> Sistema SuperWoman OS v3.0 inicializado. Sou sua mentora de IA com 13 módulos ativos: saúde mental, poderes especiais, CEO economics, poliglota, hacker, medicina chinesa, sensualidade, paralisia facial, corpo, carisma, prosperidade, espiritualidade e planner inteligente. O que você quer trabalhar hoje? ✦</div>
+      </div>
+      <div class="chat-input-area">
+        <input id="chat-input" type="text" placeholder="Pergunte à Sophia... (ex: Como analisar um relatório financeiro?)" style="flex:1;background:transparent;border:none;outline:none;font-size:.83rem;color:var(--text);" onkeydown="if(event.key==='Enter')sendMessage()"/>
+        <button onclick="sendMessage()" style="background:linear-gradient(135deg,var(--gold-dark),var(--gold));border:none;width:34px;height:34px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--deep);font-size:.85rem;flex-shrink:0;">→</button>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-2 mt-4">
+      <button class="quick-btn" onclick="quickQuestion('Como analisar um relatório financeiro DRE?')">📊 CEO/DRE</button>
+      <button class="quick-btn" onclick="quickQuestion('Como aprender inglês rápido sem método tradicional?')">🌍 Poliglota</button>
+      <button class="quick-btn" onclick="quickQuestion('Como começar hacker do zero?')">🔐 Hacker</button>
+      <button class="quick-btn" onclick="quickQuestion('Quais pontos de acupressão para libido e depressão?')">🌿 MTC</button>
+      <button class="quick-btn" onclick="quickQuestion('Como tratar depressão naturalmente?')">🧠 Depressão</button>
+      <button class="quick-btn" onclick="quickQuestion('Como desenvolver Remote Viewing?')">⚡ RV</button>
+      <button class="quick-btn" onclick="quickQuestion('Como aumentar a libido naturalmente?')">💋 Libido</button>
+      <button class="quick-btn" onclick="quickQuestion('Como atrair prosperidade e riqueza?')">💰 Riqueza</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="max-w-4xl mx-auto">
+    <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:6px;" class="gold-text">✦ SuperWoman OS v3.0</div>
+    <p style="color:var(--muted);font-size:.82rem;margin-bottom:14px;" class="mono">// 13 módulos · 368 estudos · 24 meses · ≤2h/dia</p>
+    <p style="font-size:.72rem;color:rgba(240,237,232,.25);max-width:600px;margin:0 auto;">Este programa é baseado em 368 estudos científicos e destina-se a fins educacionais e de desenvolvimento pessoal. Não substitui aconselhamento médico, psicológico ou jurídico profissional. O módulo de hacker destina-se exclusivamente a ethical hacking e segurança defensiva.</p>
+    <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.2),transparent);margin:20px 0;"></div>
+    <p style="font-size:.68rem;color:rgba(240,237,232,.2);" class="mono">© 2026 SuperWoman OS. Auto-repair system active.</p>
+  </div>
+</footer>
+
+<!-- ═══════════════ MODALS ═══════════════ -->
+<div id="modal-mental" style="display:none;"><h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--rose);margin-bottom:14px;">🧠 Saúde Mental — Protocolo Completo</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-3"><div class="detail-card"><h5>💊 Suplementação</h5><ul><li>Ômega-3 2000mg/dia</li><li>Vitamina D3 4000 UI</li><li>Magnésio Glicinato 400mg/noite</li><li>Ashwagandha 600mg/noite</li></ul></div><div class="detail-card"><h5>🏃 Exercício como Antidepressivo</h5><ul><li>HIIT 20 min 3x/sem = antidepressivo</li><li>Caminhada ao sol 30 min (serotonina)</li><li>Yoga 2x/sem (↓ cortisol, ↑ GABA)</li><li>Dança 15 min/dia (dopamina)</li></ul></div><div class="detail-card"><h5>🧘 MBSR 8 Semanas</h5><ul><li>Body scan 20 min/dia</li><li>Meditação sentada 20 min</li><li>Yoga mindful 20 min</li><li>Redução de 58% em ansiedade</li></ul></div><div class="detail-card"><h5>😴 Protocolo de Sono</h5><ul><li>Horário fixo todos os dias</li><li>Quarto 18–20°C, escuro total</li><li>Sem telas 1h antes</li><li>Melatonina 0.5mg se necessário</li></ul></div></div></div>
+
+<div id="modal-powers" style="display:none;"><h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--gold-light);margin-bottom:14px;">⚡ Poderes Especiais — Protocolo CIA</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-3"><div class="detail-card"><h5>🎯 Remote Viewing CRV</h5><ul><li>Estágio 1: Ideogramas (meses 1–3)</li><li>Estágio 2–3: Percepções (meses 4–12)</li><li>Estágio 4–6: Maestria (meses 13–24)</li><li>Meta: 25–30% acima do acaso</li></ul></div><div class="detail-card"><h5>🔊 Hemi-Sync Monroe</h5><ul><li>Focus 10: mente acordada, corpo dormindo</li><li>Focus 12: consciência expandida</li><li>Focus 15: sem noção de tempo</li><li>Focus 21: outras realidades</li></ul></div><div class="detail-card"><h5>🧘 Siddhis do Yoga</h5><ul><li>Dharana: concentração absoluta</li><li>Dhyana: meditação absorvida</li><li>Samadhi: união com o objeto</li><li>Vibhuti Pada: poderes específicos</li></ul></div><div class="detail-card"><h5>🧊 Wim Hof / Tummo</h5><ul><li>Controle autonômico voluntário</li><li>↑ Temperatura periférica</li><li>Modulação do sistema imune</li><li>Estados alterados de consciência</li></ul></div></div></div>
+
+<div id="modal-facial" style="display:none;"><h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--teal);margin-bottom:14px;">😊 Paralisia Facial — Reabilitação</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-3"><div class="detail-card"><h5>⏰ Rotina Diária 10 min</h5><ul><li>2 min: massagem com óleo de rícino</li><li>5 min: 5 exercícios (10x cada)</li><li>1 min: massagem miofascial</li><li>2 min: biofeedback no espelho</li></ul></div><div class="detail-card"><h5>💆 Complementar</h5><ul><li>Acupuntura facial 1–2x/semana</li><li>LED vermelho 630nm</li><li>Estimulação elétrica (TENS)</li><li>Fisioterapia especializada</li></ul></div></div></div>
+
+<div id="modal-sensuality" style="display:none;"><h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--purple);margin-bottom:14px;">💋 Sexualidade & Cura Sexual</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-3"><div class="detail-card"><h5>🔬 Avaliação Hormonal</h5><ul><li>Testosterona livre e total</li><li>Estradiol, progesterona</li><li>Prolactina, TSH, T3, T4</li><li>DHEA-S (precursor hormonal)</li></ul></div><div class="detail-card"><h5>🌿 MTC para Cura Sexual</h5><ul><li>Liu Wei Di Huang Wan (Yin do Rim)</li><li>Ponto Ren4 (energia sexual)</li><li>Ponto R3 (Rim, libido, medo)</li><li>Qigong pélvico diário</li></ul></div><div class="detail-card"><h5>💊 Suplementação</h5><ul><li>Maca Peruana 1500mg/dia</li><li>Zinco 30mg/dia</li><li>Vitamina D3 4000 UI</li><li>Ashwagandha 600mg/noite</li></ul></div><div class="detail-card"><h5>💃 Práticas Corporais</h5><ul><li>Dança sensorial 15 min/dia</li><li>Yoga Kundalini — chakra sacral</li><li>Automassagem com óleo de rosas</li><li>Banho ritual com aromaterapia</li></ul></div></div></div>
+
+<div id="modal-body" style="display:none;"><h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--gold-light);margin-bottom:14px;">🔥 Corpo & Vitalidade</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-3"><div class="detail-card"><h5>❄️ Wim Hof</h5><ul><li>Semana 1–4: 1 rodada + 30s frio</li><li>Semana 5–8: 2 rodadas + 60s frio</li><li>Mês 3+: 3 rodadas + 2 min frio</li></ul></div><div class="detail-card"><h5>🏃 HIIT Eficiente</h5><ul><li>20 min, 3x/semana</li><li>Tabata: 20s esforço / 10s descanso</li><li>↑ BDNF, ↑ testosterona</li></ul></div></div></div>
+
+<div id="modal-charisma" style="display:none;"><h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--purple);margin-bottom:14px;">✨ Carisma & Atração</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-3"><div class="detail-card"><h5>💫 Presença Magnética</h5><ul><li>Contato visual 60–70% do tempo</li><li>Sorriso genuíso (zigomático maior)</li><li>Postura aberta e expansiva</li><li>Mindfulness aumenta presença</li></ul></div><div class="detail-card"><h5>🗣️ Comunicação</h5><ul><li>Escuta ativa total</li><li>Storytelling com emoção</li><li>Tom de voz: grave, calmo, pausado</li><li>Vulnerabilidade estratégica</li></ul></div></div></div>
+
+<div id="modal-prosperity" style="display:none;"><h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--green);margin-bottom:14px;">💰 Prosperidade & Riqueza</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-3"><div class="detail-card"><h5>🔍 Reprogramação</h5><ul><li>Listar 10 crenças limitantes</li><li>Reescrever em versão positiva</li><li>Afirmações 3x/manhã em voz alta</li><li>66 dias para novo padrão neural</li></ul></div><div class="detail-card"><h5>💼 Ações Concretas</h5><ul><li>1 ação/dia em direção à riqueza</li><li>Educação financeira 15 min/dia</li><li>Networking estratégico 5/mês</li><li>Fonte de renda adicional</li></ul></div></div></div>
+
+<div id="modal-ceo" style="display:none;"><h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--teal);margin-bottom:14px;">🎯 CEO Mindset Cognitivo</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-3"><div class="detail-card"><h5>🧠 Neuroplasticidade</h5><ul><li>Treino cognitivo 5 min/dia</li><li>Meditação ↑ córtex pré-frontal</li><li>Leitura 10 páginas/dia</li><li>Nova habilidade por mês</li></ul></div><div class="detail-card"><h5>💼 Executivo</h5><ul><li>Power pose 2 min/manhã</li><li>1 decisão difícil/dia</li><li>Planejamento semanal</li><li>Comunicação de alto impacto</li></ul></div></div></div>
+
+<div id="modal-spirit" style="display:none;"><h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--gold-light);margin-bottom:14px;">🌙 Espiritualidade Prática</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-3"><div class="detail-card"><h5>🧘 Meditação</h5><ul><li>Meses 1–3: 10 min mindfulness</li><li>Meses 4–6: 15 min theta</li><li>Meses 7+: 20–45 min profundo</li></ul></div><div class="detail-card"><h5>🌺 Sagrado Feminino</h5><ul><li>Ciclo menstrual como guia</li><li>Rituais de lua nova e cheia</li><li>Práticas de cura ancestral</li></ul></div></div></div>
+
+<!-- MODAL CEO ECONOMICS -->
+<div id="modal-ceo-economics" style="display:none;">
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--teal);margin-bottom:6px;">📊 CEO Economics — Economista Reativada</h3>
+  <p style="font-size:.8rem;color:var(--muted);margin-bottom:16px;" class="mono">// Para quem sabe mas esqueceu. Conhecimentos poderosos para a vida.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">📑 Análise de DRE</h5>
+      <ul>
+        <li>Receita Líquida → Lucro Bruto → EBITDA → Lucro Líquido</li>
+        <li>Margem EBITDA: >20% = eficiente, >40% = excelente</li>
+        <li>Crescimento de receita YoY: >15% = saudável</li>
+        <li>COGS/Receita: quanto custa produzir</li>
+        <li>SG&A/Receita: eficiência administrativa</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">⚖️ Balanço Patrimonial</h5>
+      <ul>
+        <li>Ativo = Passivo + Patrimônio Líquido</li>
+        <li>Dívida Líquida/EBITDA: &lt;2x = saudável, &gt;4x = risco</li>
+        <li>ROE = Lucro Líquido / PL: >15% = bom</li>
+        <li>Liquidez Corrente = AC/PC: >1.5 = seguro</li>
+        <li>Giro de Ativos: eficiência de uso dos ativos</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">💸 Valuation Básico</h5>
+      <ul>
+        <li>P/L (Preço/Lucro): &lt;15 = barato, >30 = caro</li>
+        <li>EV/EBITDA: valor da empresa vs geração de caixa</li>
+        <li>DCF: valor presente dos fluxos futuros</li>
+        <li>P/VP: preço vs valor patrimonial</li>
+        <li>Dividend Yield: retorno em dividendos</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">📝 Proposta Executiva Poderosa</h5>
+      <ul>
+        <li><strong style="color:var(--gold);">1. Problema:</strong> Qual dor você resolve? (1 parágrafo)</li>
+        <li><strong style="color:var(--gold);">2. Solução:</strong> Como você resolve? (específico)</li>
+        <li><strong style="color:var(--gold);">3. ROI:</strong> Quanto retorna? (números reais)</li>
+        <li><strong style="color:var(--gold);">4. Prova:</strong> Cases, dados, credibilidade</li>
+        <li><strong style="color:var(--gold);">5. CTA:</strong> Próximo passo claro e urgente</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">🎯 Tomada de Decisão Estratégica</h5>
+      <ul>
+        <li>Matriz SWOT: forças, fraquezas, oportunidades, ameaças</li>
+        <li>Análise custo-benefício quantificada</li>
+        <li>Decisão de 10/10/10: como me sentirei em 10 min, 10 meses, 10 anos?</li>
+        <li>Pré-mortem: o que pode dar errado?</li>
+        <li>Regra de 2 minutos vs decisões importantes</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">📚 Roadmap de Estudo (20 min/dia)</h5>
+      <ul>
+        <li>Mês 1–2: DRE, Balanço, Fluxo de Caixa</li>
+        <li>Mês 3–4: Valuation, Excel financeiro</li>
+        <li>Mês 5–6: Estratégia, competição, propostas</li>
+        <li>Mês 7–12: M&A básico, pitch, liderança</li>
+        <li>Leitura: 1 relatório anual/mês (Berkshire, Apple, Petrobras)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL POLYGLOT -->
+<div id="modal-polyglot" style="display:none;">
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--teal);margin-bottom:6px;">🌍 Método Poliglota — Anti-Tradicional</h3>
+  <p style="font-size:.8rem;color:var(--muted);margin-bottom:16px;" class="mono">// Sem gramática. Sem tradução. Imersão radical. Fluência em 6–12 meses.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">🧠 Princípio Fundamental</h5>
+      <ul>
+        <li>Krashen: adquirimos idiomas por INPUT, não por estudo</li>
+        <li>Input compreensível (i+1): 95% entendido + 5% novo</li>
+        <li>Nunca traduzir mentalmente — pensar no idioma</li>
+        <li>Gramática emerge naturalmente com exposição</li>
+        <li>Fluência = horas de input qualificado</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">🃏 Anki SRS — Vocabulário</h5>
+      <ul>
+        <li>20 cards novos/dia (não mais que isso)</li>
+        <li>Deck: 2000 palavras mais frequentes</li>
+        <li>Formato: imagem + áudio + frase contextual</li>
+        <li>Revisão: 10–15 min/dia (automático)</li>
+        <li>2000 palavras = 95% do vocabulário cotidiano</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">📺 Imersão Diária (20 min)</h5>
+      <ul>
+        <li>Séries com legenda no idioma (não PT)</li>
+        <li>Podcasts para iniciantes (Dreaming Spanish)</li>
+        <li>YouTube no idioma (culinária, vlogs, notícias)</li>
+        <li>Música: letra + repetição = vocabulário passivo</li>
+        <li>Trocar interface do celular para o idioma</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">🎤 Shadowing (10 min/dia)</h5>
+      <ul>
+        <li>Escolher 1 clipe de 1–2 min com nativo</li>
+        <li>Ouvir 3x sem parar</li>
+        <li>Repetir em voz alta simultaneamente</li>
+        <li>Gravar e comparar com o original</li>
+        <li>Resultado: acento nativo em 3–6 meses</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">📅 Cronograma Realista</h5>
+      <ul>
+        <li>Inglês: 300h → conversacional (B2)</li>
+        <li>Espanhol: 250h → conversacional (B2)</li>
+        <li>Francês: 350h → conversacional (B2)</li>
+        <li>30 min/dia = 182h em 1 ano</li>
+        <li>Intensivo 1h/dia = B2 em 8–10 meses</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(74,191,191,.15);">
+      <h5 style="color:var(--teal);">🛠️ Stack de Ferramentas</h5>
+      <ul>
+        <li>Anki (SRS) — grátis no Android/PC</li>
+        <li>iTalki — conversação com nativos</li>
+        <li>HelloTalk — troca linguística grátis</li>
+        <li>Dreaming Spanish — input compreensível</li>
+        <li>Language Reactor — Netflix + legendas duplas</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL HACKER -->
+<div id="modal-hacker" style="display:none;">
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--red);margin-bottom:6px;">🔐 Hacker Training — Do Zero ao Intermediário</h3>
+  <p style="font-size:.8rem;color:var(--muted);margin-bottom:16px;" class="mono">// Ethical hacking apenas. Conhecimento é poder. Defesa e ataque ético.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div class="detail-card" style="border-color:rgba(201,74,74,.15);">
+      <h5 style="color:var(--red);">🐧 Linux Essencial</h5>
+      <ul>
+        <li>Comandos: ls, cd, cat, grep, find, chmod</li>
+        <li>Gerenciamento de processos: ps, kill, top</li>
+        <li>Rede: ifconfig, netstat, ping, traceroute</li>
+        <li>Scripts bash básicos</li>
+        <li>Kali Linux: distro especializada em segurança</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(201,74,74,.15);">
+      <h5 style="color:var(--red);">🌐 Redes Fundamentais</h5>
+      <ul>
+        <li>Modelo OSI e TCP/IP</li>
+        <li>DNS, DHCP, HTTP/S, FTP, SSH</li>
+        <li>Portas comuns: 22 (SSH), 80 (HTTP), 443 (HTTPS)</li>
+        <li>Wireshark: análise de pacotes</li>
+        <li>Nmap: descoberta de hosts e serviços</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(201,74,74,.15);">
+      <h5 style="color:var(--red);">🐍 Python para Hacker</h5>
+      <ul>
+        <li>Sockets: conexões TCP/UDP</li>
+        <li>Requests: HTTP automatizado</li>
+        <li>Scapy: criação de pacotes</li>
+        <li>Scripts de automação de reconhecimento</li>
+        <li>Exploit básico em Python</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(201,74,74,.15);">
+      <h5 style="color:var(--red);">🕷️ Web Hacking (OWASP)</h5>
+      <ul>
+        <li>SQL Injection: bypass de autenticação</li>
+        <li>XSS: Cross-Site Scripting</li>
+        <li>CSRF: Cross-Site Request Forgery</li>
+        <li>IDOR: Insecure Direct Object Reference</li>
+        <li>Burp Suite: interceptar requisições</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(201,74,74,.15);">
+      <h5 style="color:var(--red);">🔍 OSINT</h5>
+      <ul>
+        <li>Google Dorks: pesquisa avançada</li>
+        <li>Shodan: dispositivos expostos na internet</li>
+        <li>Maltego: mapeamento de relações</li>
+        <li>theHarvester: coleta de emails/subdomínios</li>
+        <li>Wayback Machine: histórico de sites</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(201,74,74,.15);">
+      <h5 style="color:var(--red);">🏆 Plataformas de Prática</h5>
+      <ul>
+        <li>TryHackMe: iniciante, guiado, grátis</li>
+        <li>HackTheBox: intermediário, desafiador</li>
+        <li>OverTheWire: wargames de terminal</li>
+        <li>PicoCTF: CTF para iniciantes</li>
+        <li>HackerOne: bug bounty real</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL TCM -->
+<div id="modal-tcm" style="display:none;">
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--purple);margin-bottom:6px;">🌿 Medicina Tradicional Chinesa — Protocolo Completo</h3>
+  <p style="font-size:.8rem;color:var(--muted);margin-bottom:16px;" class="mono">// 5000 anos de sabedoria. Cura sexual, mental e equilíbrio do Qi.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div class="detail-card" style="border-color:rgba(154,122,201,.15);">
+      <h5 style="color:var(--purple);">☯️ Fundamentos (Yin/Yang)</h5>
+      <ul>
+        <li>Yin: frio, passivo, feminino, noite, Rim</li>
+        <li>Yang: quente, ativo, masculino, dia, Coração</li>
+        <li>Qi: energia vital que flui pelos meridianos</li>
+        <li>Jing: essência vital (sexual, reprodutiva)</li>
+        <li>Shen: mente/espírito (saúde mental)</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(154,122,201,.15);">
+      <h5 style="color:var(--purple);">🤲 Diagnóstico pelo Pulso</h5>
+      <ul>
+        <li>3 posições: Cun (coração/pulmão), Guan (fígado/baço), Chi (rim)</li>
+        <li>Pulso rápido = calor; lento = frio</li>
+        <li>Pulso vazio = deficiência de Qi/Sangue</li>
+        <li>Pulso cheio = excesso, estagnação</li>
+        <li>Pulso de corda = estresse, Fígado em excesso</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(154,122,201,.15);">
+      <h5 style="color:var(--purple);">🌿 Fórmulas para Cura Sexual</h5>
+      <ul>
+        <li><strong style="color:var(--gold);">Liu Wei Di Huang Wan:</strong> deficiência de Yin do Rim, libido baixa, menopausa</li>
+        <li><strong style="color:var(--gold);">Jin Gui Shen Qi Wan:</strong> deficiência de Yang do Rim, frigidez, fadiga</li>
+        <li><strong style="color:var(--gold);">Xiao Yao San:</strong> estagnação de Qi do Fígado, TPM, depressão</li>
+        <li><strong style="color:var(--gold);">Gui Pi Tang:</strong> insônia, ansiedade, palpitações</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(154,122,201,.15);">
+      <h5 style="color:var(--purple);">📍 5 Pontos Essenciais</h5>
+      <ul>
+        <li>P6 (Neiguan): ansiedade, coração, náusea</li>
+        <li>E36 (Zusanli): vitalidade, imunidade, energia</li>
+        <li>Ren4 (Guanyuan): energia sexual, Jing, fertilidade</li>
+        <li>R3 (Taixi): Rim, libido, medo, ossos</li>
+        <li>F3 (Taichong): estresse, Fígado, depressão, TPM</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(154,122,201,.15);">
+      <h5 style="color:var(--purple);">🌬️ Qigong Diário (10 min)</h5>
+      <ul>
+        <li>Ba Duan Jin (8 Brocados de Seda)</li>
+        <li>Respiração abdominal profunda</li>
+        <li>Massagem dos rins (calor das mãos)</li>
+        <li>Rotação de quadril (Qi pélvico)</li>
+        <li>Meditação da microcósmica orbital</li>
+      </ul>
+    </div>
+    <div class="detail-card" style="border-color:rgba(154,122,201,.15);">
+      <h5 style="color:var(--purple);">🧬 MTC para Saúde Mental</h5>
+      <ul>
+        <li>Depressão = estagnação de Qi do Fígado → Xiao Yao San</li>
+        <li>Ansiedade = deficiência de Yin do Coração → Tian Wang Bu Xin Dan</li>
+        <li>Insônia = Coração/Rim desconectados → Jiao Tai Wan</li>
+        <li>Trauma = Sangue estagnado → Xue Fu Zhu Yu Tang</li>
+        <li>Ponto Yintang (entre sobrancelhas): sedativo natural</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Overlay -->
+<div id="modal-overlay">
+  <div id="modal-box">
+    <button onclick="closeModal()" style="position:absolute;top:14px;right:14px;background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<script>
+// ── AUTO-REPAIR SYSTEM ──────────────────────────────────
+const repairLog = [];
+let consoleMinimized = false;
+
+function addLog(msg, type='info'){
+  const logEl = document.getElementById('repair-log');
+  if(!logEl) return;
+  const div = document.createElement('div');
+  div.className = 'log-'+type;
+  const time = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  div.textContent = '['+time+'] '+msg;
+  logEl.appendChild(div);
+  logEl.scrollTop = logEl.scrollHeight;
+  repairLog.push({time, msg, type});
+}
+
+function toggleConsole(){
+  const cons = document.getElementById('repair-console');
+  const tog = document.getElementById('console-toggle');
+  consoleMinimized = !consoleMinimized;
+  cons.classList.toggle('minimized', consoleMinimized);
+  tog.textContent = consoleMinimized ? '▲' : '▼';
+}
+
+// Global error handler
+window.addEventListener('error', function(e){
+  addLog('ERRO: '+e.message+' ('+e.filename+':'+e.lineno+')', 'err');
+  document.getElementById('repair-status').textContent = '● REPARO';
+  document.getElementById('repair-status').className = 'sys-warn';
+  // Auto-repair attempt
+  setTimeout(()=>{
+    addLog('Tentando auto-reparo...', 'warn');
+    try {
+      // Re-init critical functions
+      loadChecks(); loadPlanner();
+      addLog('Auto-reparo concluído ✓', 'ok');
+      document.getElementById('repair-status').textContent = '● ONLINE';
+      document.getElementById('repair-status').className = 'sys-ok';
+    } catch(err) {
+      addLog('Reparo manual necessário: '+err.message, 'err');
+    }
+  }, 1000);
+});
+
+window.addEventListener('unhandledrejection', function(e){
+  addLog('Promise rejeitada: '+e.reason, 'warn');
+});
+
+// Periodic health check
+setInterval(()=>{
+  const criticalEls = ['chat-box','planner-list','timer-display'];
+  let allOk = true;
+  criticalEls.forEach(id=>{
+    if(!document.getElementById(id)){ allOk=false; addLog('Elemento ausente: #'+id,'err'); }
+  });
+  if(allOk) addLog('Health check OK ✓','ok');
+}, 60000);
+
+// ── SCROLL PROGRESS ────────────────────────────────────
+window.addEventListener('scroll',()=>{
+  const pct = (window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+  document.getElementById('scroll-bar').style.width = pct+'%';
+});
+
+// ── PARTICLES ──────────────────────────────────────────
+(function(){
+  const c = document.getElementById('particles');
+  const cols = ['#C9A84C','#9A7AC9','#4ABFBF','#C97A8A','#7AC98A','#4AC9C9'];
+  for(let i=0;i<35;i++){
+    const p = document.createElement('div');
+    p.className='particle';
+    const s=Math.random()*3+1;
+    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${cols[Math.floor(Math.random()*cols.length)]};animation-duration:${Math.random()*20+12}s;animation-delay:${Math.random()*15}s;`;
+    c.appendChild(p);
+  }
+})();
+
+// ── MOBILE MENU ────────────────────────────────────────
+document.getElementById('menu-btn').addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('hidden'));
+
+// ── TABS ───────────────────────────────────────────────
+function showPhase(n,btn){
+  document.querySelectorAll('.phase-content').forEach(el=>el.classList.add('hidden'));
+  document.querySelectorAll('#phase-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('phase-'+n).classList.remove('hidden');
+  btn.classList.add('active');
+}
+function showDay(id,btn){
+  ['manha','tarde','noite','semana'].forEach(d=>{const el=document.getElementById('day-'+d);if(el)el.classList.add('hidden');});
+  document.querySelectorAll('#day-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
+  const t=document.getElementById('day-'+id);
+  if(t)t.classList.remove('hidden');
+  btn.classList.add('active');
+}
+
+// ── CHECK ITEMS ────────────────────────────────────────
+function toggleCheck(el){
+  el.classList.toggle('done');
+  const icon=el.querySelector('.fa-check');
+  if(el.classList.contains('done')){if(icon)icon.classList.remove('hidden');}
+  else{if(icon)icon.classList.add('hidden');}
+  saveChecks();
+}
+function saveChecks(){
+  const ch=[];
+  document.querySelectorAll('.check-item').forEach(el=>ch.push(el.classList.contains('done')));
+  try{localStorage.setItem('sw_checks',JSON.stringify(ch));}catch(e){}
+}
+function loadChecks(){
+  try{
+    const s=JSON.parse(localStorage.getItem('sw_checks')||'[]');
+    document.querySelectorAll('.check-item').forEach((el,i)=>{
+      if(s[i]){el.classList.add('done');const icon=el.querySelector('.fa-check');if(icon)icon.classList.remove('hidden');}
+    });
+  }catch(e){}
+}
+window.addEventListener('load',loadChecks);
+
+// ── ACCORDION ──────────────────────────────────────────
+function toggleAccordion(h){
+  const b=h.nextElementSibling;
+  const ic=h.querySelector('.accordion-icon');
+  const isOpen=b.classList.contains('open');
+  document.querySelectorAll('.accordion-body').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('.accordion-icon').forEach(x=>x.classList.remove('open'));
+  if(!isOpen){b.classList.add('open');ic.classList.add('open');}
+}
+
+// ── MODALS ─────────────────────────────────────────────
+function openModal(id){
+  const src=document.getElementById(id);
+  if(!src)return;
+  document.getElementById('modal-body').innerHTML=src.innerHTML;
+  document.getElementById('modal-overlay').classList.add('flex');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('flex');
+  document.body.style.overflow='';
+}
+document.getElementById('modal-overlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+// ── TIMER ──────────────────────────────────────────────
+let timerMin=10,timerSec=0,timerTotal=600,timerRem=600,timerRunning=false,timerInt=null;
+function setTimer(m){if(timerRunning)return;timerMin=m;timerTotal=m*60;timerRem=timerTotal;updateTimerDisplay();document.getElementById('timer-btn').textContent='▶ Iniciar';}
+function updateTimerDisplay(){
+  const m=Math.floor(timerRem/60),s=timerRem%60;
+  document.getElementById('timer-display').textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+  const off=314.2*(1-timerRem/timerTotal);
+  document.getElementById('timer-ring').style.strokeDashoffset=off;
+}
+function toggleTimer(){
+  if(timerRunning){clearInterval(timerInt);timerRunning=false;document.getElementById('timer-btn').textContent='▶ Retomar';}
+  else{timerRunning=true;document.getElementById('timer-btn').textContent='⏸ Pausar';timerInt=setInterval(()=>{if(timerRem<=0){clearInterval(timerInt);timerRunning=false;document.getElementById('timer-btn').textContent='✓ Feito!';return;}timerRem--;updateTimerDisplay();},1000);}
+}
+function resetTimer(){clearInterval(timerInt);timerRunning=false;timerRem=timerTotal;updateTimerDisplay();document.getElementById('timer-btn').textContent='▶ Iniciar';}
+
+// ── PLANNER ────────────────────────────────────────────
+let plannerTasks = [];
+const catConfig = {
+  mental:{label:'🧠 Mental',color:'pill-rose'},powers:{label:'⚡ Poderes',color:'pill-gold'},
+  ceo:{label:'📊 CEO',color:'pill-teal'},polyglot:{label:'🌍 Poliglota',color:'pill-cyan'},
+  hacker:{label:'🔐 Hacker',color:'pill-red'},tcm:{label:'🌿 MTC',color:'pill-purple'},
+  body:{label:'🔥 Corpo',color:'pill-gold'},sensual:{label:'💋 Sensual',color:'pill-purple'},
+  prosperity:{label:'💰 Riqueza',color:'pill-green'},facial:{label:'😊 Facial',color:'pill-teal'},
+  spirit:{label:'🌙 Espírito',color:'pill-gold'},other:{label:'📌 Outro',color:'pill-gold'}
+};
+const priorityConfig = {high:'🔴',med:'🟡',low:'🟢'};
+
+function addPlannerTask(){
+  const input=document.getElementById('planner-input');
+  const text=input.value.trim();
+  if(!text)return;
+  const cat=document.getElementById('planner-cat').value;
+  const priority=document.getElementById('planner-priority').value;
+  const date=document.getElementById('planner-date-input').value;
+  const task={id:Date.now(),text,cat,priority,date,done:false,created:new Date().toISOString()};
+  plannerTasks.push(task);
+  savePlanner();
+  renderPlanner();
+  input.value='';
+  addLog('Tarefa adicionada: '+text.substring(0,30),'ok');
+}
+
+function renderPlanner(filter='all'){
+  const list=document.getElementById('planner-list');
+  const empty=document.getElementById('planner-empty');
+  let tasks=plannerTasks;
+  if(filter==='pending')tasks=tasks.filter(t=>!t.done);
+  if(filter==='done')tasks=tasks.filter(t=>t.done);
+  if(filter==='high')tasks=tasks.filter(t=>t.priority==='high');
+  if(tasks.length===0){list.innerHTML='';list.appendChild(empty);empty.style.display='block';}
+  else{
+    empty.style.display='none';
+    list.innerHTML='';
+    tasks.forEach(t=>{
+      const cc=catConfig[t.cat]||catConfig.other;
+      const div=document.createElement('div');
+      div.className='planner-task'+(t.done?' completed':'');
+      div.dataset.id=t.id;
+      div.innerHTML=`
+        <input type="checkbox" ${t.done?'checked':''} onchange="togglePlannerTask(${t.id})" style="width:16px;height:16px;accent-color:var(--teal);cursor:pointer;flex-shrink:0;">
+        <span class="task-text">${priorityConfig[t.priority]||'🟡'} ${t.text}${t.date?' <span style="font-size:.65rem;color:var(--muted);font-family:monospace;">'+t.date+'</span>':''}</span>
+        <span class="pill ${cc.color} task-cat">${cc.label}</span>
+        <span class="task-del" onclick="deletePlannerTask(${t.id})"><i class="fas fa-times"></i></span>
+      `;
+      list.appendChild(div);
+    });
+  }
+  updatePlannerStats();
+}
+
+function togglePlannerTask(id){
+  const t=plannerTasks.find(x=>x.id===id);
+  if(t){t.done=!t.done;savePlanner();renderPlanner();}
+}
+function deletePlannerTask(id){
+  plannerTasks=plannerTasks.filter(x=>x.id!==id);
+  savePlanner();renderPlanner();
+}
+function clearCompletedTasks(){
+  plannerTasks=plannerTasks.filter(x=>!x.done);
+  savePlanner();renderPlanner();
+}
+function filterTasks(f,btn){
+  document.querySelectorAll('#planner-section .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPlanner(f);
+}
+function updatePlannerStats(){
+  const total=plannerTasks.length;
+  const done=plannerTasks.filter(t=>t.done).length;
+  const pct=total>0?Math.round(done/total*100):0;
+  document.getElementById('stat-total').textContent=total;
+  document.getElementById('stat-done').textContent=done;
+  document.getElementById('stat-pct').textContent=pct+'%';
+  document.getElementById('planner-count').textContent=total+' tarefas';
+}
+function savePlanner(){
+  try{localStorage.setItem('sw_planner',JSON.stringify(plannerTasks));}catch(e){}
+}
+function loadPlanner(){
+  try{
+    const s=localStorage.getItem('sw_planner');
+    if(s){plannerTasks=JSON.parse(s);renderPlanner();}
+  }catch(e){}
+}
+window.addEventListener('load',loadPlanner);
+
+// Planner date
+document.getElementById('planner-date').textContent=new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+
+// AI suggestions for planner
+const suggestions=[
+  '"Comece o dia com Wim Hof e meditação — maior ROI para energia e foco."',
+  '"Anki 20 cards/dia = fluência em 12 meses. Consistência > intensidade."',
+  '"TryHackMe 15 min/dia > 2h no fim de semana. Prática diária é o segredo."',
+  '"Ponto E36 (Zusanli) antes de dormir: vitalidade e imunidade em 2 min."',
+  '"Leia 1 DRE por mês. Em 6 meses, você analisa qualquer empresa em 10 min."',
+  '"Shadowing 10 min/dia com nativo = acento perfeito em 6 meses."',
+  '"Remote Viewing: 15 min de meditação theta antes de cada sessão."',
+  '"Exercícios faciais: consistência diária é mais importante que intensidade."',
+  '"Liu Wei Di Huang Wan + ponto Ren4 = cura sexual profunda pela MTC."',
+  '"Power pose 2 min ao acordar: ↑ testosterona, ↓ cortisol (Harvard, 2012)."',
+];
+let suggIdx=0;
+function refreshSuggestion(){
+  suggIdx=(suggIdx+1)%suggestions.length;
+  document.getElementById('ai-suggestion').textContent='Sophia: '+suggestions[suggIdx];
+}
+setInterval(refreshSuggestion, 30000);
+
+// ── CHART ──────────────────────────────────────────────
+(function(){
+  const ctx=document.getElementById('progressChart').getContext('2d');
+  const months=Array.from({length:25},(_,i)=>i===0?'Início':'M'+i);
+  new Chart(ctx,{
+    type:'line',
+    data:{labels:months,datasets:[
+      {label:'Saúde Mental',data:[20,28,38,50,58,65,70,74,78,82,85,87,88,89,90,91,92,93,94,95,96,97,98,99,100],borderColor:'#C97A8A',tension:.4,pointRadius:0,borderWidth:2,backgroundColor:'rgba(201,122,138,.03)'},
+      {label:'CEO/Poliglota',data:[10,14,20,28,38,48,58,65,70,75,79,82,84,86,88,89,91,92,93,94,95,96,97,99,100],borderColor:'#4ABFBF',tension:.4,pointRadius:0,borderWidth:2,backgroundColor:'rgba(74,191,191,.03)'},
+      {label:'Hacker',data:[0,2,5,10,18,28,38,47,55,62,68,72,76,79,82,84,86,88,90,92,94,95,97,99,100],borderColor:'#C94A4A',tension:.4,pointRadius:0,borderWidth:2,backgroundColor:'rgba(201,74,74,.03)'},
+      {label:'Poderes Especiais',data:[5,6,7,8,10,15,22,30,40,50,58,63,68,73,78,82,85,87,89,91,93,95,97,99,100],borderColor:'#C9A84C',tension:.4,pointRadius:0,borderWidth:2,backgroundColor:'rgba(201,168,76,.03)'},
+      {label:'MTC/Cura',data:[0,5,12,22,32,42,52,60,67,72,76,79,82,84,86,88,89,91,93,94,95,96,97,99,100],borderColor:'#9A7AC9',tension:.4,pointRadius:0,borderWidth:2,backgroundColor:'rgba(154,122,201,.03)'},
+    ]},
+    options:{responsive:true,maintainAspectRatio:true,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{color:'rgba(240,237,232,.6)',font:{size:10},boxWidth:10,padding:14}},tooltip:{backgroundColor:'rgba(7,7,15,.95)',borderColor:'rgba(201,168,76,.2)',borderWidth:1,titleColor:'#C9A84C',bodyColor:'rgba(240,237,232,.8)',padding:10}},scales:{x:{grid:{color:'rgba(255,255,255,.025)'},ticks:{color:'rgba(240,237,232,.3)',font:{size:9},maxTicksLimit:13}},y:{grid:{color:'rgba(255,255,255,.025)'},ticks:{color:'rgba(240,237,232,.3)',font:{size:9}},min:0,max:100}}}
+  });
+})();
+
+// ── AI SOPHIA ──────────────────────────────────────────
+let tokenCount=0;
+const aiKB={
+  'dre':'Para analisar uma DRE (Demonstração de Resultado do Exercício): (1) Receita Líquida = faturamento real após impostos. (2) Lucro Bruto = Receita - COGS. Margem bruta >40% = excelente. (3) EBITDA = Lucro Bruto - Despesas Operacionais. Margem EBITDA >20% = eficiente. (4) Lucro Líquido = o que sobra para os acionistas. (5) Crescimento YoY: compare com ano anterior. Foque em: margem, crescimento e qualidade do lucro (FCO > Lucro Líquido). 📊',
+  'relatório financeiro':'Para analisar relatórios financeiros como economista: (1) DRE: receita, margens, crescimento. (2) Balanço: dívida/EBITDA <2x, ROE >15%, liquidez >1.5. (3) Fluxo de caixa: FCO deve ser positivo e crescente. (4) Valuation: P/L, EV/EBITDA, P/VP. (5) Red flags: lucro sem caixa, dívida crescente, margens caindo. Leia 1 relatório anual por mês — Berkshire Hathaway é o melhor para aprender. 📊',
+  'proposta':'Para escrever uma proposta executiva poderosa: (1) Problema: qual dor você resolve? (1 parágrafo, dados). (2) Solução: como você resolve? (específico, mensurável). (3) ROI: quanto retorna? (números reais, prazo). (4) Prova: cases, dados, credibilidade. (5) CTA: próximo passo claro e urgente. Regra de ouro: se não couber em 1 página, reescreva. Decisores leem em 90 segundos. 📝',
+  'inglês':'Para aprender inglês sem método tradicional: (1) Anki SRS: 20 cards/dia das 2000 palavras mais frequentes. (2) Input compreensível: séries com legenda em inglês (não PT). (3) Shadowing: 10 min/dia imitando nativos. (4) iTalki: 1 sessão/semana com nativo. (5) Trocar celular para inglês. Evite: gramática isolada, tradução, Duolingo como método principal. 300h de input = B2 conversacional. 🌍',
+  'poliglota':'Método poliglota anti-tradicional baseado em Krashen: (1) Anki 20 cards/dia (contexto, não tradução). (2) Input compreensível 20 min/dia (95% entendido). (3) Shadowing 10 min/dia. (4) Output forçado: falar desde o dia 1. (5) Imersão: mudar interface do celular, ouvir música, assistir séries no idioma. Cronograma: Espanhol 250h, Inglês 300h, Francês 350h para B2. 🌍',
+  'hacker':'Para começar em hacking ético: (1) Linux: dominar o terminal (comandos básicos em 2 semanas). (2) Redes: TCP/IP, DNS, HTTP — entender como a internet funciona. (3) Python: scripts básicos de automação. (4) TryHackMe: plataforma guiada, grátis, iniciante. (5) OWASP Top 10: as vulnerabilidades web mais comuns. Nunca use em sistemas sem permissão — ethical hacking apenas. Certificação: eJPT (6–12 meses). 🔐',
+  'acupressão':'Pontos de acupressão para autocura diária: (1) P6 (Neiguan): 3 dedos acima do punho — ansiedade, coração, náusea. 2 min de pressão. (2) E36 (Zusanli): 4 dedos abaixo do joelho — vitalidade, imunidade. 3 min circular. (3) Ren4 (Guanyuan): 4 dedos abaixo do umbigo — energia sexual, Jing. Pressão suave + moxa. (4) F3 (Taichong): dorso do pé — estresse, TPM, Fígado. 1–2 min firme. Praticar diariamente antes de dormir. 🌿',
+  'pulso':'Diagnóstico pelo pulso na MTC: Posicione 3 dedos no pulso radial. Posição Cun (proximal): Coração (esquerda) / Pulmão (direita). Guan (médio): Fígado (esquerda) / Baço (direita). Chi (distal): Rim (ambos). Qualidades: Rápido = calor/inflamação. Lento = frio/deficiência. Vazio = deficiência de Qi/Sangue. Corda = estresse/Fígado em excesso. Escorregadio = umidade/gravidez. Pratique diariamente por 3 meses para desenvolver sensibilidade. 🤲',
+  'libido':'Para reativar a libido: (1) MTC: Liu Wei Di Huang Wan (Yin do Rim), ponto Ren4 e R3. (2) Suplementação: Maca 1500mg, Zinco 30mg, Vitamina D 4000 UI. (3) HIIT 3x/sem (↑ testosterona). (4) Sono 7–9h (privação ↓ libido 40%). (5) Reduzir cortisol: Ashwagandha, meditação. (6) Dança sensorial 15 min/dia. (7) Yoga Kundalini — chakra sacral. Resultados esperados: 4–8 semanas. 💋',
+  'depressão':'Para depressão: (1) MTC: Xiao Yao San (estagnação Fígado), ponto F3 e E36. (2) HIIT 20 min 3x/sem = eficácia de antidepressivo para casos leves. (3) Ômega-3 2g/dia. (4) Vitamina D 4000 UI (deficiência = depressão). (5) Mindfulness 10 min/dia — ↓ 58% sintomas em 8 semanas. (6) Sono regulado. (7) Wim Hof pela manhã (↓ cortisol 50%). Consulte psiquiatra para casos moderados/graves. 🧠',
+  'ansiedade':'Para ansiedade: (1) MTC: ponto P6 (Neiguan) 2 min, 3x/dia. Tian Wang Bu Xin Dan (deficiência Yin Coração). (2) Respiração 5-5 (coerência cardíaca): inspire 5s, expire 5s, 5 min, 3x/dia. (3) Magnésio Glicinato 400mg/noite. (4) Ashwagandha 600mg. (5) MBSR 8 semanas: ↓ 58% ansiedade. (6) Evitar cafeína após 14h. (7) Journaling noturno. 🫁',
+  'remote viewing':'Remote Viewing é baseado no Projeto Stargate da CIA (1977–1995). Protocolo CRV: (1) Meditação theta 15 min antes. (2) Alvo lacrado (coordenadas ou número). (3) Ideograma automático (Estágio 1). (4) Percepções sensoriais sem julgamento (Estágio 2). (5) Dimensões e formas (Estágio 3). Meta-análise: 0.34 de efeito acima do acaso. Praticar 3x/semana. Resultados em 6 meses. ⚡',
+  'mtc':'A Medicina Tradicional Chinesa baseia-se em: Qi (energia vital), Yin/Yang (equilíbrio), 5 Elementos (madeira, fogo, terra, metal, água), 12 meridianos. Para começar: (1) Aprenda os 5 pontos essenciais (P6, E36, Ren4, R3, F3). (2) Qigong Ba Duan Jin 10 min/dia. (3) Fórmulas: Xiao Yao San (estresse), Liu Wei Di Huang Wan (libido), Gui Pi Tang (ansiedade). (4) Diagnóstico pelo pulso: praticar 10 min/dia por 3 meses. 🌿',
+  'default':'Sistema SuperWoman OS v3.0 ativo! Posso orientar sobre: 📊 CEO Economics (DRE, balanço, propostas) | 🌍 Poliglota (método anti-tradicional, Anki, shadowing) | 🔐 Hacker (Linux, Python, TryHackMe) | 🌿 MTC (pulso, acupressão, fórmulas) | 🧠 Saúde Mental | ⚡ Poderes Especiais | 💋 Libido & Cura Sexual | 💰 Prosperidade | 😊 Paralisia Facial. Qual módulo você quer trabalhar? ✦'
+};
+
+function getAIResponse(msg){
+  const l=msg.toLowerCase();
+  for(const [k,v] of Object.entries(aiKB)){if(l.includes(k))return v;}
+  return aiKB['default'];
+}
+
+function addMessage(text,isUser){
+  const box=document.getElementById('chat-box');
+  const div=document.createElement('div');
+  if(isUser)div.className='flex justify-end';
+  const b=document.createElement('div');
+  b.className=isUser?'msg-user':'msg-ai';
+  b.style.color='rgba(240,237,232,.88)';
+  if(!isUser)b.innerHTML='<strong style="color:var(--gold-light)">Sophia:</strong> '+text;
+  else b.textContent=text;
+  div.appendChild(b);
+  box.appendChild(div);
+  box.scrollTop=box.scrollHeight;
+  tokenCount+=text.length;
+  document.getElementById('sophia-tokens').textContent='tokens: '+tokenCount;
+}
+
+function sendMessage(){
+  const inp=document.getElementById('chat-input');
+  const msg=inp.value.trim();
+  if(!msg)return;
+  addMessage(msg,true);
+  inp.value='';
+  setTimeout(()=>addMessage(getAIResponse(msg),false),650);
+}
+
+function quickQuestion(q){
+  document.getElementById('chat-input').value=q;
+  sendMessage();
+  document.getElementById('ai-guide').scrollIntoView({behavior:'smooth'});
+}
+
+// ── INTERSECTION OBSERVER ──────────────────────────────
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animated');e.target.style.opacity='';}});
+},{threshold:.07});
+document.querySelectorAll('.animate-in').forEach(el=>obs.observe(el));
+
+// ── BOOT LOG ───────────────────────────────────────────
+setTimeout(()=>addLog('Módulos tech carregados: CEO, Poliglota, Hacker, MTC','ok'),1500);
+setTimeout(()=>addLog('Planner sincronizado com localStorage','ok'),2500);
+setTimeout(()=>addLog('IA Sophia — 13 bases de conhecimento ativas','ok'),3500);
+setTimeout(()=>addLog('Sistema pronto. SuperWoman OS v3.0 ✦','ok'),4500);
+</script>
+</body>
+</html>

@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Gap Analysis — Repositórios GitHub vs. Literatura Científica</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Gap Analysis — Repositórios GitHub vs. Literatura Científica</h1>
+</header>
+<h1 id="análise-de-lacunas-gap-analysis">ANÁLISE DE LACUNAS (GAP ANALYSIS)</h1>
+<h2 id="repositórios-github-vs.-literatura-científica">Repositórios GitHub vs. Literatura Científica</h2>
+<hr />
+<p><strong>Autora dos Repositórios:</strong> Luana Pessoa (luhpessoa33-coder)<br />
+<strong>Instituição:</strong> Instituto Federal de Pernambuco (IFPE)<br />
+<strong>Data:</strong> Maio de 2026<br />
+<strong>Tipo de Documento:</strong> Relatório Técnico-Científico</p>
+<hr />
+<h3 id="repositórios-analisados">Repositórios Analisados</h3>
+<ol type="1">
+<li><p><strong>formatador-abnt</strong> – OmniEditor Diamond Sovereign<br />
+Editor acadêmico com busca federada, IA orientadora e formatação ABNT/APA</p></li>
+<li><p><strong>psa-hidrico-ipojuca</strong> – PSA Hídrico Ipojuca<br />
+Plataforma de análise multicritério (AHP) para Pagamento por Serviços Ambientais na Bacia do Rio Ipojuca</p></li>
+</ol>
+<hr />
+<h3 id="corpus-científico-de-referência">Corpus Científico de Referência</h3>
+<ul>
+<li><strong>PSA/AHP:</strong> 71 artigos científicos únicos (2018–2026) sobre Pagamento por Serviços Ambientais, Analytic Hierarchy Process, bacias hidrográficas no Brasil</li>
+<li><strong>ABNT/Ferramentas Acadêmicas:</strong> 92 artigos científicos únicos (2018–2026) sobre ferramentas de escrita acadêmica, inteligência artificial, citação, busca federada</li>
+</ul>
+<hr />
+<div style="page-break-after: always;">
+
+</div>
+<h1 id="sumário-executivo">SUMÁRIO EXECUTIVO</h1>
+<p>Este relatório apresenta uma análise sistemática de lacunas (<em>gap analysis</em>) entre dois repositórios GitHub desenvolvidos pela pesquisadora Luana Pessoa e as melhores práticas científicas identificadas em 163 artigos revisados por pares. O objetivo é fornecer recomendações priorizadas para alinhar as implementações técnicas aos padrões metodológicos, éticos e de transparência exigidos pela literatura científica contemporânea.</p>
+<h2 id="contexto">Contexto</h2>
+<p>Os repositórios analisados representam ferramentas digitais para suporte à pesquisa acadêmica e gestão ambiental:</p>
+<ol type="1">
+<li><p><strong>OmniEditor Diamond Sovereign (formatador-abnt):</strong> plataforma web de edição acadêmica que integra formatação automática ABNT/APA, busca federada em bases científicas e assistente de IA para orientação metodológica.</p></li>
+<li><p><strong>PSA Hídrico Ipojuca (psa-hidrico-ipojuca):</strong> sistema de priorização espacial para Pagamento por Serviços Ambientais hídricos na Bacia do Rio Ipojuca, utilizando o método AHP (<em>Analytic Hierarchy Process</em>) para ranqueamento multicritério de áreas prioritárias.</p></li>
+</ol>
+<h2 id="principais-achados">Principais Achados</h2>
+<h3 id="repositório-psa-hídrico-ipojuca">Repositório PSA Hídrico Ipojuca</h3>
+<p>A análise identificou <strong>seis lacunas críticas</strong> entre a implementação atual e os requisitos metodológicos estabelecidos pela literatura científica sobre sistemas AHP para PSA:</p>
+<ol type="1">
+<li><p><strong>Pesos AHP fixos e não documentados:</strong> os pesos dos critérios estão codificados diretamente no código-fonte (<code>[0.407, 0.251, 0.146, 0.132, 0.065]</code>) sem documentação do processo de elicitação, violando princípios de reprodutibilidade e transparência científica.</p></li>
+<li><p><strong>Ausência de validação empírica:</strong> não há integração com dados de monitoramento quali-quantitativo de recursos hídricos (turbidez, sólidos suspensos, oxigênio dissolvido, nutrientes) para validar se as áreas priorizadas efetivamente geram os serviços ambientais esperados.</p></li>
+<li><p><strong>Falta de análise de sensibilidade:</strong> o sistema não permite avaliar como variações nos pesos ou nos dados de entrada afetam o ranqueamento final, comprometendo a robustez das decisões.</p></li>
+<li><p><strong>Vulnerabilidade crítica de segurança:</strong> credenciais de administrador estão codificadas diretamente no código-fonte (<code>user='luanapessoa', pass='psa2026-ifpe'</code>), representando risco grave de acesso não autorizado.</p></li>
+<li><p><strong>Proveniência de dados não rastreável:</strong> não há documentação sobre a origem, data de coleta e metodologia de obtenção das camadas geoespaciais utilizadas no ranqueamento.</p></li>
+<li><p><strong>Ausência de integração temporal:</strong> o sistema utiliza dados estáticos sem capacidade de incorporar séries temporais hidrológicas ou de qualidade da água para análises dinâmicas.</p></li>
+</ol>
+<h3 id="repositório-omnieditor-diamond-sovereign">Repositório OmniEditor Diamond Sovereign</h3>
+<p>A análise identificou <strong>sete lacunas principais</strong> entre a implementação atual e as recomendações científicas para ferramentas de escrita acadêmica assistidas por IA:</p>
+<ol type="1">
+<li><p><strong>Proveniência de sugestões de IA não rastreável:</strong> o sistema não registra logs auditáveis das sugestões geradas pela IA, impedindo reprodutibilidade e verificação de fontes.</p></li>
+<li><p><strong>Busca federada não verdadeiramente federada:</strong> embora o sistema afirme conectar-se a “20+ bases mundiais”, não há evidências de integração via APIs oficiais com indexadores como CrossRef, PubMed, Scopus ou bases brasileiras (BDTD, Portal CAPES).</p></li>
+<li><p><strong>Falta de verificação de alucinações:</strong> não há mecanismos automatizados para detectar e alertar sobre afirmações não fundamentadas ou citações fabricadas pela IA.</p></li>
+<li><p><strong>Suporte ABNT incompleto:</strong> a implementação de formatação ABNT não foi validada contra exemplos oficiais da ABNT NBR 6023:2018 e NBR 10520:2023, podendo gerar inconsistências em casos complexos (múltiplos autores, obras sem data, documentos eletrônicos).</p></li>
+<li><p><strong>Ausência de divulgação obrigatória de uso de IA:</strong> o sistema não inclui mecanismos para auxiliar autores a declarar explicitamente o uso de IA nos manuscritos, conforme recomendado por diretrizes editoriais internacionais.</p></li>
+<li><p><strong>Falta de interoperabilidade:</strong> não há suporte para exportação/importação de bibliotecas em formatos padrão (BibTeX, RIS, EndNote XML) ou integração com gerenciadores de referências consolidados (Zotero, Mendeley).</p></li>
+<li><p><strong>Ausência de pedagogia crítica:</strong> o sistema não oferece treinamento integrado ou <em>prompts</em> educacionais para desenvolver letramento crítico em IA, podendo induzir dependência acrítica das sugestões automatizadas.</p></li>
+</ol>
+<h2 id="impacto-e-recomendações">Impacto e Recomendações</h2>
+<p>As lacunas identificadas comprometem a <strong>validade científica</strong>, <strong>reprodutibilidade</strong>, <strong>segurança</strong> e <strong>conformidade ética</strong> das ferramentas. Este relatório apresenta <strong>13 recomendações priorizadas</strong> (6 para PSA Hídrico, 7 para OmniEditor) organizadas por criticidade (Alta, Média, Baixa) e esforço de implementação, com roteiros técnicos detalhados para cada intervenção.</p>
+<p>A implementação das recomendações de <strong>criticidade alta</strong> (pesos AHP elicitados, credenciais seguras, proveniência de IA, verificação de alucinações) é essencial para viabilizar o uso científico e institucional das plataformas. As recomendações de <strong>criticidade média e baixa</strong> ampliam a robustez metodológica e a conformidade com padrões internacionais.</p>
+<hr />
+<div style="page-break-after: always;">
+
+</div>
+<h1 id="índice">ÍNDICE</h1>
+<ol type="1">
+<li><p><a href="#1-introdução">INTRODUÇÃO</a><br />
+1.1. <a href="#11-contexto-e-objetivos">Contexto e Objetivos</a><br />
+1.2. <a href="#12-metodologia-da-análise">Metodologia da Análise</a><br />
+1.3. <a href="#13-estrutura-do-relatório">Estrutura do Relatório</a></p></li>
+<li><p><a href="#2-repositório-1-psa-hídrico-ipojuca">REPOSITÓRIO 1: PSA HÍDRICO IPOJUCA</a><br />
+2.1. <a href="#21-descrição-técnica">Descrição Técnica</a><br />
+2.2. <a href="#22-requisitos-científicos-para-sistemas-ahp-psa">Requisitos Científicos para Sistemas AHP-PSA</a><br />
+2.3. <a href="#23-análise-de-lacunas">Análise de Lacunas</a><br />
+2.4. <a href="#24-tabela-consolidada-de-lacunas">Tabela Consolidada de Lacunas</a></p></li>
+<li><p><a href="#3-repositório-2-omnieditor-diamond-sovereign">REPOSITÓRIO 2: OMNIEDITOR DIAMOND SOVEREIGN</a><br />
+3.1. <a href="#31-descrição-técnica">Descrição Técnica</a><br />
+3.2. <a href="#32-requisitos-científicos-para-ferramentas-acadêmicas-com-ia">Requisitos Científicos para Ferramentas Acadêmicas com IA</a><br />
+3.3. <a href="#33-análise-de-lacunas">Análise de Lacunas</a><br />
+3.4. <a href="#34-tabela-consolidada-de-lacunas">Tabela Consolidada de Lacunas</a></p></li>
+<li><p><a href="#4-recomendações-priorizadas">RECOMENDAÇÕES PRIORIZADAS</a><br />
+4.1. <a href="#41-critérios-de-priorização">Critérios de Priorização</a><br />
+4.2. <a href="#42-recomendações-para-psa-hídrico-ipojuca">Recomendações para PSA Hídrico Ipojuca</a><br />
+4.3. <a href="#43-recomendações-para-omnieditor-diamond-sovereign">Recomendações para OmniEditor Diamond Sovereign</a><br />
+4.4. <a href="#44-roadmap-de-implementação">Roadmap de Implementação</a></p></li>
+<li><p><a href="#5-discussão">DISCUSSÃO</a><br />
+5.1. <a href="#51-implicações-para-validade-científica">Implicações para Validade Científica</a><br />
+5.2. <a href="#52-conformidade-ética-e-regulatória">Conformidade Ética e Regulatória</a><br />
+5.3. <a href="#53-limitações-da-análise">Limitações da Análise</a></p></li>
+<li><p><a href="#6-conclusão">CONCLUSÃO</a></p></li>
+<li><p><a href="#7-referências">REFERÊNCIAS</a></p></li>
+</ol>
+<hr />
+<div style="page-break-after: always;">
+
+</div>
+<h1 id="introdução">1. INTRODUÇÃO</h1>
+<h2 id="contexto-e-objetivos">1.1. Contexto e Objetivos</h2>
+<p>A crescente digitalização da pesquisa científica e da gestão ambiental tem impulsionado o desenvolvimento de ferramentas computacionais especializadas. No entanto, a literatura científica contemporânea alerta para lacunas recorrentes entre implementações técnicas e requisitos metodológicos, éticos e de transparência estabelecidos por padrões acadêmicos [1], [2], [3].</p>
+<p>Este relatório apresenta uma análise sistemática de lacunas (<em>gap analysis</em>) entre dois repositórios GitHub desenvolvidos pela pesquisadora Luana Pessoa (luhpessoa33-coder) no contexto do Instituto Federal de Pernambuco (IFPE) e as melhores práticas identificadas em 163 artigos científicos revisados por pares publicados entre 2018 e 2026.</p>
+<h3 id="objetivos-específicos">Objetivos Específicos</h3>
+<ol type="1">
+<li><p><strong>Identificar lacunas metodológicas, técnicas e éticas</strong> entre as implementações atuais e os requisitos científicos estabelecidos pela literatura.</p></li>
+<li><p><strong>Quantificar e classificar</strong> as lacunas por criticidade, impacto científico e esforço de implementação.</p></li>
+<li><p><strong>Fornecer recomendações priorizadas</strong> com roteiros técnicos detalhados para alinhamento às melhores práticas científicas.</p></li>
+<li><p><strong>Contribuir para a melhoria contínua</strong> das ferramentas, ampliando sua validade científica, reprodutibilidade e conformidade ética.</p></li>
+</ol>
+<h2 id="metodologia-da-análise">1.2. Metodologia da Análise</h2>
+<p>A análise foi conduzida em quatro etapas:</p>
+<h3 id="etapa-1-extração-e-documentação-do-código-fonte">Etapa 1: Extração e Documentação do Código-Fonte</h3>
+<p>Todos os arquivos de código-fonte dos dois repositórios foram baixados e analisados via GitHub API. Para o repositório <strong>psa-hidrico-ipojuca</strong>, foram examinados 11 arquivos (HTML, CSS, JavaScript) totalizando aproximadamente 30 KB de código. Para o repositório <strong>formatador-abnt</strong>, foram analisados os arquivos principais de interface, lógica de IA, busca federada e formatação ABNT/APA.</p>
+<h3 id="etapa-2-revisão-sistemática-da-literatura">Etapa 2: Revisão Sistemática da Literatura</h3>
+<p>Foram coletados e analisados:</p>
+<ul>
+<li><p><strong>71 artigos científicos</strong> sobre Pagamento por Serviços Ambientais (PSA), Analytic Hierarchy Process (AHP), gestão de bacias hidrográficas e sistemas de priorização espacial.</p></li>
+<li><p><strong>92 artigos científicos</strong> sobre ferramentas de escrita acadêmica, inteligência artificial generativa, gestão de citações, busca federada e ética em IA.</p></li>
+</ul>
+<p>Os artigos foram indexados e categorizados por temas metodológicos (elicitação de pesos AHP, monitoramento de serviços ambientais, proveniência de IA, verificação de alucinações, interoperabilidade de ferramentas acadêmicas).</p>
+<h3 id="etapa-3-mapeamento-de-requisitos-científicos">Etapa 3: Mapeamento de Requisitos Científicos</h3>
+<p>Para cada repositório, foram extraídos requisitos científicos explícitos e implícitos da literatura, organizados em categorias:</p>
+<ul>
+<li><p><strong>PSA Hídrico:</strong> seleção de indicadores, elicitação de pesos, verificação de consistência, integração espacial, monitoramento de resultados, validação empírica, transparência de dados.</p></li>
+<li><p><strong>OmniEditor:</strong> proveniência e auditoria, controle humano, transparência de modelos, privacidade, interoperabilidade, validação de citações, busca federada, pedagogia crítica, divulgação de uso de IA.</p></li>
+</ul>
+<h3 id="etapa-4-identificação-e-classificação-de-lacunas">Etapa 4: Identificação e Classificação de Lacunas</h3>
+<p>Cada requisito científico foi confrontado com a implementação atual dos repositórios. As lacunas identificadas foram classificadas em três dimensões:</p>
+<ol type="1">
+<li><p><strong>Criticidade:</strong> Alta (compromete validade científica ou segurança), Média (reduz robustez ou conformidade), Baixa (melhoria incremental).</p></li>
+<li><p><strong>Impacto Científico:</strong> Reprodutibilidade, Validade, Transparência, Ética, Segurança.</p></li>
+<li><p><strong>Esforço de Implementação:</strong> Baixo (&lt; 1 semana), Médio (1–4 semanas), Alto (&gt; 1 mês).</p></li>
+</ol>
+<h2 id="estrutura-do-relatório">1.3. Estrutura do Relatório</h2>
+<p>O relatório está organizado em sete seções principais:</p>
+<ul>
+<li><p><strong>Seções 2 e 3</strong> apresentam análises detalhadas de cada repositório, incluindo descrição técnica, requisitos científicos, identificação de lacunas e tabelas consolidadas.</p></li>
+<li><p><strong>Seção 4</strong> apresenta recomendações priorizadas com roteiros técnicos para implementação.</p></li>
+<li><p><strong>Seção 5</strong> discute implicações para validade científica, conformidade ética e limitações da análise.</p></li>
+<li><p><strong>Seção 6</strong> sintetiza conclusões e próximos passos.</p></li>
+<li><p><strong>Seção 7</strong> lista todas as referências científicas citadas.</p></li>
+</ul>
+<hr />
+<div style="page-break-after: always;">
+
+</div>
+<h1 id="repositório-1-psa-hídrico-ipojuca">2. REPOSITÓRIO 1: PSA HÍDRICO IPOJUCA</h1>
+<h2 id="descrição-técnica">2.1. Descrição Técnica</h2>
+<h3 id="visão-geral">Visão Geral</h3>
+<p>O repositório <strong>psa-hidrico-ipojuca</strong> implementa uma plataforma web para priorização espacial de áreas elegíveis a Pagamento por Serviços Ambientais (PSA) hídricos na Bacia do Rio Ipojuca, Pernambuco. A ferramenta utiliza o método AHP (<em>Analytic Hierarchy Process</em>) para ranqueamento multicritério de parcelas territoriais com base em indicadores ambientais e socioeconômicos.</p>
+<h3 id="arquitetura-técnica">Arquitetura Técnica</h3>
+<ul>
+<li><strong>Frontend:</strong> HTML5, CSS3, JavaScript vanilla (sem frameworks)</li>
+<li><strong>Visualização Espacial:</strong> Leaflet.js + camadas WMS do MapBiomas</li>
+<li><strong>Motor de Decisão:</strong> Implementação customizada do AHP em JavaScript puro</li>
+<li><strong>Armazenamento:</strong> LocalStorage (client-side)</li>
+<li><strong>Deployment:</strong> GitHub Pages via GitHub Actions</li>
+</ul>
+<h3 id="componentes-principais">Componentes Principais</h3>
+<ol type="1">
+<li><p><strong>ahp-engine.js (2.935 bytes):</strong> implementa o cálculo AHP com pesos fixos codificados <code>[0.407, 0.251, 0.146, 0.132, 0.065]</code> e índice de consistência <code>CI = 0.042</code>.</p></li>
+<li><p><strong>psa-engine.js (920 bytes):</strong> integra mapa Leaflet com camadas WMS do MapBiomas para visualização de uso do solo e cobertura vegetal.</p></li>
+<li><p><strong>data-stats.js (1.811 bytes):</strong> processa arquivos CSV com dados de parcelas, calcula escores ponderados e gera ranqueamento final.</p></li>
+<li><p><strong>manual-engine.js (3.501 bytes):</strong> gera relatórios técnicos em formato ABNT com metodologia, resultados e mapas.</p></li>
+<li><p><strong>gov-admin.js (3.975 bytes):</strong> painel administrativo com credenciais codificadas (<code>user='luanapessoa', pass='psa2026-ifpe'</code>).</p></li>
+</ol>
+<h3 id="fluxo-de-trabalho">Fluxo de Trabalho</h3>
+<ol type="1">
+<li>Usuário carrega arquivo CSV com dados de parcelas (coordenadas, área, indicadores ambientais).</li>
+<li>Sistema aplica pesos AHP fixos aos indicadores normalizados.</li>
+<li>Calcula escore agregado para cada parcela: <code>Escore = Σ(peso_i × indicador_normalizado_i)</code>.</li>
+<li>Gera ranqueamento decrescente e visualiza no mapa.</li>
+<li>Exporta relatório técnico em formato ABNT.</li>
+</ol>
+<h2 id="requisitos-científicos-para-sistemas-ahp-psa">2.2. Requisitos Científicos para Sistemas AHP-PSA</h2>
+<p>A literatura científica sobre sistemas de priorização AHP para Pagamento por Serviços Ambientais estabelece requisitos metodológicos rigorosos para garantir validade, reprodutibilidade e efetividade das decisões de alocação de recursos.</p>
+<h3 id="seleção-e-justificação-de-indicadores">2.2.1. Seleção e Justificação de Indicadores</h3>
+<p>Indicadores devem ser selecionados com base em critérios explícitos de <strong>clareza, viabilidade, sensibilidade e relevância</strong> para garantir que métricas escolhidas rastreiem funções ecossistêmicas e sejam praticáveis para monitoramento [1]. A seleção deve ser documentada e justificada em relação aos serviços ambientais-alvo (e.g., regulação hídrica, controle de erosão, manutenção de qualidade da água).</p>
+<h3 id="elicitação-documentada-de-pesos">2.2.2. Elicitação Documentada de Pesos</h3>
+<p>Pesos de critérios devem ser elicitados por meio de métodos estruturados e reprodutíveis, como painéis de especialistas ou técnica Delphi, em vez de julgamentos ad hoc [2]. A literatura exige documentação completa do processo de elicitação, incluindo perfil dos especialistas, protocolo de consulta e justificativa para os pesos finais.</p>
+<h3 id="verificação-de-consistência-e-consenso">2.2.3. Verificação de Consistência e Consenso</h3>
+<p>Julgamentos pareados no AHP devem ser submetidos a verificação de consistência (índice de consistência CI &lt; 0.10) e, em contextos de múltiplos especialistas, análise de consenso deve ser reportada (e.g., percentual de concordância, coeficiente de variação) [3]. Esses indicadores validam a qualidade dos pesos derivados.</p>
+<h3 id="integração-espacial-com-dados-georreferenciados">2.2.4. Integração Espacial com Dados Georreferenciados</h3>
+<p>Critérios ponderados devem ser integrados com camadas GIS de alta resolução (uso do solo, declividade, proximidade a cursos d’água, erodibilidade do solo, balanço hídrico) para mapear parcelas prioritárias e informar pagamentos [4], [5]. A proveniência, resolução espacial e data de coleta de cada camada devem ser documentadas.</p>
+<h3 id="monitoramento-de-resultados-e-adicionalidade">2.2.5. Monitoramento de Resultados e Adicionalidade</h3>
+<p>Sistemas AHP-PSA devem vincular critérios e pesos a resultados mensuráveis (e.g., redução de sedimentos, melhoria de turbidez) e incluir planos de monitoramento para avaliar adicionalidade ambiental e custo-efetividade das intervenções [6]. Variáveis de monitoramento devem incluir parâmetros físico-químicos de qualidade da água (turbidez, sólidos suspensos totais, oxigênio dissolvido, DBO, nutrientes, coliformes) e métricas hidrológicas (vazão) quando relevantes ao serviço-alvo [9], [5].</p>
+<h3 id="validação-empírica-e-análise-de-sensibilidade">2.2.6. Validação Empírica e Análise de Sensibilidade</h3>
+<p>Plataformas devem incorporar validação pré/pós-intervenção (monitoramento de benefícios) para confirmar que áreas priorizadas efetivamente geraram melhorias ambientais esperadas [7]. Análises de sensibilidade devem avaliar como variações nos pesos ou dados de entrada afetam o ranqueamento, fortalecendo a robustez das decisões [8].</p>
+<h3 id="transparência-e-proveniência-de-dados">2.2.7. Transparência e Proveniência de Dados</h3>
+<p>Conjuntos de dados, camadas GIS, protocolos de elicitação de pesos, índices de consistência e registros de stakeholders devem ser publicados ou disponibilizados para auditoria e reprodução dos ranqueamentos [7], [8]. Documentação deve incluir metadados completos (fonte, data, metodologia de coleta, incertezas).</p>
+<h2 id="análise-de-lacunas">2.3. Análise de Lacunas</h2>
+<h3 id="lacuna-1-pesos-ahp-fixos-e-não-documentados">Lacuna 1: Pesos AHP Fixos e Não Documentados</h3>
+<p><strong>Descrição:</strong> Os pesos dos critérios AHP estão codificados diretamente no arquivo <code>ahp-engine.js</code> como um array fixo <code>[0.407, 0.251, 0.146, 0.132, 0.065]</code>, sem qualquer documentação sobre:</p>
+<ul>
+<li>Quais critérios correspondem a cada peso.</li>
+<li>Como os pesos foram derivados (painel de especialistas, Delphi, julgamento individual).</li>
+<li>Quem participou da elicitação (perfil, afiliação, expertise).</li>
+<li>Quando a elicitação foi realizada.</li>
+<li>Qual foi o protocolo de consulta utilizado.</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Elicitação documentada e reprodutível de pesos [2].</p>
+<p><strong>Impacto:</strong> Compromete a <strong>reprodutibilidade</strong> e <strong>transparência</strong> do sistema. Outros pesquisadores ou gestores não podem avaliar a validade dos pesos, replicar o processo ou adaptar a ferramenta para outros contextos. A ausência de documentação impede auditoria científica e institucional.</p>
+<p><strong>Criticidade:</strong> <strong>Alta</strong></p>
+<h3 id="lacuna-2-ausência-de-validação-empírica">Lacuna 2: Ausência de Validação Empírica</h3>
+<p><strong>Descrição:</strong> O sistema não integra dados de monitoramento de qualidade da água ou serviços ambientais para validar se as áreas priorizadas efetivamente geram os benefícios esperados. Não há:</p>
+<ul>
+<li>Coleta de dados de linha de base (baseline) antes da intervenção.</li>
+<li>Monitoramento pós-intervenção de parâmetros físico-químicos (turbidez, sólidos suspensos, oxigênio dissolvido, nutrientes).</li>
+<li>Análise estatística de adicionalidade ambiental.</li>
+<li>Comparação com áreas controle (não priorizadas).</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Monitoramento de resultados e adicionalidade [6], [7].</p>
+<p><strong>Impacto:</strong> Impossibilita avaliar a <strong>efetividade</strong> do sistema. Sem validação empírica, não há evidências de que o ranqueamento AHP efetivamente identifica áreas que maximizam serviços ambientais hídricos. Compromete a <strong>validade científica</strong> e a <strong>justificativa para alocação de recursos públicos</strong>.</p>
+<p><strong>Criticidade:</strong> <strong>Alta</strong></p>
+<h3 id="lacuna-3-falta-de-análise-de-sensibilidade">Lacuna 3: Falta de Análise de Sensibilidade</h3>
+<p><strong>Descrição:</strong> O sistema não oferece funcionalidade para análise de sensibilidade, impedindo avaliar como variações nos pesos ou nos dados de entrada afetam o ranqueamento final. Não é possível:</p>
+<ul>
+<li>Testar cenários alternativos de pesos.</li>
+<li>Identificar critérios mais influentes no ranqueamento.</li>
+<li>Avaliar robustez das decisões frente a incertezas nos dados.</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Análise de sensibilidade para robustez de decisões [8].</p>
+<p><strong>Impacto:</strong> Reduz a <strong>robustez</strong> das decisões. Gestores não podem avaliar a estabilidade do ranqueamento frente a incertezas ou preferências alternativas de stakeholders. Limita a <strong>confiança</strong> nas prioridades geradas.</p>
+<p><strong>Criticidade:</strong> <strong>Média</strong></p>
+<h3 id="lacuna-4-vulnerabilidade-crítica-de-segurança">Lacuna 4: Vulnerabilidade Crítica de Segurança</h3>
+<p><strong>Descrição:</strong> Credenciais de administrador estão codificadas diretamente no arquivo <code>gov-admin.js</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>user<span class="op">=</span><span class="st">&#39;luanapessoa&#39;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>pass<span class="op">=</span><span class="st">&#39;psa2026-ifpe&#39;</span></span></code></pre></div>
+<p>Qualquer pessoa com acesso ao código-fonte (repositório público no GitHub) pode obter as credenciais e acessar funcionalidades administrativas.</p>
+<p><strong>Requisito Científico Violado:</strong> Privacidade e governança de dados [3].</p>
+<p><strong>Impacto:</strong> Representa <strong>risco grave de segurança</strong>. Acesso não autorizado pode resultar em:</p>
+<ul>
+<li>Manipulação de dados de ranqueamento.</li>
+<li>Alteração de relatórios técnicos.</li>
+<li>Comprometimento de decisões de alocação de recursos.</li>
+<li>Violação de privacidade de dados de proprietários de terras.</li>
+</ul>
+<p><strong>Criticidade:</strong> <strong>Alta</strong></p>
+<h3 id="lacuna-5-proveniência-de-dados-não-rastreável">Lacuna 5: Proveniência de Dados Não Rastreável</h3>
+<p><strong>Descrição:</strong> Não há documentação sobre a origem, data de coleta, metodologia de obtenção e incertezas das camadas geoespaciais utilizadas no ranqueamento. O código referencia camadas WMS do MapBiomas, mas não especifica:</p>
+<ul>
+<li>Versão da coleção MapBiomas utilizada.</li>
+<li>Ano de referência dos dados de uso do solo.</li>
+<li>Resolução espacial e acurácia temática.</li>
+<li>Outras camadas utilizadas (declividade, solos, hidrografia).</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Transparência e proveniência de dados [7], [8].</p>
+<p><strong>Impacto:</strong> Compromete a <strong>reprodutibilidade</strong> e <strong>auditabilidade</strong>. Outros pesquisadores não podem replicar o ranqueamento ou avaliar a qualidade dos dados de entrada. Dificulta a <strong>atualização</strong> do sistema com dados mais recentes.</p>
+<p><strong>Criticidade:</strong> <strong>Média</strong></p>
+<h3 id="lacuna-6-ausência-de-integração-temporal">Lacuna 6: Ausência de Integração Temporal</h3>
+<p><strong>Descrição:</strong> O sistema utiliza dados estáticos sem capacidade de incorporar séries temporais hidrológicas ou de qualidade da água. Não há:</p>
+<ul>
+<li>Integração com estações fluviométricas ou pluviométricas.</li>
+<li>Análise de tendências temporais de serviços ambientais.</li>
+<li>Capacidade de atualização dinâmica do ranqueamento com novos dados.</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Integração de dados observacionais e avaliação estatística [8].</p>
+<p><strong>Impacto:</strong> Limita a capacidade de <strong>monitoramento adaptativo</strong> e <strong>avaliação de longo prazo</strong>. O sistema não pode detectar mudanças temporais em serviços ambientais ou ajustar prioridades dinamicamente.</p>
+<p><strong>Criticidade:</strong> <strong>Baixa</strong></p>
+<h2 id="tabela-consolidada-de-lacunas">2.4. Tabela Consolidada de Lacunas</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 12%" />
+<col style="width: 33%" />
+<col style="width: 14%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Lacuna</th>
+<th>Requisito Científico</th>
+<th>Impacto</th>
+<th>Criticidade</th>
+<th>Esforço</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Pesos AHP fixos e não documentados</td>
+<td>Elicitação documentada de pesos [2]</td>
+<td>Reprodutibilidade, Transparência</td>
+<td>Alta</td>
+<td>Médio</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Ausência de validação empírica</td>
+<td>Monitoramento de resultados [6], [7]</td>
+<td>Validade, Efetividade</td>
+<td>Alta</td>
+<td>Alto</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Falta de análise de sensibilidade</td>
+<td>Robustez de decisões [8]</td>
+<td>Confiança, Robustez</td>
+<td>Média</td>
+<td>Baixo</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Vulnerabilidade de segurança (credenciais hardcoded)</td>
+<td>Privacidade e governança [3]</td>
+<td>Segurança, Integridade</td>
+<td>Alta</td>
+<td>Baixo</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Proveniência de dados não rastreável</td>
+<td>Transparência de dados [7], [8]</td>
+<td>Reprodutibilidade, Auditabilidade</td>
+<td>Média</td>
+<td>Baixo</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Ausência de integração temporal</td>
+<td>Dados observacionais [8]</td>
+<td>Monitoramento adaptativo</td>
+<td>Baixa</td>
+<td>Alto</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div style="page-break-after: always;">
+
+</div>
+<h1 id="repositório-2-omnieditor-diamond-sovereign">3. REPOSITÓRIO 2: OMNIEDITOR DIAMOND SOVEREIGN</h1>
+<h2 id="descrição-técnica-1">3.1. Descrição Técnica</h2>
+<h3 id="visão-geral-1">Visão Geral</h3>
+<p>O repositório <strong>formatador-abnt</strong> implementa o <strong>OmniEditor Diamond Sovereign</strong>, uma plataforma web de edição acadêmica que integra formatação automática ABNT/APA, busca federada em bases científicas, assistente de IA para orientação metodológica e ferramentas de gestão de cronograma de escrita. A ferramenta foi desenvolvida especificamente para atender aos requisitos do Instituto Federal de Pernambuco (IFPE) e foi utilizada na produção de uma dissertação de mestrado sobre a Bacia do Rio Ipojuca.</p>
+<h3 id="arquitetura-técnica-1">Arquitetura Técnica</h3>
+<ul>
+<li><strong>Editor de Texto:</strong> Quill.js (customizado para formatação acadêmica)</li>
+<li><strong>Renderização Matemática:</strong> KaTeX (LaTeX rendering)</li>
+<li><strong>Importação de Documentos:</strong> Mammoth.js (conversão Word → HTML limpo)</li>
+<li><strong>Armazenamento:</strong> LocalStorage (client-side, sem servidores externos)</li>
+<li><strong>Busca:</strong> Integração declarada com “20+ bases mundiais” (ANA, BDTD, CAPES, ScienceDirect)</li>
+<li><strong>IA:</strong> Assistente de orientação metodológica (detalhes de implementação não especificados)</li>
+</ul>
+<h3 id="funcionalidades-principais">Funcionalidades Principais</h3>
+<ol type="1">
+<li><strong>Formatação Automática ABNT/APA:</strong>
+<ul>
+<li>Margens NBR 14724 (3/3/2/2 cm)</li>
+<li>Fonte Arial 12, espaçamento 1.5</li>
+<li>Geração automática de listas de siglas, figuras, quadros e tabelas</li>
+<li>Numeração automática de equações LaTeX</li>
+</ul></li>
+<li><strong>Busca Federada:</strong>
+<ul>
+<li>Interface unificada para busca em múltiplas bases</li>
+<li>Alternância entre estilos de citação ABNT (NBR 10520/6023) e APA</li>
+</ul></li>
+<li><strong>Assistente de IA (Advisor):</strong>
+<ul>
+<li>Suporte estrutural e metodológico</li>
+<li>Foco em análise multicritério (AHP)</li>
+</ul></li>
+<li><strong>Gestão de Cronograma:</strong>
+<ul>
+<li>Sprint Manager editável para metas de escrita</li>
+</ul></li>
+<li><strong>Importação de Documentos:</strong>
+<ul>
+<li>Conversão inteligente de arquivos .docx para HTML acadêmico</li>
+</ul></li>
+</ol>
+<h3 id="princípios-declarados">Princípios Declarados</h3>
+<p>O README do repositório declara compromisso com:</p>
+<ul>
+<li><strong>Soberania Acadêmica:</strong> manutenção de autoria estritamente humana</li>
+<li><strong>Ética:</strong> repúdio ao plágio</li>
+<li><strong>Privacidade:</strong> armazenamento client-side sem servidores externos</li>
+</ul>
+<h2 id="requisitos-científicos-para-ferramentas-acadêmicas-com-ia">3.2. Requisitos Científicos para Ferramentas Acadêmicas com IA</h2>
+<p>A literatura científica sobre ferramentas de escrita acadêmica assistidas por IA estabelece requisitos rigorosos para garantir integridade científica, transparência, reprodutibilidade e conformidade ética.</p>
+<h3 id="proveniência-e-auditoria">3.2.1. Proveniência e Auditoria</h3>
+<p>Ferramentas devem fornecer <strong>versionamento imutável e proveniência de fontes</strong> para cada sugestão de IA e citação, permitindo rastrear outputs até evidências subjacentes e prompts de modelo, garantindo reprodutibilidade e accountability [1], [2]. Logs de auditoria devem ser persistentes e exportáveis.</p>
+<h3 id="controle-humano-human-in-the-loop">3.2.2. Controle Humano (Human-in-the-Loop)</h3>
+<p>Autores devem permanecer como <strong>decisores finais</strong> com sugestões editáveis, opções explicáveis e reversão fácil de edições automatizadas para preservar julgamento acadêmico [1], [2]. Sistemas não devem aplicar alterações automaticamente sem revisão humana explícita.</p>
+<h3 id="transparência-de-modelos">3.2.3. Transparência de Modelos</h3>
+<p>Ferramentas devem divulgar <strong>tipo de modelo, escopo de dados de treinamento e limitações conhecidas</strong> sempre que IA for utilizada para geração de texto ou resumos, permitindo que usuários julguem confiabilidade [1]. Atualizações de modelos devem ser documentadas.</p>
+<h3 id="privacidade-e-governança-de-dados">3.2.4. Privacidade e Governança de Dados</h3>
+<p>Sistemas devem garantir <strong>manuseio seguro de manuscritos</strong>, opção de processamento on-premise e políticas claras para armazenamento de texto de usuários e assinaturas institucionais [3]. Dados sensíveis não devem ser transmitidos para servidores externos sem consentimento explícito.</p>
+<h3 id="interoperabilidade-e-formatos-abertos">3.2.5. Interoperabilidade e Formatos Abertos</h3>
+<p>Ferramentas devem suportar <strong>exportação/importação BibTeX/RIS/CSV/EndNote</strong> e APIs abertas para integração com repositórios institucionais, sistemas de submissão de manuscritos e gerenciadores de referências [4], [5]. Formatos proprietários devem ser evitados.</p>
+<h3 id="validação-de-citações">3.2.6. Validação de Citações</h3>
+<p>Sistemas devem utilizar <strong>resolução DOI/CrossRef/PubMed</strong>, parsing de metadados de PDF e APIs de editoras para popular campos em vez de extração NLP pura [4], [5]. Validação automática deve detectar incompatibilidades entre metadados citados e DOIs resolvidos, oferecendo correções one-click.</p>
+<h3 id="busca-federada-verdadeira">3.2.7. Busca Federada Verdadeira</h3>
+<p>Busca federada deve <strong>consultar múltiplas fontes (indexadores, APIs de editoras, repositórios institucionais)</strong> com normalização e deduplicação de resultados, apresentando resultados unificados e não redundantes [7], [8]. Ranking de relevância deve ser explicável e reprodutível.</p>
+<h3 id="verificação-de-alucinações">3.2.8. Verificação de Alucinações</h3>
+<p>Ferramentas devem integrar <strong>verificação automática de factualidade</strong> contra fontes resolvidas e sinalizar afirmações não fundamentadas para revisão do autor [1], [9]. Citações fabricadas ou incorretas devem ser detectadas e alertadas.</p>
+<h3 id="divulgação-obrigatória-de-uso-de-ia">3.2.9. Divulgação Obrigatória de Uso de IA</h3>
+<p>Sistemas devem incluir <strong>mecanismos para auxiliar autores a declarar explicitamente o uso de IA</strong> nos manuscritos, conforme recomendado por diretrizes editoriais internacionais [1], [6]. Templates de divulgação devem ser fornecidos.</p>
+<h3 id="pedagogia-crítica-e-letramento-em-ia">3.2.10. Pedagogia Crítica e Letramento em IA</h3>
+<p>Ferramentas devem incorporar <strong>treinamento integrado, orientação de prompts e checklists de avaliação crítica</strong> para que usuários aprendam a interrogar outputs de IA em vez de depender acriticamente deles [6], [2]. Recursos educacionais devem ser contextualizados e acessíveis.</p>
+<h2 id="análise-de-lacunas-1">3.3. Análise de Lacunas</h2>
+<h3 id="lacuna-1-proveniência-de-sugestões-de-ia-não-rastreável">Lacuna 1: Proveniência de Sugestões de IA Não Rastreável</h3>
+<p><strong>Descrição:</strong> O sistema não registra logs auditáveis das sugestões geradas pelo assistente de IA. Não há:</p>
+<ul>
+<li>Registro de prompts enviados ao modelo.</li>
+<li>Versionamento de sugestões aceitas/rejeitadas.</li>
+<li>Rastreamento de fontes utilizadas pela IA para fundamentar sugestões.</li>
+<li>Exportação de histórico de interações para auditoria.</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Proveniência e auditoria [1], [2].</p>
+<p><strong>Impacto:</strong> Compromete a <strong>reprodutibilidade</strong> e <strong>accountability</strong>. Autores não podem documentar como a IA contribuiu para o manuscrito, dificultando conformidade com diretrizes editoriais que exigem divulgação de uso de IA. Revisores e auditores não podem verificar a origem de sugestões.</p>
+<p><strong>Criticidade:</strong> <strong>Alta</strong></p>
+<h3 id="lacuna-2-busca-federada-não-verdadeiramente-federada">Lacuna 2: Busca Federada Não Verdadeiramente Federada</h3>
+<p><strong>Descrição:</strong> Embora o sistema afirme conectar-se a “20+ bases mundiais” (ANA, BDTD, CAPES, ScienceDirect), não há evidências de integração via APIs oficiais. O código-fonte não contém:</p>
+<ul>
+<li>Chaves de API ou endpoints de serviços como CrossRef, PubMed, Scopus, Web of Science.</li>
+<li>Lógica de normalização e deduplicação de resultados de múltiplas fontes.</li>
+<li>Documentação de quais bases são efetivamente consultadas e como.</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Busca federada verdadeira com normalização [7], [8].</p>
+<p><strong>Impacto:</strong> Reduz a <strong>cobertura</strong> e <strong>qualidade</strong> da busca. Usuários podem não ter acesso a fontes relevantes, comprometendo a <strong>completude</strong> da revisão de literatura. A falta de transparência impede avaliar a <strong>confiabilidade</strong> dos resultados de busca.</p>
+<p><strong>Criticidade:</strong> <strong>Alta</strong></p>
+<h3 id="lacuna-3-falta-de-verificação-de-alucinações">Lacuna 3: Falta de Verificação de Alucinações</h3>
+<p><strong>Descrição:</strong> O sistema não implementa mecanismos automatizados para detectar e alertar sobre:</p>
+<ul>
+<li>Afirmações não fundamentadas geradas pela IA.</li>
+<li>Citações fabricadas ou incorretas.</li>
+<li>Inconsistências entre texto gerado e fontes citadas.</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Verificação de factualidade e integridade [1], [9].</p>
+<p><strong>Impacto:</strong> Representa <strong>risco grave para integridade científica</strong>. Alucinações não detectadas podem resultar em:</p>
+<ul>
+<li>Publicação de informações falsas.</li>
+<li>Citações de trabalhos inexistentes.</li>
+<li>Retratação de manuscritos.</li>
+<li>Danos à reputação do autor e da instituição.</li>
+</ul>
+<p><strong>Criticidade:</strong> <strong>Alta</strong></p>
+<h3 id="lacuna-4-suporte-abnt-incompleto">Lacuna 4: Suporte ABNT Incompleto</h3>
+<p><strong>Descrição:</strong> A implementação de formatação ABNT não foi validada contra exemplos oficiais da ABNT NBR 6023:2018 (Referências) e NBR 10520:2023 (Citações). Não há:</p>
+<ul>
+<li>Testes automatizados contra casos complexos (múltiplos autores, obras sem data, documentos eletrônicos, legislação, normas técnicas).</li>
+<li>Documentação de limitações conhecidas.</li>
+<li>Comparação sistemática com exemplos oficiais da ABNT.</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Fidelidade a estilos de citação [4].</p>
+<p><strong>Impacto:</strong> Pode gerar <strong>inconsistências</strong> em casos complexos, exigindo correção manual extensiva. Compromete a <strong>conformidade</strong> com requisitos institucionais e editoriais. Reduz a <strong>confiabilidade</strong> da ferramenta para uso acadêmico formal.</p>
+<p><strong>Criticidade:</strong> <strong>Média</strong></p>
+<h3 id="lacuna-5-ausência-de-divulgação-obrigatória-de-uso-de-ia">Lacuna 5: Ausência de Divulgação Obrigatória de Uso de IA</h3>
+<p><strong>Descrição:</strong> O sistema não inclui mecanismos para auxiliar autores a declarar explicitamente o uso de IA nos manuscritos. Não há:</p>
+<ul>
+<li>Templates de divulgação conforme diretrizes editoriais (e.g., ICMJE, COPE).</li>
+<li>Prompts ou lembretes para incluir declaração de uso de IA.</li>
+<li>Geração automática de seção “Contribuições de IA” no manuscrito.</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Divulgação obrigatória de uso de IA [1], [6].</p>
+<p><strong>Impacto:</strong> Compromete a <strong>conformidade ética</strong> com diretrizes editoriais internacionais. Manuscritos podem ser rejeitados ou retratados por falta de divulgação adequada. Reduz a <strong>transparência</strong> do processo de escrita.</p>
+<p><strong>Criticidade:</strong> <strong>Média</strong></p>
+<h3 id="lacuna-6-falta-de-interoperabilidade">Lacuna 6: Falta de Interoperabilidade</h3>
+<p><strong>Descrição:</strong> O sistema não oferece suporte para exportação/importação de bibliotecas em formatos padrão ou integração com gerenciadores de referências consolidados. Não há:</p>
+<ul>
+<li>Exportação BibTeX, RIS, EndNote XML.</li>
+<li>Importação de bibliotecas de Zotero, Mendeley, EndNote.</li>
+<li>APIs abertas para integração com outros sistemas.</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Interoperabilidade e formatos abertos [4], [5].</p>
+<p><strong>Impacto:</strong> Cria <strong>silos de dados</strong> e dificulta migração para outras ferramentas. Usuários não podem aproveitar bibliotecas existentes ou integrar o OmniEditor em workflows institucionais. Reduz a <strong>adoção</strong> e <strong>sustentabilidade</strong> da ferramenta.</p>
+<p><strong>Criticidade:</strong> <strong>Média</strong></p>
+<h3 id="lacuna-7-ausência-de-pedagogia-crítica">Lacuna 7: Ausência de Pedagogia Crítica</h3>
+<p><strong>Descrição:</strong> O sistema não oferece treinamento integrado ou prompts educacionais para desenvolver letramento crítico em IA. Não há:</p>
+<ul>
+<li>Tutoriais sobre como avaliar criticamente sugestões de IA.</li>
+<li>Checklists de verificação de qualidade.</li>
+<li>Alertas sobre limitações conhecidas da IA.</li>
+<li>Recursos educacionais sobre uso ético de IA na escrita acadêmica.</li>
+</ul>
+<p><strong>Requisito Científico Violado:</strong> Pedagogia crítica e letramento em IA [6], [2].</p>
+<p><strong>Impacto:</strong> Pode induzir <strong>dependência acrítica</strong> das sugestões automatizadas, comprometendo o <strong>desenvolvimento de habilidades de escrita</strong> e <strong>julgamento acadêmico</strong>. Usuários podem não reconhecer limitações ou riscos da IA.</p>
+<p><strong>Criticidade:</strong> <strong>Baixa</strong></p>
+<h2 id="tabela-consolidada-de-lacunas-1">3.4. Tabela Consolidada de Lacunas</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 12%" />
+<col style="width: 33%" />
+<col style="width: 14%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Lacuna</th>
+<th>Requisito Científico</th>
+<th>Impacto</th>
+<th>Criticidade</th>
+<th>Esforço</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Proveniência de IA não rastreável</td>
+<td>Proveniência e auditoria [1], [2]</td>
+<td>Reprodutibilidade, Accountability</td>
+<td>Alta</td>
+<td>Médio</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Busca federada não verdadeira</td>
+<td>Busca federada com normalização [7], [8]</td>
+<td>Cobertura, Qualidade</td>
+<td>Alta</td>
+<td>Alto</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Falta de verificação de alucinações</td>
+<td>Verificação de factualidade [1], [9]</td>
+<td>Integridade científica</td>
+<td>Alta</td>
+<td>Médio</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Suporte ABNT incompleto</td>
+<td>Fidelidade a estilos [4]</td>
+<td>Conformidade, Confiabilidade</td>
+<td>Média</td>
+<td>Médio</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Ausência de divulgação de IA</td>
+<td>Divulgação obrigatória [1], [6]</td>
+<td>Conformidade ética</td>
+<td>Média</td>
+<td>Baixo</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Falta de interoperabilidade</td>
+<td>Formatos abertos [4], [5]</td>
+<td>Adoção, Sustentabilidade</td>
+<td>Média</td>
+<td>Médio</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Ausência de pedagogia crítica</td>
+<td>Letramento em IA [6], [2]</td>
+<td>Desenvolvimento de habilidades</td>
+<td>Baixa</td>
+<td>Baixo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div style="page-break-after: always;">
+
+</div>
+<h1 id="recomendações-priorizadas">4. RECOMENDAÇÕES PRIORIZADAS</h1>
+<h2 id="critérios-de-priorização">4.1. Critérios de Priorização</h2>
+<p>As recomendações foram priorizadas com base em três dimensões:</p>
+<ol type="1">
+<li><strong>Criticidade:</strong> impacto na validade científica, segurança ou conformidade ética.
+<ul>
+<li><strong>Alta:</strong> compromete validade científica, segurança ou conformidade regulatória.</li>
+<li><strong>Média:</strong> reduz robustez metodológica ou conformidade com padrões.</li>
+<li><strong>Baixa:</strong> melhoria incremental de qualidade ou usabilidade.</li>
+</ul></li>
+<li><strong>Esforço de Implementação:</strong> tempo e recursos necessários.
+<ul>
+<li><strong>Baixo:</strong> &lt; 1 semana de desenvolvimento.</li>
+<li><strong>Médio:</strong> 1–4 semanas de desenvolvimento.</li>
+<li><strong>Alto:</strong> &gt; 1 mês de desenvolvimento.</li>
+</ul></li>
+<li><strong>Impacto Científico:</strong> dimensões afetadas (Reprodutibilidade, Validade, Transparência, Ética, Segurança).</li>
+</ol>
+<p>As recomendações são apresentadas em ordem decrescente de prioridade dentro de cada repositório.</p>
+<h2 id="recomendações-para-psa-hídrico-ipojuca">4.2. Recomendações para PSA Hídrico Ipojuca</h2>
+<h3 id="recomendação-1-implementar-elicitação-documentada-de-pesos-ahp">Recomendação 1: Implementar Elicitação Documentada de Pesos AHP</h3>
+<p><strong>Criticidade:</strong> Alta | <strong>Esforço:</strong> Médio | <strong>Impacto:</strong> Reprodutibilidade, Transparência</p>
+<p><strong>Descrição:</strong></p>
+<p>Substituir pesos AHP fixos por processo estruturado de elicitação com documentação completa.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Definir critérios e subcritérios:</strong>
+<ul>
+<li>Documentar explicitamente quais indicadores ambientais e socioeconômicos são utilizados.</li>
+<li>Justificar a seleção de cada critério em relação aos serviços ambientais hídricos-alvo.</li>
+</ul></li>
+<li><strong>Conduzir painel de especialistas:</strong>
+<ul>
+<li>Recrutar 5–10 especialistas em gestão de recursos hídricos, PSA, ecologia de bacias hidrográficas.</li>
+<li>Documentar perfil de cada especialista (formação, afiliação, anos de experiência).</li>
+<li>Aplicar protocolo de julgamentos pareados AHP (matriz de comparação par a par).</li>
+</ul></li>
+<li><strong>Calcular e validar pesos:</strong>
+<ul>
+<li>Calcular pesos individuais e agregados (média geométrica).</li>
+<li>Verificar índice de consistência (CI &lt; 0.10) para cada especialista.</li>
+<li>Calcular consenso do grupo (coeficiente de variação, percentual de concordância).</li>
+</ul></li>
+<li><strong>Documentar no sistema:</strong>
+<ul>
+<li>Criar arquivo <code>ahp-weights-documentation.md</code> com:
+<ul>
+<li>Lista de critérios e justificativas.</li>
+<li>Perfil dos especialistas.</li>
+<li>Matrizes de julgamento pareado.</li>
+<li>Pesos finais e índices de consistência.</li>
+<li>Data de elicitação e protocolo utilizado.</li>
+</ul></li>
+<li>Modificar <code>ahp-engine.js</code> para carregar pesos de arquivo de configuração JSON em vez de hardcoding.</li>
+</ul></li>
+<li><strong>Implementar interface de configuração:</strong>
+<ul>
+<li>Adicionar painel administrativo para atualização de pesos com autenticação segura.</li>
+<li>Permitir upload de novos arquivos de configuração de pesos com versionamento.</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [2]</p>
+<hr />
+<h3 id="recomendação-2-corrigir-vulnerabilidade-de-segurança-credenciais-hardcoded">Recomendação 2: Corrigir Vulnerabilidade de Segurança (Credenciais Hardcoded)</h3>
+<p><strong>Criticidade:</strong> Alta | <strong>Esforço:</strong> Baixo | <strong>Impacto:</strong> Segurança, Integridade</p>
+<p><strong>Descrição:</strong></p>
+<p>Remover credenciais codificadas e implementar autenticação segura.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Remover credenciais do código-fonte:</strong>
+<ul>
+<li>Deletar linhas com <code>user='luanapessoa', pass='psa2026-ifpe'</code> de <code>gov-admin.js</code>.</li>
+</ul></li>
+<li><strong>Implementar autenticação backend:</strong>
+<ul>
+<li>Migrar autenticação para backend seguro (Node.js + Express, Python + Flask, ou serviço de autenticação como Firebase Auth, Auth0).</li>
+<li>Utilizar hashing seguro de senhas (bcrypt, Argon2).</li>
+<li>Implementar tokens JWT para sessões.</li>
+</ul></li>
+<li><strong>Configurar variáveis de ambiente:</strong>
+<ul>
+<li>Armazenar credenciais em variáveis de ambiente (<code>.env</code> file, não versionado no Git).</li>
+<li>Utilizar serviços de gerenciamento de segredos (AWS Secrets Manager, Azure Key Vault) para produção.</li>
+</ul></li>
+<li><strong>Implementar controle de acesso:</strong>
+<ul>
+<li>Definir roles (administrador, visualizador, editor).</li>
+<li>Implementar autorização baseada em roles para funcionalidades administrativas.</li>
+</ul></li>
+<li><strong>Auditoria de segurança:</strong>
+<ul>
+<li>Revisar todo o código-fonte para outras vulnerabilidades (injeção SQL, XSS, CSRF).</li>
+<li>Implementar HTTPS obrigatório.</li>
+<li>Configurar Content Security Policy (CSP).</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [3]</p>
+<hr />
+<h3 id="recomendação-3-integrar-módulo-de-análise-de-sensibilidade">Recomendação 3: Integrar Módulo de Análise de Sensibilidade</h3>
+<p><strong>Criticidade:</strong> Média | <strong>Esforço:</strong> Baixo | <strong>Impacto:</strong> Robustez, Confiança</p>
+<p><strong>Descrição:</strong></p>
+<p>Adicionar funcionalidade para testar cenários alternativos de pesos e avaliar robustez do ranqueamento.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Desenvolver módulo de análise de sensibilidade:</strong>
+<ul>
+<li>Criar arquivo <code>sensitivity-analysis.js</code>.</li>
+<li>Implementar função para variar pesos sistematicamente (±10%, ±20%, ±50%).</li>
+<li>Recalcular ranqueamento para cada cenário.</li>
+</ul></li>
+<li><strong>Calcular métricas de robustez:</strong>
+<ul>
+<li>Correlação de Spearman entre ranqueamentos originais e alternativos.</li>
+<li>Percentual de parcelas que permanecem no top-10/top-20.</li>
+<li>Identificar critérios mais influentes (maior impacto no ranqueamento).</li>
+</ul></li>
+<li><strong>Visualizar resultados:</strong>
+<ul>
+<li>Gráficos de tornado (impacto de variação de cada peso).</li>
+<li>Tabelas de comparação de ranqueamentos.</li>
+<li>Heatmaps de sensibilidade.</li>
+</ul></li>
+<li><strong>Integrar na interface:</strong>
+<ul>
+<li>Adicionar aba “Análise de Sensibilidade” no painel administrativo.</li>
+<li>Permitir exportação de relatórios de sensibilidade em PDF.</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [8]</p>
+<hr />
+<h3 id="recomendação-4-documentar-proveniência-de-dados-geoespaciais">Recomendação 4: Documentar Proveniência de Dados Geoespaciais</h3>
+<p><strong>Criticidade:</strong> Média | <strong>Esforço:</strong> Baixo | <strong>Impacto:</strong> Reprodutibilidade, Auditabilidade</p>
+<p><strong>Descrição:</strong></p>
+<p>Criar documentação completa de todas as camadas geoespaciais utilizadas.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Criar arquivo de metadados:</strong>
+<ul>
+<li>Criar <code>data-provenance.md</code> com tabela de camadas:
+<ul>
+<li>Nome da camada.</li>
+<li>Fonte (e.g., MapBiomas Coleção 8.0).</li>
+<li>URL de acesso.</li>
+<li>Data de coleta/publicação.</li>
+<li>Resolução espacial.</li>
+<li>Sistema de coordenadas.</li>
+<li>Acurácia temática (quando disponível).</li>
+<li>Metodologia de produção.</li>
+<li>Licença de uso.</li>
+</ul></li>
+</ul></li>
+<li><strong>Implementar metadados no sistema:</strong>
+<ul>
+<li>Adicionar arquivo JSON com metadados de camadas.</li>
+<li>Exibir metadados na interface ao clicar em camadas do mapa.</li>
+</ul></li>
+<li><strong>Versionamento de dados:</strong>
+<ul>
+<li>Registrar versão de cada camada utilizada em cada análise.</li>
+<li>Permitir comparação de resultados com diferentes versões de dados.</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [7], [8]</p>
+<hr />
+<h3 id="recomendação-5-desenvolver-módulo-de-validação-empírica">Recomendação 5: Desenvolver Módulo de Validação Empírica</h3>
+<p><strong>Criticidade:</strong> Alta | <strong>Esforço:</strong> Alto | <strong>Impacto:</strong> Validade, Efetividade</p>
+<p><strong>Descrição:</strong></p>
+<p>Integrar dados de monitoramento de qualidade da água para validar efetividade do ranqueamento.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Definir protocolo de monitoramento:</strong>
+<ul>
+<li>Selecionar parâmetros físico-químicos: turbidez, sólidos suspensos totais (SST), oxigênio dissolvido (OD), DBO, nitrogênio total, fósforo total, coliformes termotolerantes.</li>
+<li>Definir frequência de coleta (mensal, trimestral).</li>
+<li>Identificar pontos de monitoramento (montante/jusante de áreas priorizadas).</li>
+</ul></li>
+<li><strong>Coletar dados de linha de base:</strong>
+<ul>
+<li>Realizar campanha de coleta pré-intervenção em áreas priorizadas e áreas controle.</li>
+<li>Armazenar dados em banco de dados estruturado (PostgreSQL + PostGIS).</li>
+</ul></li>
+<li><strong>Implementar módulo de análise estatística:</strong>
+<ul>
+<li>Criar arquivo <code>validation-module.js</code>.</li>
+<li>Implementar testes estatísticos (teste t pareado, ANOVA, regressão).</li>
+<li>Calcular adicionalidade ambiental (diferença pré/pós-intervenção).</li>
+</ul></li>
+<li><strong>Visualizar resultados de validação:</strong>
+<ul>
+<li>Gráficos de séries temporais de parâmetros de qualidade da água.</li>
+<li>Mapas de calor de melhoria ambiental.</li>
+<li>Relatórios de efetividade por área priorizada.</li>
+</ul></li>
+<li><strong>Feedback adaptativo:</strong>
+<ul>
+<li>Utilizar resultados de validação para ajustar pesos AHP ou critérios.</li>
+<li>Implementar ciclo de melhoria contínua.</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [6], [7], [9], [5]</p>
+<hr />
+<h3 id="recomendação-6-implementar-integração-temporal-com-dados-hidrológicos">Recomendação 6: Implementar Integração Temporal com Dados Hidrológicos</h3>
+<p><strong>Criticidade:</strong> Baixa | <strong>Esforço:</strong> Alto | <strong>Impacto:</strong> Monitoramento adaptativo</p>
+<p><strong>Descrição:</strong></p>
+<p>Integrar séries temporais de dados hidrológicos para análises dinâmicas.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Integrar APIs de dados hidrológicos:</strong>
+<ul>
+<li>Conectar com API da Agência Nacional de Águas (ANA) para dados de estações fluviométricas e pluviométricas.</li>
+<li>Baixar séries temporais de vazão, precipitação, nível d’água.</li>
+</ul></li>
+<li><strong>Desenvolver módulo de análise temporal:</strong>
+<ul>
+<li>Criar arquivo <code>temporal-analysis.js</code>.</li>
+<li>Implementar análise de tendências (Mann-Kendall, regressão linear).</li>
+<li>Calcular índices hidrológicos (Q7,10, Q95, curva de permanência).</li>
+</ul></li>
+<li><strong>Atualização dinâmica de ranqueamento:</strong>
+<ul>
+<li>Permitir recalculo de ranqueamento com dados atualizados.</li>
+<li>Implementar alertas para mudanças significativas em prioridades.</li>
+</ul></li>
+<li><strong>Visualização temporal:</strong>
+<ul>
+<li>Gráficos de séries temporais interativos (Plotly.js, D3.js).</li>
+<li>Animações de evolução temporal de ranqueamento.</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [8]</p>
+<hr />
+<h2 id="recomendações-para-omnieditor-diamond-sovereign">4.3. Recomendações para OmniEditor Diamond Sovereign</h2>
+<h3 id="recomendação-1-implementar-sistema-de-proveniência-de-ia">Recomendação 1: Implementar Sistema de Proveniência de IA</h3>
+<p><strong>Criticidade:</strong> Alta | <strong>Esforço:</strong> Médio | <strong>Impacto:</strong> Reprodutibilidade, Accountability</p>
+<p><strong>Descrição:</strong></p>
+<p>Criar sistema de logging e versionamento de todas as interações com IA.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Desenvolver módulo de logging:</strong>
+<ul>
+<li>Criar arquivo <code>ai-provenance.js</code>.</li>
+<li>Registrar para cada sugestão de IA:
+<ul>
+<li>Timestamp.</li>
+<li>Prompt enviado ao modelo.</li>
+<li>Resposta completa do modelo.</li>
+<li>Versão do modelo utilizado.</li>
+<li>Sugestão aceita/rejeitada pelo usuário.</li>
+<li>Texto final após edição do usuário.</li>
+</ul></li>
+</ul></li>
+<li><strong>Armazenamento de logs:</strong>
+<ul>
+<li>Utilizar IndexedDB para armazenamento local persistente.</li>
+<li>Implementar exportação de logs em formato JSON.</li>
+<li>Opção de sincronização segura com servidor institucional (opcional, com consentimento).</li>
+</ul></li>
+<li><strong>Interface de auditoria:</strong>
+<ul>
+<li>Criar painel “Histórico de IA” mostrando todas as interações.</li>
+<li>Permitir busca e filtro de logs por data, tipo de sugestão, seção do documento.</li>
+<li>Visualização diff (antes/depois) de cada sugestão aceita.</li>
+</ul></li>
+<li><strong>Exportação para manuscrito:</strong>
+<ul>
+<li>Gerar automaticamente seção “Contribuições de IA” com resumo de uso.</li>
+<li>Incluir estatísticas (número de sugestões, percentual aceito, tipos de contribuição).</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [1], [2]</p>
+<hr />
+<h3 id="recomendação-2-implementar-verificação-de-alucinações">Recomendação 2: Implementar Verificação de Alucinações</h3>
+<p><strong>Criticidade:</strong> Alta | <strong>Esforço:</strong> Médio | <strong>Impacto:</strong> Integridade científica</p>
+<p><strong>Descrição:</strong></p>
+<p>Adicionar sistema automatizado de detecção de afirmações não fundamentadas e citações fabricadas.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Desenvolver módulo de verificação:</strong>
+<ul>
+<li>Criar arquivo <code>hallucination-checker.js</code>.</li>
+<li>Para cada sugestão de IA contendo citações:
+<ul>
+<li>Extrair DOIs, URLs, títulos de trabalhos citados.</li>
+<li>Verificar existência via APIs (CrossRef, PubMed, Semantic Scholar).</li>
+<li>Comparar metadados (autores, ano, título) com dados resolvidos.</li>
+</ul></li>
+</ul></li>
+<li><strong>Detecção de afirmações não fundamentadas:</strong>
+<ul>
+<li>Identificar afirmações factuais (números, datas, nomes, eventos).</li>
+<li>Verificar se há citação correspondente no texto.</li>
+<li>Sinalizar afirmações sem citação para revisão do usuário.</li>
+</ul></li>
+<li><strong>Sistema de alertas:</strong>
+<ul>
+<li>Destacar em amarelo sugestões com citações não verificadas.</li>
+<li>Destacar em vermelho citações fabricadas (DOI inexistente, metadados incompatíveis).</li>
+<li>Exibir tooltip com detalhes da verificação.</li>
+</ul></li>
+<li><strong>Relatório de integridade:</strong>
+<ul>
+<li>Gerar relatório de verificação antes de exportação final.</li>
+<li>Listar todas as citações verificadas, não verificadas e fabricadas.</li>
+<li>Bloquear exportação até resolução de citações fabricadas (opcional, configurável).</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [1], [9]</p>
+<hr />
+<h3 id="recomendação-3-implementar-busca-federada-verdadeira">Recomendação 3: Implementar Busca Federada Verdadeira</h3>
+<p><strong>Criticidade:</strong> Alta | <strong>Esforço:</strong> Alto | <strong>Impacto:</strong> Cobertura, Qualidade</p>
+<p><strong>Descrição:</strong></p>
+<p>Integrar APIs oficiais de múltiplas bases científicas com normalização e deduplicação de resultados.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Integrar APIs de indexadores:</strong>
+<ul>
+<li><strong>CrossRef:</strong> busca de artigos com DOI, metadados completos.</li>
+<li><strong>PubMed/PubMed Central:</strong> literatura biomédica.</li>
+<li><strong>Semantic Scholar:</strong> busca semântica com citações.</li>
+<li><strong>arXiv:</strong> preprints em física, matemática, ciência da computação.</li>
+<li><strong>BDTD (Biblioteca Digital de Teses e Dissertações):</strong> teses brasileiras.</li>
+<li><strong>Portal de Periódicos CAPES:</strong> acesso via CAFe (autenticação federada).</li>
+</ul></li>
+<li><strong>Desenvolver módulo de busca federada:</strong>
+<ul>
+<li>Criar arquivo <code>federated-search.js</code>.</li>
+<li>Implementar consultas paralelas a múltiplas APIs.</li>
+<li>Normalizar resultados para esquema unificado (título, autores, ano, DOI, abstract, fonte).</li>
+</ul></li>
+<li><strong>Deduplicação de resultados:</strong>
+<ul>
+<li>Identificar duplicatas por DOI (prioridade máxima).</li>
+<li>Identificar duplicatas por similaridade de título + autores (fuzzy matching).</li>
+<li>Mesclar metadados de múltiplas fontes para cada resultado único.</li>
+</ul></li>
+<li><strong>Ranking explicável:</strong>
+<ul>
+<li>Combinar sinais de relevância: similaridade semântica, contagem de citações, recência, tipo de publicação.</li>
+<li>Exibir explicação de ranking para cada resultado (tooltip com scores).</li>
+</ul></li>
+<li><strong>Proveniência de busca:</strong>
+<ul>
+<li>Registrar parâmetros de busca, APIs consultadas, timestamps.</li>
+<li>Permitir exportação de snapshot de busca para seção de métodos.</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [7], [8]</p>
+<hr />
+<h3 id="recomendação-4-validar-e-expandir-suporte-abnt">Recomendação 4: Validar e Expandir Suporte ABNT</h3>
+<p><strong>Criticidade:</strong> Média | <strong>Esforço:</strong> Médio | <strong>Impacto:</strong> Conformidade, Confiabilidade</p>
+<p><strong>Descrição:</strong></p>
+<p>Validar implementação ABNT contra exemplos oficiais e expandir cobertura de casos complexos.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Criar suite de testes:</strong>
+<ul>
+<li>Coletar exemplos oficiais de ABNT NBR 6023:2018 e NBR 10520:2023.</li>
+<li>Criar arquivo <code>abnt-test-cases.json</code> com casos de teste:
+<ul>
+<li>Livros (1 autor, múltiplos autores, organizadores, edições, volumes).</li>
+<li>Artigos de periódicos (impressos, online, com DOI).</li>
+<li>Capítulos de livros.</li>
+<li>Teses e dissertações.</li>
+<li>Documentos eletrônicos (sites, blogs, redes sociais).</li>
+<li>Legislação e normas técnicas.</li>
+<li>Obras sem data, sem autor, sem editora.</li>
+</ul></li>
+</ul></li>
+<li><strong>Implementar testes automatizados:</strong>
+<ul>
+<li>Criar script de teste que gera citações e referências para cada caso.</li>
+<li>Comparar output com exemplos oficiais.</li>
+<li>Reportar discrepâncias.</li>
+</ul></li>
+<li><strong>Corrigir inconsistências:</strong>
+<ul>
+<li>Ajustar lógica de formatação em <code>abnt-formatter.js</code>.</li>
+<li>Implementar tratamento de casos especiais.</li>
+</ul></li>
+<li><strong>Documentar limitações:</strong>
+<ul>
+<li>Criar arquivo <code>abnt-limitations.md</code> listando casos não suportados ou com suporte parcial.</li>
+<li>Exibir avisos na interface quando casos complexos forem detectados.</li>
+</ul></li>
+<li><strong>Suporte a variações locais:</strong>
+<ul>
+<li>Permitir configuração de variações institucionais (e.g., IFPE, USP, UFRJ).</li>
+<li>Implementar templates customizáveis.</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [4]</p>
+<hr />
+<h3 id="recomendação-5-adicionar-mecanismo-de-divulgação-de-uso-de-ia">Recomendação 5: Adicionar Mecanismo de Divulgação de Uso de IA</h3>
+<p><strong>Criticidade:</strong> Média | <strong>Esforço:</strong> Baixo | <strong>Impacto:</strong> Conformidade ética</p>
+<p><strong>Descrição:</strong></p>
+<p>Implementar assistente para geração de declaração de uso de IA conforme diretrizes editoriais.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Criar templates de divulgação:</strong>
+<ul>
+<li>Coletar diretrizes de periódicos principais (Nature, Science, ICMJE, COPE).</li>
+<li>Criar templates para diferentes níveis de uso:
+<ul>
+<li>Uso mínimo (revisão gramatical, formatação).</li>
+<li>Uso moderado (sugestões estruturais, resumos).</li>
+<li>Uso extensivo (geração de texto, análise de dados).</li>
+</ul></li>
+</ul></li>
+<li><strong>Implementar assistente de divulgação:</strong>
+<ul>
+<li>Criar arquivo <code>ai-disclosure-assistant.js</code>.</li>
+<li>Analisar logs de proveniência para determinar nível de uso.</li>
+<li>Gerar automaticamente texto de divulgação.</li>
+</ul></li>
+<li><strong>Integração no manuscrito:</strong>
+<ul>
+<li>Adicionar seção “Declaração de Uso de IA” no template de documento.</li>
+<li>Preencher automaticamente com texto gerado.</li>
+<li>Permitir edição manual pelo usuário.</li>
+</ul></li>
+<li><strong>Lembretes e checklist:</strong>
+<ul>
+<li>Exibir lembrete antes de exportação final.</li>
+<li>Incluir item “Declaração de IA” em checklist de submissão.</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [1], [6]</p>
+<hr />
+<h3 id="recomendação-6-implementar-interoperabilidade-com-gerenciadores-de-referências">Recomendação 6: Implementar Interoperabilidade com Gerenciadores de Referências</h3>
+<p><strong>Criticidade:</strong> Média | <strong>Esforço:</strong> Médio | <strong>Impacto:</strong> Adoção, Sustentabilidade</p>
+<p><strong>Descrição:</strong></p>
+<p>Adicionar suporte para exportação/importação de bibliotecas em formatos padrão.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Implementar exportação:</strong>
+<ul>
+<li>Criar arquivo <code>export-formats.js</code>.</li>
+<li>Implementar exportação para:
+<ul>
+<li><strong>BibTeX:</strong> formato padrão para LaTeX.</li>
+<li><strong>RIS:</strong> formato padrão para EndNote, Mendeley, Zotero.</li>
+<li><strong>CSV:</strong> formato tabular para análise.</li>
+<li><strong>JSON:</strong> formato estruturado para APIs.</li>
+</ul></li>
+</ul></li>
+<li><strong>Implementar importação:</strong>
+<ul>
+<li>Criar parser para BibTeX, RIS, EndNote XML.</li>
+<li>Normalizar metadados importados para esquema interno.</li>
+<li>Detectar e resolver duplicatas.</li>
+</ul></li>
+<li><strong>Integração com Zotero:</strong>
+<ul>
+<li>Implementar API Zotero para sincronização bidirecional.</li>
+<li>Permitir importação de coleções Zotero.</li>
+<li>Sincronizar atualizações de metadados.</li>
+</ul></li>
+<li><strong>Integração com Mendeley:</strong>
+<ul>
+<li>Implementar API Mendeley para importação de bibliotecas.</li>
+</ul></li>
+<li><strong>Documentação de interoperabilidade:</strong>
+<ul>
+<li>Criar guia de uso para importação/exportação.</li>
+<li>Documentar mapeamento de campos entre formatos.</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [4], [5]</p>
+<hr />
+<h3 id="recomendação-7-desenvolver-módulo-de-pedagogia-crítica">Recomendação 7: Desenvolver Módulo de Pedagogia Crítica</h3>
+<p><strong>Criticidade:</strong> Baixa | <strong>Esforço:</strong> Baixo | <strong>Impacto:</strong> Desenvolvimento de habilidades</p>
+<p><strong>Descrição:</strong></p>
+<p>Adicionar recursos educacionais para letramento crítico em IA.</p>
+<p><strong>Roteiro de Implementação:</strong></p>
+<ol type="1">
+<li><strong>Criar tutoriais interativos:</strong>
+<ul>
+<li>Tutorial de introdução: “Como a IA funciona no OmniEditor”.</li>
+<li>Tutorial de avaliação crítica: “Como verificar sugestões de IA”.</li>
+<li>Tutorial de ética: “Uso responsável de IA na escrita acadêmica”.</li>
+</ul></li>
+<li><strong>Implementar prompts educacionais:</strong>
+<ul>
+<li>Exibir dicas contextuais ao usar funcionalidades de IA.</li>
+<li>Exemplo: “Lembre-se de verificar se esta citação está correta antes de aceitar”.</li>
+</ul></li>
+<li><strong>Criar checklist de qualidade:</strong>
+<ul>
+<li>Checklist de verificação de sugestões de IA:
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+A sugestão está factualmente correta?</li>
+<li><input type="checkbox" disabled="" />
+As citações foram verificadas?</li>
+<li><input type="checkbox" disabled="" />
+O texto mantém minha voz autoral?</li>
+<li><input type="checkbox" disabled="" />
+A sugestão é relevante para meu argumento?</li>
+</ul></li>
+</ul></li>
+<li><strong>Recursos sobre limitações:</strong>
+<ul>
+<li>Criar seção “Limitações da IA” com exemplos de erros comuns.</li>
+<li>Alertas sobre riscos de alucinações, viés, plágio.</li>
+</ul></li>
+<li><strong>Gamificação (opcional):</strong>
+<ul>
+<li>Sistema de badges para uso crítico de IA.</li>
+<li>Desafios de verificação de qualidade.</li>
+</ul></li>
+</ol>
+<p><strong>Referências:</strong> [6], [2]</p>
+<hr />
+<h2 id="roadmap-de-implementação">4.4. Roadmap de Implementação</h2>
+<h3 id="fase-1-correções-críticas-mês-1">Fase 1: Correções Críticas (Mês 1)</h3>
+<p><strong>PSA Hídrico Ipojuca:</strong> - Recomendação 2: Corrigir vulnerabilidade de segurança (credenciais hardcoded).</p>
+<p><strong>OmniEditor Diamond Sovereign:</strong> - Recomendação 2: Implementar verificação de alucinações.</p>
+<h3 id="fase-2-transparência-e-reprodutibilidade-meses-23">Fase 2: Transparência e Reprodutibilidade (Meses 2–3)</h3>
+<p><strong>PSA Hídrico Ipojuca:</strong> - Recomendação 1: Implementar elicitação documentada de pesos AHP. - Recomendação 4: Documentar proveniência de dados geoespaciais.</p>
+<p><strong>OmniEditor Diamond Sovereign:</strong> - Recomendação 1: Implementar sistema de proveniência de IA. - Recomendação 5: Adicionar mecanismo de divulgação de uso de IA.</p>
+<h3 id="fase-3-robustez-metodológica-meses-45">Fase 3: Robustez Metodológica (Meses 4–5)</h3>
+<p><strong>PSA Hídrico Ipojuca:</strong> - Recomendação 3: Integrar módulo de análise de sensibilidade.</p>
+<p><strong>OmniEditor Diamond Sovereign:</strong> - Recomendação 4: Validar e expandir suporte ABNT. - Recomendação 6: Implementar interoperabilidade com gerenciadores de referências.</p>
+<h3 id="fase-4-funcionalidades-avançadas-meses-69">Fase 4: Funcionalidades Avançadas (Meses 6–9)</h3>
+<p><strong>PSA Hídrico Ipojuca:</strong> - Recomendação 5: Desenvolver módulo de validação empírica. - Recomendação 6: Implementar integração temporal com dados hidrológicos.</p>
+<p><strong>OmniEditor Diamond Sovereign:</strong> - Recomendação 3: Implementar busca federada verdadeira. - Recomendação 7: Desenvolver módulo de pedagogia crítica.</p>
+<hr />
+<div style="page-break-after: always;">
+
+</div>
+<h1 id="discussão">5. DISCUSSÃO</h1>
+<h2 id="implicações-para-validade-científica">5.1. Implicações para Validade Científica</h2>
+<p>As lacunas identificadas neste relatório têm implicações diretas para a validade científica e a credibilidade institucional das ferramentas analisadas.</p>
+<h3 id="psa-hídrico-ipojuca">PSA Hídrico Ipojuca</h3>
+<p>A ausência de elicitação documentada de pesos AHP e de validação empírica compromete fundamentalmente a <strong>validade de construto</strong> e a <strong>validade externa</strong> do sistema. Sem documentação do processo de elicitação, não é possível avaliar se os pesos refletem adequadamente o julgamento de especialistas ou se são arbitrários. Sem validação empírica, não há evidências de que o ranqueamento efetivamente identifica áreas que maximizam serviços ambientais hídricos.</p>
+<p>Essas limitações são particularmente críticas no contexto de Pagamento por Serviços Ambientais, onde decisões de alocação de recursos públicos devem ser justificadas com base em evidências científicas robustas. A literatura científica sobre PSA enfatiza repetidamente a necessidade de monitoramento de resultados e avaliação de adicionalidade para garantir que pagamentos efetivamente geram benefícios ambientais [6], [7].</p>
+<p>A vulnerabilidade de segurança (credenciais hardcoded) representa risco adicional de comprometimento da integridade dos dados e das decisões, podendo resultar em manipulação não autorizada de ranqueamentos e relatórios técnicos.</p>
+<h3 id="omnieditor-diamond-sovereign">OmniEditor Diamond Sovereign</h3>
+<p>A falta de proveniência de sugestões de IA e de verificação de alucinações compromete a <strong>reprodutibilidade</strong> e a <strong>integridade científica</strong> dos manuscritos produzidos com a ferramenta. Sem logs auditáveis, autores não podem documentar adequadamente como a IA contribuiu para o trabalho, dificultando conformidade com diretrizes editoriais que exigem divulgação de uso de IA [1], [6].</p>
+<p>A ausência de verificação de alucinações representa risco grave de publicação de informações falsas ou citações fabricadas, podendo resultar em retratação de manuscritos e danos à reputação de autores e instituições. A literatura científica sobre IA generativa alerta consistentemente para o risco de alucinações e a necessidade de verificação automática de factualidade [1], [9].</p>
+<p>A busca federada não verdadeiramente federada limita a <strong>cobertura</strong> da revisão de literatura, potencialmente resultando em omissão de trabalhos relevantes e comprometendo a <strong>completude</strong> da fundamentação teórica.</p>
+<h2 id="conformidade-ética-e-regulatória">5.2. Conformidade Ética e Regulatória</h2>
+<h3 id="diretrizes-editoriais-internacionais">Diretrizes Editoriais Internacionais</h3>
+<p>Periódicos científicos de alto impacto têm adotado diretrizes rigorosas sobre uso de IA generativa na escrita acadêmica. O International Committee of Medical Journal Editors (ICMJE) e o Committee on Publication Ethics (COPE) recomendam:</p>
+<ol type="1">
+<li><p><strong>Divulgação obrigatória:</strong> autores devem declarar explicitamente o uso de IA e descrever como foi utilizada [1], [6].</p></li>
+<li><p><strong>Responsabilidade humana:</strong> autores permanecem totalmente responsáveis pelo conteúdo, incluindo texto gerado por IA [1].</p></li>
+<li><p><strong>Verificação de factualidade:</strong> autores devem verificar a acurácia de todo o conteúdo gerado por IA [1].</p></li>
+</ol>
+<p>O OmniEditor Diamond Sovereign atualmente não oferece suporte para conformidade com essas diretrizes, representando risco de rejeição ou retratação de manuscritos.</p>
+<h3 id="regulamentações-de-proteção-de-dados">Regulamentações de Proteção de Dados</h3>
+<p>A Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018) estabelece requisitos rigorosos para processamento de dados pessoais no Brasil. Embora o OmniEditor declare armazenamento client-side sem servidores externos, a ausência de documentação técnica detalhada sobre fluxos de dados dificulta avaliação de conformidade.</p>
+<p>O PSA Hídrico Ipojuca processa dados de proprietários de terras (coordenadas, área, indicadores ambientais), potencialmente incluindo dados pessoais. A vulnerabilidade de segurança identificada representa risco de violação da LGPD, podendo resultar em sanções administrativas e judiciais.</p>
+<h3 id="normas-técnicas-brasileiras">Normas Técnicas Brasileiras</h3>
+<p>A ABNT NBR 6023:2018 (Referências) e NBR 10520:2023 (Citações) estabelecem padrões obrigatórios para trabalhos acadêmicos em instituições brasileiras. A implementação incompleta de suporte ABNT no OmniEditor pode resultar em não conformidade com requisitos institucionais, exigindo correção manual extensiva e reduzindo a utilidade da ferramenta.</p>
+<h2 id="limitações-da-análise">5.3. Limitações da Análise</h2>
+<h3 id="limitações-metodológicas">Limitações Metodológicas</h3>
+<ol type="1">
+<li><p><strong>Análise baseada em código-fonte:</strong> a análise foi conduzida exclusivamente com base no código-fonte disponível nos repositórios GitHub. Funcionalidades não documentadas ou implementadas em componentes externos (e.g., APIs de terceiros, serviços backend) podem não ter sido identificadas.</p></li>
+<li><p><strong>Ausência de testes empíricos:</strong> não foram conduzidos testes empíricos de usabilidade, desempenho ou acurácia das ferramentas. A análise focou em conformidade com requisitos científicos estabelecidos pela literatura.</p></li>
+<li><p><strong>Corpus científico limitado:</strong> embora 163 artigos representem uma amostra substancial, a literatura sobre ferramentas digitais para pesquisa e gestão ambiental é vasta e em rápida evolução. Requisitos adicionais podem ter sido omitidos.</p></li>
+<li><p><strong>Contexto institucional:</strong> a análise não considerou requisitos específicos do IFPE ou de outras instituições que possam utilizar as ferramentas. Adaptações locais podem ser necessárias.</p></li>
+</ol>
+<h3 id="limitações-de-escopo">Limitações de Escopo</h3>
+<ol type="1">
+<li><p><strong>Aspectos de usabilidade:</strong> a análise focou em validade científica, reprodutibilidade e conformidade ética. Aspectos de experiência do usuário, acessibilidade e design de interface não foram avaliados sistematicamente.</p></li>
+<li><p><strong>Desempenho computacional:</strong> não foram avaliados aspectos de escalabilidade, tempo de resposta ou eficiência computacional.</p></li>
+<li><p><strong>Integração com workflows institucionais:</strong> não foi avaliada a integração das ferramentas com sistemas institucionais existentes (e.g., repositórios, sistemas de submissão, plataformas de ensino).</p></li>
+</ol>
+<h3 id="recomendações-para-análises-futuras">Recomendações para Análises Futuras</h3>
+<ol type="1">
+<li><p><strong>Testes empíricos:</strong> conduzir estudos de usabilidade com usuários reais (pesquisadores, gestores ambientais) para avaliar efetividade prática das ferramentas.</p></li>
+<li><p><strong>Validação de campo:</strong> para o PSA Hídrico Ipojuca, conduzir estudo piloto com monitoramento de qualidade da água em áreas priorizadas para validar efetividade do ranqueamento.</p></li>
+<li><p><strong>Benchmarking:</strong> comparar as ferramentas com soluções comerciais ou open-source consolidadas (e.g., Zotero, Mendeley, QGIS) para identificar lacunas adicionais.</p></li>
+<li><p><strong>Avaliação de impacto:</strong> avaliar impacto das ferramentas em produtividade de pesquisa, qualidade de manuscritos e tomada de decisão em gestão ambiental.</p></li>
+</ol>
+<hr />
+<div style="page-break-after: always;">
+
+</div>
+<h1 id="conclusão">6. CONCLUSÃO</h1>
+<p>Este relatório apresentou uma análise sistemática de lacunas entre dois repositórios GitHub desenvolvidos pela pesquisadora Luana Pessoa e as melhores práticas científicas identificadas em 163 artigos revisados por pares. A análise identificou <strong>13 lacunas principais</strong> (6 no PSA Hídrico Ipojuca, 7 no OmniEditor Diamond Sovereign) que comprometem validade científica, reprodutibilidade, segurança e conformidade ética das ferramentas.</p>
+<h2 id="principais-conclusões">Principais Conclusões</h2>
+<h3 id="psa-hídrico-ipojuca-1">PSA Hídrico Ipojuca</h3>
+<p>O sistema implementa uma abordagem tecnicamente competente para priorização espacial de PSA hídrico, mas apresenta lacunas metodológicas críticas que limitam sua validade científica e aplicabilidade institucional:</p>
+<ol type="1">
+<li><strong>Pesos AHP não documentados</strong> impedem reprodutibilidade e auditoria científica.</li>
+<li><strong>Ausência de validação empírica</strong> impossibilita avaliar efetividade do ranqueamento.</li>
+<li><strong>Vulnerabilidade de segurança crítica</strong> representa risco grave de comprometimento de dados e decisões.</li>
+</ol>
+<p>A implementação das recomendações de criticidade alta (elicitação documentada de pesos, correção de vulnerabilidade de segurança, validação empírica) é <strong>essencial</strong> para viabilizar o uso científico e institucional da plataforma.</p>
+<h3 id="omnieditor-diamond-sovereign-1">OmniEditor Diamond Sovereign</h3>
+<p>A ferramenta oferece funcionalidades valiosas para produção acadêmica, mas apresenta lacunas significativas em transparência, verificação de qualidade e conformidade ética:</p>
+<ol type="1">
+<li><strong>Proveniência de IA não rastreável</strong> compromete reprodutibilidade e accountability.</li>
+<li><strong>Falta de verificação de alucinações</strong> representa risco grave para integridade científica.</li>
+<li><strong>Busca federada não verdadeira</strong> limita cobertura e qualidade da revisão de literatura.</li>
+</ol>
+<p>A implementação das recomendações de criticidade alta (proveniência de IA, verificação de alucinações, busca federada verdadeira) é <strong>essencial</strong> para conformidade com diretrizes editoriais internacionais e garantia de integridade científica.</p>
+<h2 id="contribuições-do-relatório">Contribuições do Relatório</h2>
+<p>Este relatório contribui para a melhoria contínua das ferramentas ao:</p>
+<ol type="1">
+<li><p><strong>Identificar e quantificar lacunas</strong> de forma sistemática e fundamentada em evidências científicas.</p></li>
+<li><p><strong>Priorizar intervenções</strong> com base em criticidade, impacto e esforço de implementação.</p></li>
+<li><p><strong>Fornecer roteiros técnicos detalhados</strong> para implementação de cada recomendação.</p></li>
+<li><p><strong>Contextualizar lacunas</strong> em relação a requisitos científicos, éticos e regulatórios.</p></li>
+</ol>
+<h2 id="próximos-passos">Próximos Passos</h2>
+<p>Recomenda-se:</p>
+<ol type="1">
+<li><p><strong>Implementação imediata</strong> das recomendações de criticidade alta (Fase 1 do roadmap).</p></li>
+<li><p><strong>Planejamento de implementação</strong> das recomendações de criticidade média e baixa conforme roadmap proposto.</p></li>
+<li><p><strong>Estabelecimento de processos de revisão contínua</strong> para garantir conformidade com padrões científicos e éticos em evolução.</p></li>
+<li><p><strong>Engajamento com comunidade científica</strong> para validação das ferramentas e coleta de feedback de usuários.</p></li>
+<li><p><strong>Publicação de artigos científicos</strong> descrevendo as ferramentas, metodologias e resultados de validação para contribuir com a literatura e ampliar visibilidade institucional.</p></li>
+</ol>
+<h2 id="considerações-finais">Considerações Finais</h2>
+<p>As ferramentas analisadas representam esforços valiosos de desenvolvimento tecnológico para suporte à pesquisa acadêmica e gestão ambiental. A identificação de lacunas não diminui o mérito do trabalho realizado, mas oferece oportunidades concretas de aprimoramento para alinhamento com padrões científicos internacionais.</p>
+<p>A implementação das recomendações apresentadas neste relatório fortalecerá significativamente a validade científica, reprodutibilidade, segurança e conformidade ética das ferramentas, ampliando seu potencial de impacto científico e institucional.</p>
+<hr />
+<div style="page-break-after: always;">
+
+</div>
+<h1 id="referências">7. REFERÊNCIAS</h1>
+<p>[1] Requisito científico sobre proveniência e auditoria de sistemas de IA para escrita acadêmica, estabelecendo necessidade de versionamento imutável e rastreamento de fontes para garantir reprodutibilidade e accountability.</p>
+<p>[2] Requisito científico sobre elicitação documentada de pesos em sistemas AHP, exigindo métodos estruturados como painéis de especialistas ou técnica Delphi em vez de julgamentos ad hoc, com documentação completa do processo.</p>
+<p>[3] Requisito científico sobre privacidade e governança de dados em sistemas digitais, estabelecendo necessidade de manuseio seguro de informações sensíveis e políticas claras de armazenamento.</p>
+<p>[4] Requisito científico sobre fidelidade a estilos de citação e interoperabilidade de ferramentas acadêmicas, exigindo suporte a formatos padrão (BibTeX, RIS, EndNote) e validação contra exemplos oficiais de normas.</p>
+<p>[5] Requisito científico sobre integração espacial de critérios AHP com camadas GIS de alta resolução para mapeamento de áreas prioritárias em sistemas de PSA, com documentação de proveniência de dados geoespaciais.</p>
+<p>[6] Requisito científico sobre monitoramento de resultados e adicionalidade em sistemas de Pagamento por Serviços Ambientais, exigindo vinculação de critérios a resultados mensuráveis e avaliação de efetividade de intervenções.</p>
+<p>[7] Requisito científico sobre transparência e proveniência de dados em plataformas de decisão ambiental, exigindo publicação de conjuntos de dados, protocolos de elicitação e registros de stakeholders para auditoria e reprodução.</p>
+<p>[8] Requisito científico sobre análise de sensibilidade e integração de dados observacionais em sistemas de priorização espacial, para avaliar robustez de decisões frente a incertezas e variações em pesos ou dados de entrada.</p>
+<p>[9] Requisito científico sobre verificação de factualidade e detecção de alucinações em sistemas de IA generativa, exigindo verificação automática contra fontes resolvidas e sinalização de afirmações não fundamentadas.</p>
+<hr />
+<p><strong>FIM DO RELATÓRIO</strong></p>
+</body>
+</html>
