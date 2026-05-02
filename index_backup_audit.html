@@ -36,7 +36,7 @@
 :root{
   --gold:#C9A84C;--gold-light:#E8C97A;--gold-dark:#9A7A2E;--gold-xlight:#F5E4A0;
   --deep:#07070F;--deep2:#0D0D1A;--surface:#111128;--surface2:#181832;--surface3:#1E1E3C;
-  --text:#F0EDE8;--muted:#7A7A9A;--text-muted:#7A7A9A;--muted2:#5A5A7A;
+  --text:#F0EDE8;--muted:#7A7A9A;--muted2:#5A5A7A;
   --rose:#C97A8A;--teal:#4ABFBF;--purple:#9A7AC9;--green:#7AC98A;
   --orange:#C98A4A;--cyan:#4AC9C9;--red:#C94A4A;--blue:#4A8AC9;--pink:#C94A9A;
   --glass:rgba(255,255,255,0.03);--glass-border:rgba(255,255,255,0.08);
@@ -2655,7 +2655,7 @@ body{padding-bottom:env(safe-area-inset-bottom)}
 
 
 <!-- AI MONITOR FLOATING PANEL -->
-<div id="ai-monitor-float" style="position:fixed;bottom:145px;left:24px;z-index:400;width:320px;max-height:400px;background:linear-gradient(135deg,#0d1f1f,#0a1a1a);border:1px solid rgba(74,191,191,.25);border-radius:16px;box-shadow:0 16px 48px rgba(0,0,0,.7);display:none;flex-direction:column;overflow:hidden">
+<div id="ai-monitor-float" style="position:fixed;bottom:145px;right:24px;z-index:400;width:320px;max-height:400px;background:linear-gradient(135deg,#0d1f1f,#0a1a1a);border:1px solid rgba(74,191,191,.25);border-radius:16px;box-shadow:0 16px 48px rgba(0,0,0,.7);display:none;flex-direction:column;overflow:hidden">
   <div style="padding:12px 16px;border-bottom:1px solid rgba(74,191,191,.15);display:flex;align-items:center;justify-content:space-between">
     <div style="display:flex;align-items:center;gap:8px">
       <span style="font-size:1.2rem">🤖</span>
@@ -3024,7 +3024,7 @@ body{padding-bottom:env(safe-area-inset-bottom)}
   💬
 </button>
 <!-- AI MONITOR FAB -->
-<button id="ai-monitor-fab" onclick="toggleAIMonitorFloat()" title="IA Monitor & Diagnóstico" style="position:fixed;bottom:24px;left:24px;z-index:401;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a3a3a,#0d2626);border:1px solid rgba(74,191,191,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 16px rgba(74,191,191,.3);transition:all .3s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+<button id="ai-monitor-fab" onclick="toggleAIMonitorFloat()" title="IA Monitor & Diagnóstico" style="position:fixed;bottom:92px;right:24px;z-index:401;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a3a3a,#0d2626);border:1px solid rgba(74,191,191,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 16px rgba(74,191,191,.3);transition:all .3s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
   🤖
 </button>
 <div class="sophia-float-panel" id="sophia-float-panel">
@@ -3036,10 +3036,7 @@ body{padding-bottom:env(safe-area-inset-bottom)}
         <div style="font-size:.6rem;color:var(--green)">Online</div>
       </div>
     </div>
-    <div style="display:flex;gap:6px;align-items:center">
-      <button id="sophia-tts-float-btn" onclick="toggleSophiaTTSFloat()" title="Ativar/desativar voz" style="background:none;border:1px solid rgba(201,168,76,.25);border-radius:6px;color:var(--muted);cursor:pointer;font-size:.7rem;padding:3px 7px">🔇</button>
-      <button onclick="closeSophiaFloat()" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem">✕</button>
-    </div>
+    <button onclick="closeSophiaFloat()" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem">✕</button>
   </div>
   <div class="sophia-float-chat" id="sophia-float-chat"></div>
   <div style="padding:6px 10px;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:4px;flex-wrap:wrap">
@@ -5599,28 +5596,19 @@ function calcRetirement() {
 // Text-to-Speech para Sophia
 function sophiaSpeak(text) {
   if (!('speechSynthesis' in window)) return;
-  if (!sophiaTTSEnabled) return;
   window.speechSynthesis.cancel();
-  const utter = () => {
-    const utterance = new SpeechSynthesisUtterance(text.replace(/[*_`#\n]/g,' ').substring(0,200));
-    utterance.lang = 'pt-BR';
-    utterance.rate = 0.92;
-    utterance.pitch = 1.15;
-    utterance.volume = 0.9;
-    const voices = window.speechSynthesis.getVoices();
-    const ptVoice = voices.find(v => v.lang.startsWith('pt') && v.name.toLowerCase().includes('female'))
-      || voices.find(v => v.lang === 'pt-BR')
-      || voices.find(v => v.lang.startsWith('pt'))
-      || voices.find(v => v.name.toLowerCase().includes('female'));
-    if (ptVoice) utterance.voice = ptVoice;
-    window.speechSynthesis.speak(utterance);
-  };
-  // Voices may not be loaded yet on first call
-  if (window.speechSynthesis.getVoices().length > 0) {
-    utter();
-  } else {
-    window.speechSynthesis.onvoiceschanged = () => { utter(); window.speechSynthesis.onvoiceschanged = null; };
-  }
+  const utterance = new SpeechSynthesisUtterance(text.replace(/[*_`#]/g,''));
+  utterance.lang = 'pt-BR';
+  utterance.rate = 0.95;
+  utterance.pitch = 1.1;
+  utterance.volume = 0.9;
+  // Prefer female voice
+  const voices = window.speechSynthesis.getVoices();
+  const ptVoice = voices.find(v => v.lang.startsWith('pt') && v.name.toLowerCase().includes('female'))
+    || voices.find(v => v.lang.startsWith('pt'))
+    || voices.find(v => v.name.toLowerCase().includes('female'));
+  if (ptVoice) utterance.voice = ptVoice;
+  window.speechSynthesis.speak(utterance);
 }
 
 // Alias sophiaAddMessage → addSophiaMsg
@@ -5689,7 +5677,9 @@ function selfHeal() {
   updateModuleHealth();
 }
 
-
+function autoFix() {
+  selfHeal();
+}
 
 function startMonitor() {
   AIMonitor.log('Monitor iniciado — verificação a cada 30s', 'info');
@@ -5739,7 +5729,18 @@ function addSophiaMsgWithTTS(chatId, from, text) {
 // MELHORIAS VISUAIS — AI MONITOR FLOATING
 // ============================================================
 
-
+function toggleAIMonitorFloat() {
+  const mon = document.getElementById('ai-monitor');
+  if (!mon) return;
+  if (mon.classList.contains('expanded')) {
+    mon.classList.remove('expanded');
+    mon.style.maxHeight = '';
+  } else {
+    mon.classList.add('expanded');
+    mon.style.maxHeight = '300px';
+    runSystemCheck();
+  }
+}
 
 // Auto-start monitor on load
 setTimeout(() => {
@@ -5993,7 +5994,33 @@ function runFloatDiagnostics() {
 
 // Override selfHeal to also log to float panel
 const _originalSelfHeal = typeof selfHeal === 'function' ? selfHeal : null;
-
+function selfHeal() {
+  addAIFloatLog('🔧 Auto-cura iniciada...', 'fix');
+  let fixed = 0;
+  
+  if (typeof SW !== 'undefined') {
+    if (typeof SW.xp !== 'number') { SW.xp = 0; fixed++; }
+    if (typeof SW.level !== 'number') { SW.level = 1; fixed++; }
+    if (typeof SW.streak !== 'number') { SW.streak = 0; fixed++; }
+    if (!Array.isArray(SW.habits)) { SW.habits = []; fixed++; }
+  }
+  
+  const greetBar = document.getElementById('greeting-bar');
+  if (greetBar && greetBar.style.display === 'none') {
+    greetBar.style.display = 'block'; fixed++;
+  }
+  
+  const chat = document.getElementById('sophia-float-chat');
+  if (chat && chat.children.length === 0) {
+    addSophiaMsg('sophia-float-chat', 'sophia', 'Sistema restaurado! Sophia v5 online. 💫');
+    fixed++;
+  }
+  
+  try { if (typeof saveState === 'function') saveState(); } catch(e) {}
+  
+  addAIFloatLog(`✅ Auto-cura concluída: ${fixed} correções aplicadas`, 'fix');
+  showToast(`🔧 Auto-cura: ${fixed} itens corrigidos!`);
+}
 
 function autoFix() {
   addAIFloatLog('⚡ Auto-Fix iniciado...', 'fix');
@@ -6183,22 +6210,6 @@ function buildDailyAgenda(data) {
   return agenda;
 }
 
-
-// TTS toggle for float panel
-function toggleSophiaTTSFloat() {
-  sophiaTTSEnabled = !sophiaTTSEnabled;
-  const btn = document.getElementById('sophia-tts-float-btn');
-  if (btn) {
-    btn.textContent = sophiaTTSEnabled ? '🔊' : '🔇';
-    btn.style.borderColor = sophiaTTSEnabled ? 'var(--gold)' : 'rgba(201,168,76,.25)';
-    btn.style.color = sophiaTTSEnabled ? 'var(--gold)' : 'var(--muted)';
-  }
-  // Also sync the main TTS button
-  const mainBtn = document.getElementById('sophia-tts-btn');
-  if (mainBtn) mainBtn.textContent = sophiaTTSEnabled ? '🔊 Voz ON' : '🔇 Voz OFF';
-  showToast(sophiaTTSEnabled ? '🔊 Voz da Sophia ativada!' : '🔇 Voz desativada', 2000);
-  if (sophiaTTSEnabled) sophiaSpeak('Olá! Voz ativada. Estou aqui para ajudar!');
-}
 </script>
 </body>
 </html>
