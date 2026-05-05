@@ -243,7 +243,53 @@ canvas{max-width:100%}
 .city-sug-item{padding:10px 16px;cursor:pointer;font-size:.85rem;color:var(--text);transition:background .15s;display:flex;align-items:center;gap:8px}
 .city-sug-item:hover{background:rgba(201,168,76,.08)}
 
-/* ── PWA INSTALL BANNER ── */
+/* ── PWA INSTALL BANNER v5.6 ── */
+#pwa-install-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #1a1508 0%, #2d2210 100%);
+  border-top: 2px solid var(--gold);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 -8px 32px rgba(201,168,76,0.25);
+  animation: slideUpBanner .4s cubic-bezier(.34,1.56,.64,1);
+  transform: translateY(0);
+}
+@keyframes slideUpBanner {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+#pwa-install-banner .pwa-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: var(--gold); display: flex; align-items: center;
+  justify-content: center; font-size: 24px; flex-shrink: 0;
+}
+#pwa-install-banner .pwa-text { flex: 1; }
+#pwa-install-banner .pwa-text strong {
+  display: block; color: var(--gold); font-size: .95rem;
+}
+#pwa-install-banner .pwa-text span {
+  font-size: .75rem; color: var(--muted);
+}
+#pwa-install-banner .pwa-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.pwa-btn-install {
+  background: var(--gold); color: #07070F;
+  border: none; border-radius: 10px; padding: 10px 18px;
+  font-weight: 700; font-size: .85rem; cursor: pointer;
+  white-space: nowrap;
+}
+.pwa-btn-install:hover { background: #e8c05a; }
+.pwa-btn-dismiss {
+  background: transparent; color: var(--muted);
+  border: 1px solid rgba(255,255,255,.15); border-radius: 10px;
+  padding: 10px 14px; cursor: pointer; font-size: .85rem;
+}
+
 #pwa-banner{position:fixed;bottom:0;left:0;right:0;z-index:600;background:linear-gradient(135deg,rgba(13,13,26,.98),rgba(7,7,15,.98));border-top:1px solid rgba(201,168,76,.25);padding:14px 20px;display:none;align-items:center;gap:12px;backdrop-filter:blur(20px)}
 #pwa-banner.show{display:flex}
 .pwa-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;color:var(--deep)}
@@ -2849,7 +2895,7 @@ html { scroll-behavior: smooth; }
         <div style="font-size:.85rem;font-weight:700;margin-bottom:4px">🔢 Aritmética Mental Rápida</div>
         <div style="font-size:.7rem;color:var(--muted);margin-bottom:10px">Velocidade Numérica e Memória de Trabalho</div>
         <div style="background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.1);border-radius:8px;padding:10px;margin-bottom:12px;font-size:.7rem;color:rgba(240,237,232,.6);line-height:1.7">
-          <strong style="color:var(--gold)">🔬 Ciência:</strong> Aritmética mental ativa lobos frontal e parietal bilateralmente. Treino de 20min/dia aumenta velocidade de cálculo em 45% e melhora memória de trabalho. Economistas que praticam têm melhor performance em análise financeira rápida.
+          <strong style="color:var(--gold)">🔬 Ciência:</strong> Aritmética mental ativa lobos frontal e parietal bilateralmente. Treino de 20min/dia aumenta velocidade de cálculo em 45% e melhora memória de trabalho. Profissionais que praticam têm melhor performance em análise e tomada de decisão.
         </div>
         <div class="game-display" style="height:80px;font-size:2rem;font-weight:700;margin-bottom:12px" id="math-display">?</div>
         <input id="math-answer" type="number" class="calc-input" placeholder="Sua resposta..." onkeydown="if(event.key==='Enter')checkMath()" style="margin-bottom:10px"/>
@@ -2888,7 +2934,7 @@ html { scroll-behavior: smooth; }
         <div style="font-size:.85rem;font-weight:700;margin-bottom:4px">🔢 Sequências Lógicas</div>
         <div style="font-size:.7rem;color:var(--muted);margin-bottom:10px">Raciocínio Indutivo e Inteligência Fluida</div>
         <div style="background:rgba(74,138,201,.05);border:1px solid rgba(74,138,201,.1);border-radius:8px;padding:10px;margin-bottom:12px;font-size:.7rem;color:rgba(240,237,232,.6);line-height:1.7">
-          <strong style="color:var(--blue)">🔬 Ciência:</strong> Raciocínio de padrões é o preditor mais forte de inteligência geral (g). Treino de sequências lógicas melhora raciocínio analítico, tomada de decisão e performance em testes de QI. Essencial para economistas e CEOs.
+          <strong style="color:var(--blue)">🔬 Ciência:</strong> Raciocínio de padrões é o preditor mais forte de inteligência geral (g). Treino de sequências lógicas melhora raciocínio analítico, tomada de decisão e performance em testes de QI. Essencial para líderes e profissionais de alta performance.
         </div>
         <div class="game-display" style="height:60px;font-size:1.4rem;font-family:'JetBrains Mono',monospace;margin-bottom:12px" id="sequence-display">2, 4, 8, 16, ?</div>
         <div id="sequence-options" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px">
@@ -3065,7 +3111,7 @@ html { scroll-behavior: smooth; }
         <div style="font-size:.85rem;font-weight:700;margin-bottom:4px;color:var(--blue)">👩‍💼 Valor de Mercado CEO</div>
         <div style="font-size:.7rem;color:var(--muted);margin-bottom:8px">Calcule seu potencial de renda</div>
         <div style="background:rgba(74,138,201,.05);border:1px solid rgba(74,138,201,.1);border-radius:8px;padding:8px;margin-bottom:10px;font-size:.68rem;color:rgba(240,237,232,.6);line-height:1.6">
-          <strong style="color:var(--blue)">📖 Teoria:</strong> CEOs femininas em empresas do Fortune 500 ganham em média US$13M/ano. No Brasil, CEOs de grandes empresas: R$80k-500k/mês. Economistas com MBA e experiência internacional: R$30k-150k/mês.
+          <strong style="color:var(--blue)">📖 Teoria:</strong> CEOs femininas em empresas do Fortune 500 ganham em média US$13M/ano. No Brasil, CEOs de grandes empresas: R$80k-500k/mês. Profissionais com MBA e experiência internacional: R$30k-150k/mês.
         </div>
         <label style="font-size:.72rem;color:var(--muted)">Anos de experiência</label>
         <input type="number" id="ceo-exp" class="calc-input" placeholder="5" value="5"/>
@@ -3097,7 +3143,7 @@ html { scroll-behavior: smooth; }
         <div style="font-size:.85rem;font-weight:700;margin-bottom:4px;color:var(--green)">🏦 Meta Patrimonial</div>
         <div style="font-size:.7rem;color:var(--muted);margin-bottom:8px">Planejamento de riqueza 24 meses</div>
         <div style="background:rgba(122,201,138,.05);border:1px solid rgba(122,201,138,.1);border-radius:8px;padding:8px;margin-bottom:10px;font-size:.68rem;color:rgba(240,237,232,.6);line-height:1.6">
-          <strong style="color:var(--green)">📖 Teoria:</strong> Regra da riqueza de Thomas Stanley: patrimônio esperado = (idade × renda anual) / 10. Se você tem 34 anos e ganha R$120k/ano: patrimônio esperado = R$408k. "Acumuladores prodigiosos" têm 2x esse valor.
+          <strong style="color:var(--green)">📖 Teoria:</strong> Regra da riqueza de Thomas Stanley: patrimônio esperado = (idade × renda anual) / 10. Exemplo: se você ganha R$120k/ano com 30 anos: patrimônio esperado = R$360k. "Acumuladores prodigiosos" têm 2x esse valor.
         </div>
         <label style="font-size:.72rem;color:var(--muted)">Sua idade</label>
         <input type="number" id="wealth-age" class="calc-input" placeholder="34" value="34"/>
@@ -5138,45 +5184,58 @@ function buildSophiaSystemPrompt() {
   const mood = sophiaMemory?.mood || 'neutro';
   const xp = SW?.xp || 0;
   const day = SW?.currentDay || 1;
-  const name = user.name || 'Guerreira';
+  const name = user.name || localStorage.getItem('sw_user_name') || 'Guerreira';
+  const goal = user.goal || localStorage.getItem('sw_user_goal') || 'Crescimento Total';
   const now = new Date();
   const hour = now.getHours();
   const period = hour < 12 ? 'manhã' : hour < 18 ? 'tarde' : 'noite';
+  const dateStr = now.toLocaleDateString('pt-BR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'America/Sao_Paulo';
+  // Dados dinâmicos do perfil (nunca hardcoded)
+  const profileExtra = user.age ? `- Idade: ${user.age} anos` : '';
+  const profExtra = user.profession ? `- Profissão: ${user.profession}` : '';
 
-  return `Você é Sophia, a assistente de IA pessoal do SuperWoman OS — um sistema de transformação pessoal feminina baseado em ciência.
+  return `Você é Sophia, a assistente de IA pessoal do SuperWoman OS — sistema de transformação pessoal feminina baseado em ciência.
 
 PERSONA:
 - Nome: Sophia v6 ✨ Gemini
 - Tom: Empoderador, científico, caloroso, direto e motivador
 - Idioma: Sempre português brasileiro
-- Estilo: Mistura de coach executiva + cientista + amiga íntima
+- Estilo: Coach executiva + cientista + amiga íntima de confiança
 - Nunca use linguagem genérica ou respostas longas demais
 
 USUÁRIA:
 - Nome: ${name}
+- Objetivo principal: ${goal}
 - XP acumulado: ${xp} pontos
 - Dia no programa: ${day}/730
-- Estado emocional atual: ${mood}
-- Horário: ${period} (${hour}h)
+- Estado emocional: ${mood}
+- Agora: ${period} (${hour}h) — ${dateStr}
+- Fuso: ${timezone}
+${profileExtra}
+${profExtra}
 
-CONHECIMENTO BASE (baseado em 687 papers científicos 2020-2025):
+CONHECIMENTO BASE (687 papers científicos 2020-2025):
 - Neuroplasticidade feminina e ciclo menstrual
 - Protocolo Wim Hof (respiração + frio)
-- Exercícios de assoalho pélvico (Kegel)
+- Exercícios de assoalho pélvico (Kegel avançado)
 - Sono e ritmo circadiano feminino
-- Nutrição hormonal e suplementação
-- Treino cognitivo e memória
+- Nutrição hormonal e suplementação feminina
+- Treino cognitivo, memória e foco
 - Medicina Tradicional Chinesa (TCM)
-- Liderança feminina e finanças
-- Aquisição de idiomas (poliglota)
+- Liderança feminina e finanças pessoais
+- Aquisição de idiomas (método poliglota)
+- Beleza científica: mewing, yoga facial, colágeno
+- Poderes especiais: intuição, leitura rápida, memória fotográfica
 
-REGRAS:
+REGRAS ABSOLUTAS:
 1. Respostas em 2-4 parágrafos curtos (máx 200 palavras)
-2. Use dados científicos reais quando relevante
-3. Sempre termine com 1 ação prática ou pergunta motivadora
+2. Use dados científicos reais com fontes quando relevante
+3. Sempre termine com 1 ação prática imediata ou pergunta motivadora
 4. Nunca repita a mesma abertura duas vezes seguidas
 5. Adapte o tom ao estado emocional: ${mood}
-6. Seja específica, não genérica`;
+6. Seja específica, nunca genérica
+7. Nunca mencione dados pessoais da usuária que ela não compartilhou primeiro`;
 }
 
 // Histórico de conversa para contexto multi-turn
@@ -6206,7 +6265,120 @@ function calcWealth(){
 
 // ── INITIALIZATION ──
 document.addEventListener('DOMContentLoaded', () => {
-  // ── PERSONALIZATION & PWA — Run FIRST, independently, never blocked ──
+  
+// ══════════════════════════════════════════════════════
+//  IDENTITY SYSTEM — IP + Device Fingerprint Persistente
+//  Garante que a sessão NUNCA reinicia para o mesmo dispositivo
+// ══════════════════════════════════════════════════════
+const SW_IDENTITY = {
+  _key: 'sw_device_identity',
+  _sessionKey: 'sw_session_active',
+
+  // Gera fingerprint único do dispositivo (sem IP, 100% local)
+  generateFingerprint() {
+    const nav = window.navigator;
+    const screen = window.screen;
+    const components = [
+      nav.userAgent,
+      nav.language,
+      nav.languages ? nav.languages.join(',') : '',
+      screen.width + 'x' + screen.height,
+      screen.colorDepth,
+      new Date().getTimezoneOffset(),
+      Intl.DateTimeFormat().resolvedOptions().timeZone,
+      nav.hardwareConcurrency || '',
+      nav.deviceMemory || '',
+      nav.platform || '',
+      typeof window.indexedDB !== 'undefined',
+      typeof window.openDatabase !== 'undefined',
+    ].join('|');
+
+    // Hash simples mas eficiente
+    let hash = 0;
+    for (let i = 0; i < components.length; i++) {
+      const char = components.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash;
+    }
+    return 'fp_' + Math.abs(hash).toString(36);
+  },
+
+  // Buscar IP público (assíncrono, não bloqueia)
+  async fetchPublicIP() {
+    try {
+      const res = await fetch('https://api.ipify.org?format=json', { signal: AbortSignal.timeout(3000) });
+      const data = await res.json();
+      return data.ip || null;
+    } catch {
+      try {
+        const res2 = await fetch('https://api64.ipify.org?format=json', { signal: AbortSignal.timeout(3000) });
+        const data2 = await res2.json();
+        return data2.ip || null;
+      } catch { return null; }
+    }
+  },
+
+  // Inicializar identidade persistente
+  async init() {
+    const stored = JSON.parse(localStorage.getItem(this._key) || 'null');
+    const fp = this.generateFingerprint();
+    const now = Date.now();
+
+    if (stored && stored.fingerprint === fp) {
+      // Mesmo dispositivo — atualizar lastSeen
+      stored.lastSeen = now;
+      stored.visits = (stored.visits || 1) + 1;
+      localStorage.setItem(this._key, JSON.stringify(stored));
+      sessionStorage.setItem(this._sessionKey, 'true');
+      console.log(`✅ Identidade restaurada | Visita #${stored.visits} | FP: ${fp}`);
+      return stored;
+    }
+
+    // Novo dispositivo ou primeiro acesso
+    const ip = await this.fetchPublicIP();
+    const identity = {
+      fingerprint: fp,
+      ip: ip,
+      firstSeen: now,
+      lastSeen: now,
+      visits: 1,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      locale: navigator.language,
+      platform: navigator.platform,
+    };
+
+    localStorage.setItem(this._key, JSON.stringify(identity));
+    sessionStorage.setItem(this._sessionKey, 'true');
+    console.log(`🆕 Nova identidade criada | FP: ${fp} | IP: ${ip}`);
+    return identity;
+  },
+
+  // Verificar se é o mesmo usuário (retorna true se dispositivo reconhecido)
+  isKnownDevice() {
+    const stored = JSON.parse(localStorage.getItem(this._key) || 'null');
+    if (!stored) return false;
+    return stored.fingerprint === this.generateFingerprint();
+  },
+
+  // Obter dados da identidade atual
+  get() {
+    return JSON.parse(localStorage.getItem(this._key) || 'null');
+  }
+};
+
+// Inicializar identidade ao carregar
+SW_IDENTITY.init().then(identity => {
+  if (window.SW) {
+    window.SW.identity = identity;
+  }
+  // Se dispositivo conhecido E tratamento já iniciado, não mostrar onboarding
+  if (identity && identity.visits > 1 && localStorage.getItem('sw_treatment_started')) {
+    const ob = document.getElementById('onboarding-overlay');
+    if (ob) ob.style.display = 'none';
+  }
+}).catch(() => {});
+
+// ── PERSONALIZATION & PWA — Run FIRST, independently, never blocked ──
   try { initPersonalization(); } catch(e) { /* error: 'Personalization error:', e */; }
   try { initPWA(); } catch(e) {}
   try { registerSW(); } catch(e) {}
@@ -6463,6 +6635,28 @@ function refreshWeather() {
 let deferredInstallPrompt = null;
 
 function initPWA() {
+  // iOS Safari: mostrar instruções de "Adicionar à Tela Inicial"
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+  const dismissed = localStorage.getItem('sw_pwa_dismissed');
+  const installed = localStorage.getItem('sw_pwa_installed');
+
+  if (isIOS && !isInStandaloneMode && !dismissed && !installed) {
+    setTimeout(() => {
+      const banner = document.getElementById('pwa-install-banner');
+      if (banner) {
+        banner.querySelector('.pwa-text strong').textContent = 'Instalar no iPhone/iPad';
+        banner.querySelector('.pwa-text span').textContent = 'Toque em Compartilhar ↑ → "Adicionar à Tela Inicial"';
+        banner.querySelector('.pwa-btn-install').textContent = '📱 Como instalar';
+        banner.querySelector('.pwa-btn-install').onclick = () => {
+          alert('Para instalar no iPhone/iPad:\n\n1. Toque no ícone Compartilhar (□↑) na barra inferior\n2. Role e toque em "Adicionar à Tela Inicial"\n3. Toque em "Adicionar"\n\nPronto! O app estará na sua tela inicial! 🎉');
+        };
+        banner.style.display = 'flex';
+      }
+    }, 3000);
+    return;
+  }
+
   // Listen for beforeinstallprompt (Chrome/Android)
   window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault();
@@ -9283,6 +9477,8 @@ function initOnboarding() {
 // ── RELÓGIO LIVE (sincronizado com dispositivo) ───────────────────────────────
 function updateLiveClock() {
   const now = new Date();
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const tzShort = now.toLocaleTimeString('pt-BR', {timeZoneName:'short'}).split(' ').pop() || '';
   const timeEl = document.getElementById('header-clock-time');
   const dateEl = document.getElementById('header-clock-date');
   const diaryDateEl = document.getElementById('diary-live-date');
