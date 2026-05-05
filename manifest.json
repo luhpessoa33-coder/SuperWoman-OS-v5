@@ -1,61 +1,25 @@
 {
-  "name": "SuperWoman OS v5",
-  "short_name": "SW OS v5",
-  "description": "Plataforma máxima de transformação feminina com IA auto-corretiva, Sophia v5 e 24 meses de protocolo científico",
-  "start_url": "/",
+  "name": "SuperWoman OS",
+  "short_name": "SW OS",
+  "description": "Plataforma de transformação feminina com Sophia Gemini IA, 687 protocolos científicos, Diário ao vivo e Planner pessoal",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#07070F",
   "theme_color": "#C9A84C",
   "orientation": "portrait-primary",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["health", "fitness", "lifestyle", "education", "productivity"],
   "icons": [
-    {
-      "src": "icons/icon-72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icons/icon-96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icons/icon-128.png",
-      "sizes": "128x128",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icons/icon-144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icons/icon-152.png",
-      "sizes": "152x152",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icons/icon-384.png",
-      "sizes": "384x384",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "icons/icon-72.png",  "sizes": "72x72",   "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-96.png",  "sizes": "96x96",   "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-128.png", "sizes": "128x128", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-144.png", "sizes": "144x144", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-152.png", "sizes": "152x152", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-384.png", "sizes": "384x384", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ],
   "screenshots": [
     {
@@ -63,10 +27,30 @@
       "sizes": "390x844",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "SuperWoman OS v5 - Dashboard"
+      "label": "SuperWoman OS — Dashboard com Sophia Gemini"
     }
   ],
-  "categories": ["health", "fitness", "lifestyle", "education"],
-  "lang": "pt-BR",
-  "dir": "ltr"
+  "shortcuts": [
+    {
+      "name": "Falar com Sophia",
+      "short_name": "Sophia",
+      "description": "Abrir chat com Sophia Gemini IA",
+      "url": "./#sophia",
+      "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Meu Diário",
+      "short_name": "Diário",
+      "description": "Abrir diário pessoal",
+      "url": "./#diary",
+      "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Planner",
+      "short_name": "Planner",
+      "description": "Abrir planner de atividades",
+      "url": "./#planner",
+      "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }]
+    }
+  ]
 }
