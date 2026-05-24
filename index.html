@@ -5363,7 +5363,11 @@ const SOPHIA_EXPERT = {
     'terapiasCasa': { papers: 246, topics: ['home therapy', 'pelvic floor', 'CBT', 'mindfulness', 'sexual health', 'longevity'] },
             'iaExpert': { papers: 264, topics: ['RAG', 'chain-of-thought', 'multi-agent', 'prompt engineering'] },
             'saudeFeminina': { papers: 226, topics: ['AI health', 'longevity', 'hormones', 'precision medicine'] },
-            'cognitivo4anos': { papers: 205, topics: ['neuroplasticity', 'long-term training', 'brain plasticity', 'cognitive enhancement'] }, topics: ['ethical hacking', 'penetration testing', 'OSINT', 'cybersecurity', 'social engineering', 'digital privacy', 'CEO security'] }
+            'hacking': { papers: 233, topics: ['ethical hacking', 'OSINT', 'social engineering', 'pentesting', 'CEO security'] },
+    'terapiasCasa': { papers: 246, topics: ['home therapy', 'pelvic floor', 'CBT', 'mindfulness', 'sexual health', 'longevity'] },
+    'iaExpert': { papers: 264, topics: ['RAG', 'chain-of-thought', 'multi-agent', 'prompt engineering'] },
+    'saudeFeminina': { papers: 226, topics: ['AI health', 'longevity', 'hormones', 'precision medicine'] },
+    'cognitivo4anos': { papers: 205, topics: ['neuroplasticity', 'long-term training', 'brain plasticity', 'cognitive enhancement'] }
   },
 
   // Livros recomendados por módulo
@@ -10775,6 +10779,19 @@ PAPERS TOTAL: 2,765 | PLANO: 48 meses | NÍVEL: Expert`;
         }
     };
 
+
+
+// ══ Toggle Module Accordion ══
+function toggleModule(id) {
+  const content = document.getElementById('content-' + id);
+  if (!content) return;
+  if (content.style.display === 'none' || !content.style.display) {
+    content.style.display = 'block';
+    content.style.animation = 'fadeIn 0.3s ease';
+  } else {
+    content.style.display = 'none';
+  }
+}
 
 </script>
 
