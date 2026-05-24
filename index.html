@@ -1352,6 +1352,72 @@ html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
 /* Safe area for notch devices */
 body { padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); }
 
+
+/* GitHub Connection Badge */
+.github-badge {
+  position: fixed;
+  bottom: 70px;
+  right: 12px;
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(10,10,20,0.95);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 20px;
+  padding: 5px 12px 5px 8px;
+  font-size: 0.65rem;
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+.github-badge:hover {
+  border-color: #C9A84C;
+  color: #C9A84C;
+  transform: scale(1.05);
+}
+.github-badge .gh-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4CAF50;
+  animation: pulse-dot 2s infinite;
+}
+.github-badge.updating .gh-dot {
+  background: #FFC107;
+  animation: pulse-dot 0.5s infinite;
+}
+.github-badge.offline .gh-dot {
+  background: #666;
+  animation: none;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.update-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  z-index: 99999;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 1px solid #C9A84C;
+  border-radius: 12px;
+  padding: 14px 20px;
+  color: #fff;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 32px rgba(201,168,76,0.3);
+  transition: transform 0.5s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+.update-toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
 </style>
 </head>
 <body style="opacity:0;transition:opacity .5s" onload="document.body.style.opacity='1'">
@@ -1417,6 +1483,26 @@ if(localStorage.getItem('sw_auth')==='ok'){
   &nbsp;|&nbsp;
   <span style="cursor:pointer;color:var(--muted)" onclick="showInstallGuide()" title="Instalar app">📲 App</span>
 </div>
+
+<!-- ══ GITHUB CONNECTION BADGE ══ -->
+<div class="github-badge" id="github-badge" onclick="checkGitHubUpdate()" title="Conectado ao GitHub - Clique para verificar atualizações">
+  <div class="gh-dot"></div>
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+  <span id="gh-version">v7.1</span>
+</div>
+
+<!-- ══ UPDATE NOTIFICATION TOAST ══ -->
+<div class="update-toast" id="update-toast">
+  <span style="font-size:1.2rem">🔄</span>
+  <div>
+    <div style="font-weight:600;color:#C9A84C">Nova versão disponível!</div>
+    <div style="font-size:0.7rem;color:#aaa" id="update-version-info">v7.1 → v7.2</div>
+  </div>
+  <button onclick="applyUpdate()" style="background:#C9A84C;color:#000;border:none;border-radius:8px;padding:6px 12px;font-size:0.7rem;font-weight:700;cursor:pointer">Atualizar</button>
+  <button onclick="dismissUpdate()" style="background:transparent;border:1px solid #555;color:#aaa;border-radius:8px;padding:6px 8px;font-size:0.7rem;cursor:pointer">✕</button>
+</div>
+
+
 
 <!-- ══════════════════════════════════════════
      PWA INSTALL BANNER
@@ -10792,6 +10878,129 @@ function toggleModule(id) {
     content.style.display = 'none';
   }
 }
+
+
+
+// ══════════════════════════════════════════════════════════════
+// 🐙 GITHUB AUTO-UPDATE SYSTEM
+// Conecta o app ao repositório GitHub para atualizações automáticas
+// ══════════════════════════════════════════════════════════════
+
+const GITHUB_CONFIG = {
+  repo: 'luhpessoa33-coder/SuperWoman-OS-v5',
+  pagesUrl: 'https://luhpessoa33-coder.github.io/SuperWoman-OS-v5/',
+  currentVersion: '7.1.0',
+  checkInterval: 30 * 60 * 1000, // 30 min
+  lastCheck: null
+};
+
+// Verificar atualização via GitHub Pages
+async function checkGitHubUpdate() {
+  const badge = document.getElementById('github-badge');
+  if (badge) badge.classList.add('updating');
+  
+  try {
+    const response = await fetch(GITHUB_CONFIG.pagesUrl + 'manifest.json?nocache=' + Date.now(), {
+      cache: 'no-store'
+    });
+    
+    if (!response.ok) throw new Error('GitHub offline');
+    
+    const manifest = await response.json();
+    const remoteVersion = manifest.version || '0.0.0';
+    GITHUB_CONFIG.lastCheck = new Date().toISOString();
+    
+    if (badge) badge.classList.remove('updating');
+    
+    if (remoteVersion !== GITHUB_CONFIG.currentVersion) {
+      showUpdateNotification(GITHUB_CONFIG.currentVersion, remoteVersion);
+      return true;
+    } else {
+      if (badge) {
+        const versionEl = document.getElementById('gh-version');
+        if (versionEl) versionEl.textContent = 'v' + GITHUB_CONFIG.currentVersion + ' ✓';
+      }
+      showToast('✅ App atualizado! Versão ' + GITHUB_CONFIG.currentVersion, 2500);
+      return false;
+    }
+  } catch(e) {
+    if (badge) {
+      badge.classList.remove('updating');
+      badge.classList.add('offline');
+    }
+    console.log('[GitHub] Check failed:', e.message);
+    return false;
+  }
+}
+
+function showUpdateNotification(current, next) {
+  const toast = document.getElementById('update-toast');
+  const info = document.getElementById('update-version-info');
+  if (toast) {
+    if (info) info.textContent = 'v' + current + ' → v' + next;
+    toast.classList.add('show');
+    // Auto-dismiss after 15s
+    setTimeout(() => { toast.classList.remove('show'); }, 15000);
+  }
+}
+
+function applyUpdate() {
+  const toast = document.getElementById('update-toast');
+  if (toast) toast.classList.remove('show');
+  
+  // Forçar atualização via Service Worker
+  if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+    navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+  }
+  
+  // Limpar cache e recarregar
+  if ('caches' in window) {
+    caches.keys().then(keys => {
+      keys.forEach(key => caches.delete(key));
+    }).then(() => {
+      window.location.reload(true);
+    });
+  } else {
+    window.location.reload(true);
+  }
+}
+
+function dismissUpdate() {
+  const toast = document.getElementById('update-toast');
+  if (toast) toast.classList.remove('show');
+}
+
+// Service Worker update listener
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.addEventListener('message', event => {
+    if (event.data && event.data.type === 'UPDATE_AVAILABLE') {
+      showUpdateNotification(event.data.currentVersion, event.data.newVersion);
+    }
+    if (event.data && event.data.type === 'VERSION_INFO') {
+      const versionEl = document.getElementById('gh-version');
+      if (versionEl) versionEl.textContent = 'v' + event.data.version;
+    }
+  });
+}
+
+// Auto-check updates every 30 minutes
+setInterval(checkGitHubUpdate, GITHUB_CONFIG.checkInterval);
+
+// Check on first load (after 10 seconds)
+setTimeout(checkGitHubUpdate, 10000);
+
+// Update badge status on network change
+window.addEventListener('online', () => {
+  const badge = document.getElementById('github-badge');
+  if (badge) badge.classList.remove('offline');
+  checkGitHubUpdate();
+});
+
+window.addEventListener('offline', () => {
+  const badge = document.getElementById('github-badge');
+  if (badge) badge.classList.add('offline');
+});
+
 
 </script>
 
