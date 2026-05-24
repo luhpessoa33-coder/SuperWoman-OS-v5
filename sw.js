@@ -1,7 +1,10 @@
-// SuperWoman OS — Service Worker v5.6
-// Cache robusto + offline + sync + background fetch
-const CACHE_NAME = 'sw-os-v56-cache';
-const CACHE_VERSION = 'v5.6';
+// SuperWoman OS — Service Worker v7.1
+// GitHub Auto-Update + Cache robusto + offline + sync
+const CACHE_NAME = 'sw-os-v71-cache';
+const CACHE_VERSION = 'v7.1';
+const APP_VERSION = '7.1.0';
+const GITHUB_PAGES_URL = 'https://luhpessoa33-coder.github.io/SuperWoman-OS-v5/';
+const VERSION_CHECK_INTERVAL = 30 * 60 * 1000; // 30 minutos
 
 const STATIC_ASSETS = [
   './',
@@ -30,7 +33,7 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activate: limpar caches antigos
+// Activate: limpar caches antigos + iniciar auto-update
 self.addEventListener('activate', event => {
   console.log(`[SW ${CACHE_VERSION}] Activating...`);
   event.waitUntil(
@@ -52,16 +55,12 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
   if (!event.request.url.startsWith('http')) return;
 
-  // Deixar passar chamadas externas (Gemini API, ipify, weather, etc.)
   const url = new URL(event.request.url);
   const isExternal = !url.origin.includes(self.location.hostname) &&
                      !url.hostname.includes('github.io') &&
                      !url.hostname.includes('scispace.co');
 
-  if (isExternal) {
-    // Externo: sempre network, sem cache (Gemini, APIs, etc.)
-    return;
-  }
+  if (isExternal) return;
 
   event.respondWith(
     fetch(event.request)
@@ -75,7 +74,6 @@ self.addEventListener('fetch', event => {
       .catch(() => {
         return caches.match(event.request).then(cached => {
           if (cached) return cached;
-          // Fallback para index.html em navegação
           if (event.request.mode === 'navigate') {
             return caches.match('./index.html');
           }
@@ -83,6 +81,39 @@ self.addEventListener('fetch', event => {
       })
   );
 });
+
+// ══ GITHUB AUTO-UPDATE SYSTEM ══
+async function checkForUpdates() {
+  try {
+    const response = await fetch(GITHUB_PAGES_URL + 'manifest.json?t=' + Date.now(), {
+      cache: 'no-store'
+    });
+    if (!response.ok) return null;
+    const manifest = await response.json();
+    const remoteVersion = manifest.version || '';
+    if (remoteVersion && remoteVersion !== APP_VERSION) {
+      // Nova versão disponível!
+      console.log(`[SW] Nova versão detectada: ${remoteVersion} (atual: ${APP_VERSION})`);
+      // Notificar todos os clientes
+      const clients = await self.clients.matchAll();
+      clients.forEach(client => {
+        client.postMessage({
+          type: 'UPDATE_AVAILABLE',
+          currentVersion: APP_VERSION,
+          newVersion: remoteVersion,
+          source: 'github'
+        });
+      });
+      // Limpar cache antigo para forçar refresh
+      await caches.delete(CACHE_NAME);
+      return remoteVersion;
+    }
+    return null;
+  } catch(e) {
+    console.log('[SW] Update check failed (offline?):', e.message);
+    return null;
+  }
+}
 
 // Mensagens do app principal
 self.addEventListener('message', event => {
@@ -97,9 +128,27 @@ self.addEventListener('message', event => {
       cache.addAll(STATIC_ASSETS);
     });
   }
+
+  if (event.data.type === 'CHECK_UPDATE') {
+    checkForUpdates();
+  }
+
+  if (event.data.type === 'GET_VERSION') {
+    event.source.postMessage({
+      type: 'VERSION_INFO',
+      version: APP_VERSION,
+      cacheVersion: CACHE_VERSION,
+      github: GITHUB_PAGES_URL
+    });
+  }
 });
 
-// Background Sync (quando voltar online)
+// Background Sync
 self.addEventListener('sync', event => {
-  console.log('[SW] Background sync:', event.tag);
+  if (event.tag === 'check-updates') {
+    event.waitUntil(checkForUpdates());
+  }
 });
+
+// Periodic check via interval (quando SW está ativo)
+setInterval(checkForUpdates, VERSION_CHECK_INTERVAL);
